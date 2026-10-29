@@ -1,0 +1,4 @@
+Project ID,Project name,Category,Custom categories,Capacity,Capacity unit,Planned COD year,Current stage,Start year,Description,Location,Project links
+EXAMPLE-001,Example solar project,Pembangkit,Priority; Renewable,50,MWp,2028,3,2026,Synthetic example: replace before importing,Jawa Barat,https://example.com/solar
+EXAMPLE-002,Example transmission project,Transmisi,Priority; Eastern grid,86,kms,2029,4,2027,Synthetic example: replace before importing,Sulawesi Selatan,https://example.com/transmission
+EXAMPLE-003,Example substation project,Gardu Induk,Industrial,120,MVA,2030,2,2028,Synthetic example: replace before importing,Kalimantan Timur,https://example.com/substation

@@ -1,0 +1,300 @@
+/* Task dashboard: bounded scheduled workload and current actionable snapshots. */
+.overview-dashboard {
+  gap: 18px;
+}
+.overview-dashboard .overview-heading {
+  margin: 0;
+  align-items: center;
+}
+.overview-dashboard .overview-heading h2 {
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.2;
+  margin: 5px 0;
+}
+.overview-heading p,
+.overview-snapshot-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+.overview-dashboard .metric-card {
+  padding: 18px 20px;
+  min-height: 120px;
+}
+.overview-dashboard .metric-card > strong {
+  font-size: 30px;
+}
+.overview-dashboard .metric-card:disabled {
+  cursor: default;
+}
+.overview-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.overview-analytics-grid > .dashboard-panel {
+  min-width: 0;
+  padding: 20px;
+}
+.overview-analytics-grid > .dashboard-panel > header {
+  margin-bottom: 18px;
+  align-items: start;
+  gap: 12px;
+}
+.overview-analytics-grid h3 {
+  font-size: 17px;
+}
+.overview-analytics-grid > .dashboard-panel > header p {
+  font-size: 12px;
+  margin-top: 5px;
+  line-height: 1.6;
+}
+.overview-schedule {
+  grid-column: span 2;
+}
+.overview-projects {
+  grid-column: span 2;
+}
+.overview-dashboard figure {
+  margin: 0;
+}
+.overview-dashboard .donut-wrap {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 10px;
+}
+.overview-dashboard .donut-wrap svg {
+  width: 100%;
+  height: 100%;
+}
+.overview-dashboard .donut-wrap > div strong {
+  font-size: 25px;
+}
+.overview-dashboard .status-breakdown {
+  gap: 0;
+}
+.overview-dashboard .status-breakdown button {
+  min-height: 34px;
+  padding: 6px 0;
+}
+.overview-bar-list {
+  display: grid;
+  gap: 8px;
+  max-height: 310px;
+  overflow-y: auto;
+  padding: 2px;
+}
+.overview-bar-row {
+  min-width: 0;
+  width: 100%;
+  padding: 6px 3px;
+  border: 0;
+  text-align: left;
+  background: transparent;
+  color: var(--text);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.overview-bar-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.overview-bar-heading > span {
+  overflow-wrap: anywhere;
+}
+.overview-bar-heading strong {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.overview-bar-track {
+  display: block;
+  height: 7px;
+  background: var(--soft);
+  margin-top: 7px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.overview-bar-track > span {
+  display: block;
+  height: 100%;
+  background: var(--accent, #17836e);
+  border-radius: inherit;
+}
+.overview-bar-row small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.overview-data {
+  margin-top: 13px;
+  font-size: 12px;
+}
+.overview-data summary {
+  color: var(--muted);
+  cursor: pointer;
+  padding: 5px 0;
+  width: fit-content;
+}
+.overview-dashboard .chart-data-table {
+  max-height: 280px;
+  overflow: auto;
+  margin-top: 10px;
+}
+.overview-dashboard table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+}
+.overview-dashboard th,
+.overview-dashboard td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+.overview-dashboard caption {
+  text-align: left;
+  padding: 7px 0;
+  color: var(--muted);
+}
+.overview-empty {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 8px 0 14px;
+}
+.overview-dashboard :is(button, summary, input):focus-visible {
+  outline: 2px solid var(--accent, #17836e);
+  outline-offset: 3px;
+}
+.overview-projects .overview-bar-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 28px;
+}
+@media (max-width: 1100px) {
+  .overview-analytics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .overview-schedule {
+    grid-column: 1 / -1;
+  }
+  .overview-projects {
+    grid-column: auto;
+  }
+  .overview-projects .overview-bar-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  .overview-analytics-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .overview-schedule,
+  .overview-projects {
+    grid-column: auto;
+  }
+  .overview-status {
+    grid-row: auto;
+  }
+  .overview-analytics-grid > .dashboard-panel {
+    padding: 16px;
+  }
+  .overview-dashboard .overview-heading {
+    align-items: start;
+  }
+  .overview-dashboard .overview-heading > .button {
+    padding: 8px;
+    font-size: 12px;
+  }
+  .overview-schedule > header {
+    flex-wrap: wrap;
+  }
+  .overview-dashboard .metric-card {
+    min-height: 112px;
+    padding: 14px;
+  }
+  .overview-dashboard .metric-card > span {
+    font-size: 12px;
+  }
+  .overview-projects .overview-bar-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.overview-dashboard .donut-wrap svg {
+  transform: none;
+}
+
+.overview-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  gap: 5px;
+  align-items: end;
+}
+.overview-schedule-day {
+  display: grid;
+  grid-template-rows: auto 108px auto;
+  gap: 7px;
+  min-width: 0;
+  padding: 6px 0;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: center;
+}
+.overview-schedule-day:hover {
+  background: var(--soft);
+}
+.overview-schedule-day strong {
+  font-size: 12px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.overview-schedule-day time {
+  display: grid;
+  justify-items: center;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.overview-schedule-track {
+  display: flex;
+  align-items: end;
+  height: 100%;
+  width: min(100%, 24px);
+  margin: auto;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--soft);
+}
+.overview-schedule-track > span {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+  background: var(--accent, #17836e);
+}
+.overview-schedule-figure figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 650px) {
+  .overview-schedule-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 10px 6px;
+  }
+  .overview-schedule-day {
+    grid-template-rows: auto 72px auto;
+  }
+}

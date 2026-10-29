@@ -1,0 +1,699 @@
+{
+  "scope": "Production public login and isolated browser demo; no organization fixture writes",
+  "sourceApplicationCommit": "e4079b7ac72a018bb1eab757ee9e360219da4db5",
+  "alias": {
+    "alias": "evolve-rensist.vercel.app",
+    "deploymentId": "dpl_HZJwavCzgJtCZaq8PPvx8fX525Sh"
+  },
+  "measurements": {
+    "origin": "https://evolve-rensist.vercel.app",
+    "observedAt": "2026-10-16T20:31:02.880Z",
+    "screens": [
+      {
+        "page": "Login",
+        "width": 1440,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "scrollWidth": 1440,
+        "contentHeight": 1035,
+        "googleButtonY": 571,
+        "googleButtonBottom": 621,
+        "headingFont": "63.36px",
+        "bodyFont": "16px"
+      },
+      {
+        "page": "Dashboard",
+        "width": 1440,
+        "sidebarWidth": 296,
+        "mainWidth": 1144,
+        "sidebarVisible": "none",
+        "navFont": "13px",
+        "bodyFont": "12px",
+        "cardLabelFont": "11px",
+        "scrollWidth": 1440,
+        "portfolioBudgetPanels": 1
+      },
+      {
+        "page": "Task editor",
+        "width": 1440,
+        "dialogWidth": 920,
+        "dialogHeight": 810,
+        "titleFont": "24px",
+        "inputFont": "14px",
+        "labelFont": "14px",
+        "scrollWidth": 1440,
+        "selectControl": "SELECT",
+        "submitBottom": 834
+      },
+      {
+        "page": "Archive",
+        "width": 1440,
+        "text": "YOUR WORKSPACE\nArchive\n0\n\nA little less clutter. Nothing lost.\n\nBulk edit\nYour archived tasks are safe here\n\nSearch this archive or restore a task to return it to your active work. Projects, comments, and attachments are kept.\n\nSaved views\nFilter\nNo archived tasks\n\nArchived tasks appear here. If you expected a task, clear your search and filters.",
+        "visibleActions": ["Bulk edit", "Saved views", "Filter", ""]
+      },
+      {
+        "page": "Login",
+        "width": 1024,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "scrollWidth": 1024,
+        "contentHeight": 1035,
+        "googleButtonY": 571,
+        "googleButtonBottom": 621,
+        "headingFont": "45.056px",
+        "bodyFont": "16px"
+      },
+      {
+        "page": "Dashboard",
+        "width": 1024,
+        "sidebarWidth": 296,
+        "mainWidth": 728,
+        "sidebarVisible": "none",
+        "navFont": "13px",
+        "bodyFont": "12px",
+        "cardLabelFont": "11px",
+        "scrollWidth": 1024,
+        "portfolioBudgetPanels": 1
+      },
+      {
+        "page": "Task editor",
+        "width": 1024,
+        "dialogWidth": 920,
+        "dialogHeight": 810,
+        "titleFont": "24px",
+        "inputFont": "14px",
+        "labelFont": "14px",
+        "scrollWidth": 1024,
+        "selectControl": "SELECT",
+        "submitBottom": 834
+      },
+      {
+        "page": "Archive",
+        "width": 1024,
+        "text": "YOUR WORKSPACE\nArchive\n0\n\nA little less clutter. Nothing lost.\n\nBulk edit\nYour archived tasks are safe here\n\nSearch this archive or restore a task to return it to your active work. Projects, comments, and attachments are kept.\n\nSaved views\nFilter\nNo archived tasks\n\nArchived tasks appear here. If you expected a task, clear your search and filters.",
+        "visibleActions": ["Bulk edit", "Saved views", "Filter", ""]
+      },
+      {
+        "page": "Login",
+        "width": 768,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "scrollWidth": 768,
+        "contentHeight": 1055,
+        "googleButtonY": 559,
+        "googleButtonBottom": 609,
+        "headingFont": "43px",
+        "bodyFont": "16px"
+      },
+      {
+        "page": "Dashboard",
+        "width": 768,
+        "sidebarWidth": 250,
+        "mainWidth": 518,
+        "sidebarVisible": "none",
+        "navFont": "13px",
+        "bodyFont": "12px",
+        "cardLabelFont": "11px",
+        "scrollWidth": 768,
+        "portfolioBudgetPanels": 1
+      },
+      {
+        "page": "Task editor",
+        "width": 768,
+        "dialogWidth": 720,
+        "dialogHeight": 810,
+        "titleFont": "24px",
+        "inputFont": "14px",
+        "labelFont": "14px",
+        "scrollWidth": 768,
+        "selectControl": "SELECT",
+        "submitBottom": 834
+      },
+      {
+        "page": "Archive",
+        "width": 768,
+        "text": "YOUR WORKSPACE\nArchive\n0\n\nA little less clutter. Nothing lost.\n\nBulk edit\nYour archived tasks are safe here\n\nSearch this archive or restore a task to return it to your active work. Projects, comments, and attachments are kept.\n\nSaved views\nFilter\nNo archived tasks\n\nArchived tasks appear here. If you expected a task, clear your search and filters.",
+        "visibleActions": ["Bulk edit", "Saved views", "Filter", ""]
+      },
+      {
+        "page": "Login",
+        "width": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "scrollWidth": 390,
+        "contentHeight": 1348,
+        "googleButtonY": 914,
+        "googleButtonBottom": 964,
+        "headingFont": "42px",
+        "bodyFont": "14px"
+      },
+      {
+        "page": "Dashboard",
+        "width": 390,
+        "sidebarWidth": 320,
+        "mainWidth": 390,
+        "sidebarVisible": "matrix(1, 0, 0, 1, -320, 0)",
+        "navFont": "13px",
+        "bodyFont": "11px",
+        "cardLabelFont": "10px",
+        "scrollWidth": 390,
+        "portfolioBudgetPanels": 1
+      },
+      {
+        "page": "Task editor",
+        "width": 390,
+        "dialogWidth": 390,
+        "dialogHeight": 900,
+        "titleFont": "23px",
+        "inputFont": "16px",
+        "labelFont": "14px",
+        "scrollWidth": 390,
+        "selectControl": "SELECT",
+        "submitBottom": 884
+      },
+      {
+        "page": "Archive",
+        "width": 390,
+        "text": "YOUR WORKSPACE\nArchive\n0\n\nA little less clutter. Nothing lost.\n\nBulk edit\nYour archived tasks are safe here\n\nSearch this archive or restore a task to return it to your active work. Projects, comments, and attachments are kept.\n\nSaved views\nFilter\nNo archived tasks\n\nArchived tasks appear here. If you expected a task, clear your search and filters.",
+        "visibleActions": ["Bulk edit", "Saved views", "Filter", ""]
+      },
+      {
+        "page": "Login",
+        "width": 320,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "scrollWidth": 320,
+        "contentHeight": 1568,
+        "googleButtonY": 1117,
+        "googleButtonBottom": 1167,
+        "headingFont": "42px",
+        "bodyFont": "14px"
+      },
+      {
+        "page": "Dashboard",
+        "width": 320,
+        "sidebarWidth": 280,
+        "mainWidth": 320,
+        "sidebarVisible": "matrix(1, 0, 0, 1, -280, 0)",
+        "navFont": "13px",
+        "bodyFont": "11px",
+        "cardLabelFont": "10px",
+        "scrollWidth": 320,
+        "portfolioBudgetPanels": 1
+      },
+      {
+        "page": "Task editor",
+        "width": 320,
+        "dialogWidth": 320,
+        "dialogHeight": 900,
+        "titleFont": "23px",
+        "inputFont": "16px",
+        "labelFont": "14px",
+        "scrollWidth": 320,
+        "selectControl": "SELECT",
+        "submitBottom": 884
+      },
+      {
+        "page": "Archive",
+        "width": 320,
+        "text": "YOUR WORKSPACE\nArchive\n0\n\nA little less clutter. Nothing lost.\n\nBulk edit\nYour archived tasks are safe here\n\nSearch this archive or restore a task to return it to your active work. Projects, comments, and attachments are kept.\n\nSaved views\nFilter\nNo archived tasks\n\nArchived tasks appear here. If you expected a task, clear your search and filters.",
+        "visibleActions": ["Bulk edit", "Saved views", "Filter", ""]
+      }
+    ],
+    "runtimeErrors": []
+  },
+  "sections": {
+    "origin": "https://evolve-rensist.vercel.app",
+    "observedAt": "2026-10-16T20:32:25.999Z",
+    "sections": [
+      {
+        "width": 1440,
+        "section": "Dashboard",
+        "heading": "Dashboard",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "label": "Dashboard periodLast 7 daysLast 30 daysLast 90 days",
+            "font": "11px"
+          },
+          {
+            "label": "Inspect date",
+            "font": "9px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "Projects",
+        "heading": "Projects",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "label": "",
+            "font": "12px"
+          },
+          {
+            "font": "12px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "Inbox",
+        "heading": "Inbox",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "My tasks",
+        "heading": "My tasks6",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "font": "12px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "All tasks",
+        "heading": "All tasks22",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "font": "12px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "Archive",
+        "heading": "Archive0",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "font": "12px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "People",
+        "heading": "People",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "label": "",
+            "font": "12px"
+          },
+          {
+            "font": "12px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "Activity",
+        "heading": "Activity",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "label": "",
+            "font": "12px"
+          },
+          {
+            "font": "12px"
+          },
+          {
+            "font": "12px"
+          },
+          {
+            "label": "PersonEveryoneAlex MorganMaya ChenJames WilsonSarah ParkNoah Davis",
+            "font": "12px"
+          },
+          {
+            "label": "ProjectAll projectsWebsite redesignProduct launchBrand & marketingTeam operations",
+            "font": "12px"
+          },
+          {
+            "label": "From",
+            "font": "12px"
+          },
+          {
+            "label": "Through",
+            "font": "12px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 1440,
+        "section": "Settings",
+        "heading": "Settings",
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "visibleInputs": [
+          {
+            "label": "Display name",
+            "font": "15px"
+          },
+          {
+            "label": "Job title",
+            "font": "15px"
+          },
+          {
+            "label": "Google emailYour login identity follows your Google account. Profile changes do not change that Goog",
+            "font": "15px"
+          },
+          {
+            "label": "Bio",
+            "font": "15px"
+          },
+          {
+            "label": "Time zoneAsia/JakartaAsia/MakassarAsia/JayapuraAsia/BangkokAsia/SingaporeUTCEurope/LondonAmerica/New",
+            "font": "15px"
+          },
+          {
+            "label": "Tasks assigned to me",
+            "font": "14px"
+          },
+          {
+            "label": "Comments on my tasks",
+            "font": "14px"
+          },
+          {
+            "label": "Reduce interface motion",
+            "font": "14px"
+          },
+          {
+            "label": "Default activity viewWorkspace activityMy activity",
+            "font": "15px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "Dashboard",
+        "heading": "Dashboard",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "label": "Dashboard periodLast 7 daysLast 30 daysLast 90 days",
+            "font": "11px"
+          },
+          {
+            "label": "Inspect date",
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "Projects",
+        "heading": "Projects",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "label": "",
+            "font": "16px"
+          },
+          {
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "Inbox",
+        "heading": "Inbox",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "My tasks",
+        "heading": "My tasks6",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "All tasks",
+        "heading": "All tasks22",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "Archive",
+        "heading": "Archive0",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "People",
+        "heading": "People",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "label": "",
+            "font": "16px"
+          },
+          {
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "Activity",
+        "heading": "Activity",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "label": "",
+            "font": "16px"
+          },
+          {
+            "font": "16px"
+          },
+          {
+            "font": "16px"
+          },
+          {
+            "label": "PersonEveryoneAlex MorganMaya ChenJames WilsonSarah ParkNoah Davis",
+            "font": "16px"
+          },
+          {
+            "label": "ProjectAll projectsWebsite redesignProduct launchBrand & marketingTeam operations",
+            "font": "16px"
+          },
+          {
+            "label": "From",
+            "font": "16px"
+          },
+          {
+            "label": "Through",
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      },
+      {
+        "width": 390,
+        "section": "Settings",
+        "heading": "Settings",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleInputs": [
+          {
+            "label": "Display name",
+            "font": "16px"
+          },
+          {
+            "label": "Job title",
+            "font": "16px"
+          },
+          {
+            "label": "Google emailYour login identity follows your Google account. Profile changes do not change that Goog",
+            "font": "16px"
+          },
+          {
+            "label": "Bio",
+            "font": "16px"
+          },
+          {
+            "label": "Time zoneAsia/JakartaAsia/MakassarAsia/JayapuraAsia/BangkokAsia/SingaporeUTCEurope/LondonAmerica/New",
+            "font": "16px"
+          },
+          {
+            "label": "Tasks assigned to me",
+            "font": "16px"
+          },
+          {
+            "label": "Comments on my tasks",
+            "font": "16px"
+          },
+          {
+            "label": "Reduce interface motion",
+            "font": "16px"
+          },
+          {
+            "label": "Default activity viewWorkspace activityMy activity",
+            "font": "16px"
+          }
+        ],
+        "focusTargetVisible": true,
+        "accessibility": []
+      }
+    ],
+    "flows": [
+      {
+        "width": 1440,
+        "flow": "Project unsaved draft",
+        "titleAfterReopen": ""
+      },
+      {
+        "width": 1440,
+        "flow": "Task creation accessibility",
+        "violations": []
+      },
+      {
+        "width": 390,
+        "flow": "Project unsaved draft",
+        "titleAfterReopen": ""
+      },
+      {
+        "width": 390,
+        "flow": "Task creation accessibility",
+        "violations": []
+      }
+    ],
+    "runtimeErrors": []
+  },
+  "httpChecks": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "cache": "no-store",
+      "body": {
+        "status": "ready",
+        "database": "connected",
+        "schema": "current",
+        "authentication": "configured"
+      }
+    },
+    {
+      "path": "/api/workspace",
+      "status": 401,
+      "cache": "private, no-store",
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/tasks",
+      "status": 401,
+      "cache": "private, no-store",
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/dashboard",
+      "status": 401,
+      "cache": "private, no-store",
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/activity",
+      "status": 401,
+      "cache": "private, no-store",
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/administration",
+      "status": 401,
+      "cache": "private, no-store",
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/calendar",
+      "status": 401,
+      "cache": "private, no-store",
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/workspace",
+      "method": "POST",
+      "foreignOriginStatus": 403
+    }
+  ],
+  "axeTags": ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"],
+  "evidenceNote": "Draft test failures are recorded separately in NATIVE_UX_AUDIT.md, not mixed into production observations."
+}

@@ -1,0 +1,26 @@
+{
+  "fixture": {
+    "projects": 1000,
+    "assets": 10000,
+    "tasks": 20000
+  },
+  "metrics": {
+    "/api/board-room/assets?q=Scale&page=1": 100.35574700000006,
+    "/api/tasks?limit=100&sort=title": 70.40959399999974,
+    "/api/board-room/connections?category=Pembangkit": 20.288072000000284,
+    "/api/workspace/search?q=Scale": 130.46495700000014,
+    "/api/board-room/project-options?q=Scale": 23.683512999999948,
+    "/api/board-room/hub?id=10000000-0000-4000-8000-000000000001": 24.354080999999496
+  },
+  "pagination": {
+    "projects": 1000,
+    "assets": 10000,
+    "tasks": 20000,
+    "renderedNodes": 51
+  },
+  "environment": {
+    "cpus": 3,
+    "memoryGB": 10
+  },
+  "apiRequestsPerMeasurement": 20
+}

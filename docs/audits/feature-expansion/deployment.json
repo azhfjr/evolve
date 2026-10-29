@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-28T12:52:30.719535+00:00",
+  "deploymentId": "dpl_8M7G4rkAZuBRpaYxBnbCdbXRd6bm",
+  "sourceSha": "295c10191726008dc7691a293e09a840c7508c56",
+  "sourceDigest": "43eeda6a5887b922fec945d51af817e806320f26da7eb6b31e61d4ce3cd547af",
+  "sameHeldBuildPromoted": true,
+  "rollbackDeploymentId": "dpl_HEug9h7EGT5XBUd5R3H5xrCBzWSo",
+  "automaticDomainAssignmentRestored": true,
+  "productionURL": "https://evolve-rensist.vercel.app"
+}

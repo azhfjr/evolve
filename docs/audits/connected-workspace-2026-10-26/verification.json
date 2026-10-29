@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-26T20:38:17.696743+07:00",
+  "testedSourceCommit": "457d5652b2a17a702109d032aba08c943e3e9221",
+  "buildId": "0zCsAuweDM6hspDZaVBCt",
+  "results": {
+    "domainIntegration": {
+      "passed": 284,
+      "failed": 0,
+      "command": "npm test"
+    },
+    "chromiumFull": {
+      "passed": 306,
+      "failed": 0,
+      "command": "npx playwright test"
+    },
+    "chromiumCanonical": {
+      "passed": 14,
+      "failed": 0,
+      "command": "npx playwright test --config playwright.connected.config.ts"
+    },
+    "firefoxWebkitCanonical": {
+      "passed": 28,
+      "failed": 0,
+      "command": "npx playwright test --config playwright.connected-cross.config.ts"
+    },
+    "firefoxWebkitCritical": {
+      "passed": 8,
+      "failed": 0,
+      "command": "npx playwright test --config playwright.cross.config.ts"
+    },
+    "scale": {
+      "passed": 1,
+      "failed": 0,
+      "command": "npx playwright test --config playwright.connected-scale.config.ts"
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "formatting": "passed",
+    "productionBuild": "passed"
+  },
+  "productionPromoted": false,
+  "releaseGates": [
+    "Four high dependency advisories remain; no prior exception reused.",
+    "Production-equivalent database/file restore and archive-cutover evidence.",
+    "Verify the exact hosted held build before promotion."
+  ]
+}

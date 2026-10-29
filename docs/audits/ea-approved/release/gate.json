@@ -1,0 +1,69 @@
+{
+  "sourceSha": "c0f13a19161a52d051ac98b818c0ac06b2d1087e",
+  "sourceDigest": "00bf7176f086ecd00f0a0b9321414e729c6f245490a413c67c377a0278f35863",
+  "localVerification": {
+    "scope": "EA-001\u2013EA-010",
+    "date": "2026-10-29",
+    "timezone": "Asia/Singapore",
+    "base": "f9932d8",
+    "deployment": "NOT_RUN_NOT_AUTHORIZED",
+    "checks": {
+      "domain": {
+        "passed": 350,
+        "failed": 0
+      },
+      "chromiumBroad": {
+        "passed": 56,
+        "failed": 0
+      },
+      "chromiumAffectedFinal": {
+        "passed": 13,
+        "failed": 0
+      },
+      "firefoxAffectedFinal": {
+        "passed": 13,
+        "failed": 0
+      },
+      "scaleOriginal": {
+        "passed": 1,
+        "failed": 0
+      },
+      "typecheck": "PASS",
+      "lint": "PASS",
+      "format": "PASS",
+      "build": "PASS_FINAL_COMBINED_BROWSER_BUILD",
+      "dependencyAdvisories": 0,
+      "webkit": "BLOCKED_libGLESv2.so.2",
+      "remoteCI": "NOT_RUN",
+      "combinedAffectedFinal": {
+        "passed": 26,
+        "failed": 0
+      }
+    },
+    "scale": {
+      "fixture": {
+        "projects": 1000,
+        "assets": 10000,
+        "tasks": 20000
+      },
+      "pagination": {
+        "projects": 1000,
+        "assets": 10000,
+        "tasks": 20000,
+        "renderedNodes": 173
+      },
+      "minSampleP95ms": 38.5,
+      "maxSampleP95ms": 230.4
+    },
+    "review": {
+      "independent": true,
+      "importantFindings": 2,
+      "reproducedRedThenFixed": 2,
+      "deferredReviewerMinors": 0
+    }
+  },
+  "freshDependencyAdvisories": 0,
+  "migrations": false,
+  "productionBusinessWrites": false,
+  "rollbackReady": true
+}

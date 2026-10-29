@@ -1,0 +1,19 @@
+{
+  "checks": [
+    {
+      "route": "/board-room/projects/a66c6229-a307-47b8-b9c6-96575501ed63?projectTab=storyline",
+      "zoom": 2,
+      "width": 720,
+      "scroll": 720,
+      "ratio": 2
+    },
+    {
+      "route": "/app?section=project&project=a66c6229-a307-47b8-b9c6-96575501ed63&projectTab=storyline",
+      "zoom": 2,
+      "width": 720,
+      "scroll": 720,
+      "ratio": 2
+    }
+  ],
+  "success": true
+}

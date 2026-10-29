@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-28T06:58:17.255Z",
+  "restoredTables": 47,
+  "restoreHashesReconciled": true,
+  "migrationHashesReconciled": true,
+  "migrations": [
+    "0038_document_dates.sql",
+    "0039_canonical_historical_cod.sql"
+  ],
+  "dateBackfill": 0,
+  "fileContentsChanged": false,
+  "restoreMilliseconds": 926
+}

@@ -1,0 +1,289 @@
+/* Dialogs share a bounded shell; each long form owns its scroll area. */
+.entity-delete-dialog > .modal-body,
+.entity-delete-dialog form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.entity-delete-content {
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--dialog-padding);
+  display: grid;
+  gap: 14px;
+  line-height: 1.6;
+}
+.entity-delete-name {
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+.entity-delete-content:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.entity-delete-content label {
+  display: grid;
+  gap: 8px;
+}
+.entity-delete-content label strong {
+  display: contents;
+}
+.entity-delete-dialog .form-actions {
+  flex: none;
+  margin: 0;
+  padding: 12px var(--dialog-padding);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.entity-delete-trigger {
+  color: #b33333;
+}
+html[data-theme="dark"] .entity-delete-trigger {
+  color: #ff9b9b;
+}
+.task-page-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+.modal {
+  --dialog-padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: min(480px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  max-height: min(800px, calc(100dvh - 48px));
+  height: auto;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.modal-wide {
+  width: min(760px, calc(100vw - 32px));
+}
+.modal > .modal-heading {
+  flex: none;
+  padding: 16px var(--dialog-padding);
+  gap: 12px;
+}
+.modal-heading > div {
+  min-width: 0;
+}
+.modal .modal-heading h2 {
+  font-size: var(--text-panel-title);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.modal .modal-description {
+  margin-top: 5px;
+  line-height: 1.6;
+}
+.modal-heading > .icon-button {
+  flex: none;
+  margin: 0 -4px 0 0;
+}
+.modal-body {
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.modal-body:focus-visible,
+:is(.activity-delete-preview, .file-delete-preview):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.modal-body > :is(.standard-form, .shortcuts, .task-discard-body) {
+  padding: var(--dialog-padding);
+  gap: 16px;
+}
+.modal-body > .form-error,
+.modal-body > .muted {
+  margin: 12px var(--dialog-padding);
+}
+.modal-body > :is(.activity-delete-preview, .file-delete-preview) {
+  margin: 16px var(--dialog-padding);
+  padding: 0;
+  min-height: 0;
+  overflow: auto;
+}
+.modal-body > .form-actions {
+  flex: none;
+  margin: 0;
+  padding: 12px var(--dialog-padding);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.modal-body:has(
+  > :is(.activity-delete-preview, .file-delete-preview, .saved-view-list)
+) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.modal .form-actions,
+.modal .modal-actions {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.modal .button {
+  white-space: normal;
+}
+.project-editor-modal {
+  width: min(800px, calc(100vw - 32px));
+}
+:is(.project-editor-modal, .expense-dialog, .batch-dialog, .import-dialog)
+  > .modal-body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.project-editor-modal .project-form {
+  padding: var(--dialog-padding);
+}
+.project-editor-modal .project-form-actions {
+  padding: 12px var(--dialog-padding);
+}
+.expense-dialog {
+  width: min(640px, calc(100vw - 32px));
+}
+.expense-dialog .expense-form,
+.batch-dialog .batch-form,
+.import-dialog .import-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: none;
+  overflow: hidden;
+  padding: 0;
+  gap: 0;
+}
+.expense-form-content,
+.batch-fields-scroll,
+.import-content {
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--dialog-padding);
+}
+.expense-form-content > .form-introduction {
+  margin-bottom: 16px;
+}
+.expense-form-content > fieldset {
+  padding: 16px;
+}
+.expense-form-content .form-introduction h3 {
+  font-size: var(--text-panel-title);
+}
+.expense-dialog .modal-actions,
+.batch-dialog .form-actions,
+.import-dialog .form-actions {
+  position: static;
+  flex: none;
+  margin: 0;
+  padding: 12px var(--dialog-padding);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.batch-dialog :is(.batch-summary, .form-error) {
+  flex: none;
+  margin: 0 var(--dialog-padding) 12px;
+}
+.batch-dialog .batch-fieldset {
+  padding: 0;
+  overflow: visible;
+}
+.import-content {
+  display: grid;
+  gap: 16px;
+}
+.modal-body:has(> .saved-view-list) > .saved-view-list {
+  overflow: auto;
+  min-height: 0;
+  padding: 16px var(--dialog-padding);
+}
+.modal-body > .save-view-form {
+  flex: none;
+  padding: 16px var(--dialog-padding);
+  border-top: 1px solid var(--border);
+}
+.search-dialog {
+  width: min(600px, calc(100vw - 32px));
+}
+.search-dialog > .modal-body {
+  display: flex;
+  flex-direction: column;
+}
+.search-dialog :is(.search-scope, .search-modal-input, .search-footer) {
+  flex: none;
+}
+.search-dialog .search-scope {
+  margin: 14px var(--dialog-padding) 0;
+}
+.search-dialog .search-modal-input {
+  padding: 10px var(--dialog-padding);
+}
+.search-dialog .search-modal-input input {
+  font-size: max(16px, var(--text-input));
+}
+.search-dialog .search-results {
+  min-height: 0;
+  padding: 6px 8px;
+}
+.search-dialog .search-results button {
+  padding-block: 10px;
+}
+.search-dialog .search-footer {
+  padding: 10px var(--dialog-padding);
+}
+@media (min-width: 480px) {
+  .search-dialog .search-scope {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search-dialog .search-scope .app-select {
+    width: auto;
+    max-width: 70%;
+  }
+}
+.dropdown-menu {
+  max-width: calc(100vw - 24px);
+  max-height: min(
+    360px,
+    var(--radix-dropdown-menu-content-available-height, calc(100dvh - 24px))
+  );
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+@media (max-width: 640px) {
+  .modal {
+    --dialog-padding: 16px;
+    max-height: calc(100dvh - 24px);
+  }
+  .modal .button,
+  .modal-heading > .icon-button {
+    min-height: 44px;
+  }
+  .modal-heading > .icon-button {
+    min-width: 44px;
+    margin: -6px -8px -6px 0;
+  }
+  .modal
+    :is(input:not([type="checkbox"], [type="radio"]), textarea, .app-select) {
+    font-size: max(16px, var(--text-input));
+  }
+}
+@media (max-height: 480px) {
+  .modal > .modal-heading {
+    padding-block: 12px;
+  }
+  .batch-dialog .batch-summary {
+    padding: 8px 12px;
+  }
+  .batch-fields-scroll {
+    padding-block: 12px;
+  }
+}

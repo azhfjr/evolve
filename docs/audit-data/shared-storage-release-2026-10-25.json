@@ -1,0 +1,304 @@
+{
+  "startedAt": "2026-10-25T21:13:08.970580+00:00",
+  "sourceSha": "6fc25f91c3a78b1721fcefd468adfdcd50f14e55",
+  "sourceDigest": "a1e3e1439bed5fc7c2836fc86d9febaa1f7a076e4ce7931402fdcaeeb426ea1d",
+  "previousProductionDeploymentId": "dpl_2xvyaoUfSeaSQEDuvi3XhGiesZ9B",
+  "previousAutoAssignCustomDomains": true,
+  "securityGate": "user-authorized one-release exception; CI audit unchanged",
+  "migrationRequired": false,
+  "candidate": {
+    "id": "dpl_EMDAibgfmjhsQLWqsL1Mc85mFDHx",
+    "url": "evolve-rnpansumm-jarjirjor777-5316.vercel.app",
+    "readyState": "INITIALIZING"
+  },
+  "automaticAssignmentIncident": {
+    "restoredAt": "2026-10-25T21:14:35.527307+00:00",
+    "cause": "automatic domain assignment restored before candidate finished; Vercel assigned it at completion",
+    "restoredDeploymentId": "dpl_2xvyaoUfSeaSQEDuvi3XhGiesZ9B",
+    "previousDeploymentRestored": true,
+    "aliasPropagation": "immediate post-promotion read was stale; subsequent independent read confirmed prior deployment"
+  },
+  "verifiedAt": "2026-10-25T21:14:59.570253+00:00",
+  "stagedVerification": {
+    "origin": "https://evolve-rnpansumm-jarjirjor777-5316.vercel.app",
+    "checks": [
+      {
+        "path": "/api/health",
+        "status": 200,
+        "body": {
+          "status": "ready",
+          "database": "connected",
+          "schema": "current",
+          "authentication": "configured"
+        }
+      },
+      {
+        "path": "/api/workspace",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room",
+        "status": 401
+      },
+      {
+        "path": "/api/workspace/experience",
+        "status": 401
+      },
+      {
+        "path": "/api/attachments/manage",
+        "status": 401
+      },
+      {
+        "path": "/api/calendar",
+        "status": 401
+      },
+      {
+        "path": "/api/events",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room",
+        "wrongOriginStatus": 403
+      },
+      {
+        "path": "/api/workspace/experience",
+        "wrongOriginStatus": 403
+      },
+      {
+        "path": "/workspace",
+        "loginRequired": true
+      },
+      {
+        "path": "/board-room",
+        "loginRequired": true
+      },
+      {
+        "path": "/demo",
+        "width": 1440,
+        "noHorizontalOverflow": true
+      },
+      {
+        "path": "/demo",
+        "width": 390,
+        "noHorizontalOverflow": true
+      }
+    ],
+    "roomChecks": [
+      {
+        "path": "/api/board-room/activity",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room/management",
+        "status": 401
+      },
+      {
+        "path": "/api/attachments/manage?room=board",
+        "status": 401
+      },
+      {
+        "path": "/api/attachments/manage?room=locker",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room/activity",
+        "wrongOriginDeleteStatus": 403
+      }
+    ],
+    "balancedChecks": [
+      {
+        "path": "/api/board-room/imports",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room/report",
+        "status": 401
+      },
+      {
+        "path": "/api/projects/related?room=board&id=00000000-0000-4000-8000-000000000000",
+        "status": 401
+      }
+    ],
+    "operationsChecks": [
+      {
+        "path": "/api/operations",
+        "status": 401
+      },
+      {
+        "path": "/api/operations",
+        "wrongOriginStatus": 403
+      },
+      {
+        "path": "/workspace/operations",
+        "loginRequired": true
+      }
+    ],
+    "viewsChecks": [
+      {
+        "method": "GET",
+        "status": 401
+      },
+      {
+        "method": "POST",
+        "wrongOriginStatus": 403
+      },
+      {
+        "method": "PATCH",
+        "wrongOriginStatus": 403
+      },
+      {
+        "method": "DELETE",
+        "wrongOriginStatus": 403
+      }
+    ],
+    "browserErrors": [],
+    "templateHeader": "RUPTL Code,Project name,Primary category,Scope,Voltage,Capacity,Capacity unit,Planned COD year,Current stage,Start year,Description,Location,Project links,Project link labels,Completed"
+  },
+  "reviewAccessRevoked": true,
+  "autoAssignRestored": true,
+  "productionOnPreviousRelease": false,
+  "readyState": "READY",
+  "releaseAuthorization": {
+    "authorizedAt": "2026-10-25T21:56:36.095793+00:00",
+    "instruction": "A and Publish to production.",
+    "scope": "One-release exception for four high dependency entries (GHSA-mrhx-c7xc-m3w5). CI audit and dependencies unchanged."
+  },
+  "promotedAt": "2026-10-25T21:56:40.234501+00:00",
+  "liveVerification": {
+    "origin": "https://evolve-rensist.vercel.app",
+    "checks": [
+      {
+        "path": "/api/health",
+        "status": 200,
+        "body": {
+          "status": "ready",
+          "database": "connected",
+          "schema": "current",
+          "authentication": "configured"
+        }
+      },
+      {
+        "path": "/api/workspace",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room",
+        "status": 401
+      },
+      {
+        "path": "/api/workspace/experience",
+        "status": 401
+      },
+      {
+        "path": "/api/attachments/manage",
+        "status": 401
+      },
+      {
+        "path": "/api/calendar",
+        "status": 401
+      },
+      {
+        "path": "/api/events",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room",
+        "wrongOriginStatus": 403
+      },
+      {
+        "path": "/api/workspace/experience",
+        "wrongOriginStatus": 403
+      },
+      {
+        "path": "/workspace",
+        "loginRequired": true
+      },
+      {
+        "path": "/board-room",
+        "loginRequired": true
+      },
+      {
+        "path": "/demo",
+        "width": 1440,
+        "noHorizontalOverflow": true
+      },
+      {
+        "path": "/demo",
+        "width": 390,
+        "noHorizontalOverflow": true
+      }
+    ],
+    "roomChecks": [
+      {
+        "path": "/api/board-room/activity",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room/management",
+        "status": 401
+      },
+      {
+        "path": "/api/attachments/manage?room=board",
+        "status": 401
+      },
+      {
+        "path": "/api/attachments/manage?room=locker",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room/activity",
+        "wrongOriginDeleteStatus": 403
+      }
+    ],
+    "balancedChecks": [
+      {
+        "path": "/api/board-room/imports",
+        "status": 401
+      },
+      {
+        "path": "/api/board-room/report",
+        "status": 401
+      },
+      {
+        "path": "/api/projects/related?room=board&id=00000000-0000-4000-8000-000000000000",
+        "status": 401
+      }
+    ],
+    "operationsChecks": [
+      {
+        "path": "/api/operations",
+        "status": 401
+      },
+      {
+        "path": "/api/operations",
+        "wrongOriginStatus": 403
+      },
+      {
+        "path": "/workspace/operations",
+        "loginRequired": true
+      }
+    ],
+    "viewsChecks": [
+      {
+        "method": "GET",
+        "status": 401
+      },
+      {
+        "method": "POST",
+        "wrongOriginStatus": 403
+      },
+      {
+        "method": "PATCH",
+        "wrongOriginStatus": 403
+      },
+      {
+        "method": "DELETE",
+        "wrongOriginStatus": 403
+      }
+    ],
+    "browserErrors": [],
+    "templateHeader": "RUPTL Code,Project name,Primary category,Scope,Voltage,Capacity,Capacity unit,Planned COD year,Current stage,Start year,Description,Location,Project links,Project link labels,Completed"
+  },
+  "productionVerifiedAt": "2026-10-25T21:57:14.570381+00:00",
+  "status": "PRODUCTION_VERIFIED_WITH_KNOWN_ADVISORY"
+}

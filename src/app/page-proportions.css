@@ -1,0 +1,321 @@
+/* Proportional working surfaces; shared tokens keep both themes readable. */
+.calendar-view {
+  min-width: 0;
+  overflow: visible;
+}
+.calendar-view .calendar-grid {
+  width: 100%;
+  min-width: 0;
+}
+.calendar-view .calendar-day {
+  min-width: 0;
+  min-height: 116px;
+  padding: 8px 6px;
+}
+.calendar-date-heading > .calendar-date-select {
+  width: auto;
+  height: auto;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  color: var(--text);
+  opacity: 1;
+}
+.calendar-date-select time {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  font-size: var(--text-small);
+}
+.calendar-date-select .calendar-today {
+  background: var(--accent);
+  color: var(--on-accent, white);
+}
+.calendar-date-select[aria-pressed="true"] {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 6px;
+}
+.calendar-day-count,
+.calendar-agenda {
+  display: none;
+}
+.calendar-unscheduled {
+  margin-top: 12px;
+  color: var(--muted);
+}
+.activity-management .activity-controls {
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.activity-management .management-toolbar {
+  margin-bottom: 12px;
+  grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(0, 1fr));
+}
+.activity-management .activity-filters {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  gap: 10px;
+}
+.activity-management .activity-row {
+  padding-block: 12px;
+}
+.activity-management .activity-row p {
+  max-width: none;
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+.activity-management .activity-meta :is(time, small) {
+  font-size: var(--text-caption);
+}
+.app-shell .workspace-main[data-page="settings"] {
+  max-width: 1280px;
+}
+.account-settings {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+.settings-content,
+.settings-detail {
+  min-height: 0;
+}
+.settings-detail > .standard-form,
+.settings-detail > .calendar-settings {
+  width: 100%;
+  max-width: none;
+}
+.settings-detail > header p {
+  max-width: 80ch;
+}
+.settings-detail :is(.standard-form, .workspace-controls) > :empty {
+  display: none;
+}
+@media (max-width: 850px) {
+  .calendar-view .calendar-day {
+    min-height: 0;
+    padding: 2px;
+    overflow: visible;
+  }
+  .calendar-view .calendar-weekdays > span {
+    min-width: 0;
+    padding: 9px 0;
+    font-size: var(--text-caption);
+  }
+  .calendar-view .calendar-date-heading {
+    margin: 0;
+    display: block;
+  }
+  .calendar-date-heading > .calendar-date-select {
+    width: 100%;
+    min-height: 46px;
+    padding: 3px 0;
+    flex-direction: column;
+    gap: 0;
+  }
+  .calendar-date-select time {
+    width: 26px;
+    height: 26px;
+  }
+  .calendar-day-count {
+    display: block;
+    font-size: var(--text-caption);
+    line-height: 1;
+    min-height: 1em;
+    color: var(--muted);
+  }
+  .calendar-view .calendar-day :is(.calendar-task, .calendar-more),
+  .calendar-date-heading > button:not(.calendar-date-select) {
+    display: none;
+  }
+  .calendar-agenda {
+    display: block;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 14px;
+  }
+  .calendar-agenda header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .calendar-agenda h3 {
+    font-size: var(--text-body);
+    line-height: 1.5;
+  }
+  .calendar-agenda ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .calendar-agenda li + li {
+    border-top: 1px solid var(--border);
+  }
+  .calendar-agenda li button {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 12px 0;
+    text-align: left;
+    color: var(--text);
+    font-size: var(--text-body);
+    line-height: 1.6;
+  }
+  .calendar-agenda li button svg {
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .calendar-agenda li button span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .calendar-agenda > p {
+    font-size: var(--text-body);
+    line-height: 1.6;
+  }
+  .activity-management .activity-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .calendar-toolbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .activity-management .activity-controls {
+    padding: 12px;
+  }
+  .activity-management .management-toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .activity-management .management-toolbar > .search-field {
+    grid-column: 1 / -1;
+  }
+  .activity-management .activity-filters :is(input, .app-select),
+  .activity-management .management-toolbar .app-select {
+    height: auto;
+    min-height: 44px;
+  }
+}
+@media (max-width: 360px) {
+  .activity-management .management-toolbar,
+  .activity-management .activity-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+html[data-theme="dark"] .calendar-date-select .calendar-today {
+  background: #137862;
+  color: #fff;
+}
+/* Let controls grow with the account's larger-text preference. */
+.activity-management .management-toolbar :is(.app-select, .search-field),
+.activity-management .activity-filters :is(input, .app-select) {
+  height: auto;
+  min-height: 40px;
+}
+.activity-management .management-toolbar .search-field input {
+  min-height: 38px;
+  height: auto;
+}
+.activity-management .activity-selection-bar {
+  font-size: var(--text-small);
+}
+.settings-detail .standard-form label {
+  font-size: var(--text-label);
+}
+.settings-detail
+  .standard-form
+  :is(input:not([type="checkbox"]):not([type="radio"]), textarea, .app-select) {
+  font-size: var(--text-input);
+}
+
+/* Long project content must wrap inside the card, not underneath its siblings. */
+.portfolio-card > :is(small, h2, p) {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.portfolio-card > p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  flex: initial;
+}
+.portfolio-card .portfolio-meta {
+  min-width: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.portfolio-card .portfolio-meta > span {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.portfolio-card .portfolio-meta > span:first-child {
+  flex: 1 1 130px;
+}
+.portfolio-card .portfolio-meta > strong {
+  flex-shrink: 0;
+}
+.project-finance .panel-heading > div,
+.project-finance .cost-breakdown-heading h3 {
+  min-width: 0;
+}
+.project-finance .cost-breakdown-heading h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+}
+.project-finance .cost-breakdown-heading h3 span {
+  margin-left: 0;
+}
+.project-finance .cost-breakdown-heading > .text-link {
+  flex-shrink: 0;
+}
+.task-window-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  min-width: 0;
+  margin-bottom: 12px;
+  font-size: var(--text-small);
+  color: var(--muted);
+}
+.task-window-summary > :first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.task-window-summary > button {
+  flex-shrink: 0;
+}
+
+/* Project names and descriptions can contain long references without spaces. */
+.page-header > div:first-child {
+  min-width: 0;
+  max-width: 100%;
+}
+.page-header :is(h1, p) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

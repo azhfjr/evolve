@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-28T12:48:53.452Z",
+  "migrations": [
+    "0040_board_costs_and_project_templates.sql",
+    "0041_preserve_project_template_metadata.sql"
+  ],
+  "integrityVerifiedInsideTransaction": true,
+  "documentMetadata": {
+    "documents": 0,
+    "dated": 0
+  },
+  "syntheticRecords": false,
+  "fileContentsChanged": false
+}

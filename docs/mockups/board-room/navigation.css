@@ -1,0 +1,269 @@
+/* Dimensions measured from Locker Room; keep the portfolio controls independent. */
+:root {
+  --workspace-sidebar-width: clamp(248px, 18vw, 272px);
+  --workspace-sidebar-collapsed: 76px;
+  --workspace-tablet-rail: 72px;
+  --workspace-navigation-drawer: 320px;
+}
+.app {
+  grid-template-columns: var(--workspace-sidebar-width) minmax(0, 1fr);
+}
+.sidebar {
+  width: var(--workspace-sidebar-width);
+  padding: 0 12px 18px;
+  z-index: 40;
+}
+.sidebar > div:first-child {
+  min-height: 76px;
+  padding: 15px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.sidebar .brand {
+  padding: 0;
+  font-size: 23px;
+  gap: 8px;
+}
+.sidebar .workspace {
+  display: none;
+}
+.app-name {
+  margin: 0 0 18px;
+  padding: 12px 10px;
+  min-height: 64px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 13px;
+}
+.nav {
+  gap: 4px;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-bottom: 15px;
+}
+.nav button {
+  min-height: 40px;
+  padding: 9px 10px;
+  font-size: 13px;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.nav button > [data-icon] {
+  flex-shrink: 0;
+}
+.nav-divider {
+  margin: 6px 10px;
+}
+.profile {
+  padding: 14px 2px 0;
+}
+.side-note {
+  padding: 16px 10px;
+}
+.topbar {
+  height: 64px;
+  padding: 0 24px;
+}
+.content {
+  padding: 26px 24px;
+}
+.navigation-toggle {
+  width: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.navigation-toggle:hover {
+  background: #e5ece2;
+}
+.navigation-close {
+  display: none;
+}
+.tablet-navigation,
+.mobile-navigation {
+  display: none;
+}
+.navigation-drawer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  max-width: none;
+  max-height: none;
+  width: min(var(--workspace-navigation-drawer), calc(100vw - 20px));
+  height: 100dvh;
+  color: var(--ink);
+  background: var(--side);
+}
+.navigation-drawer::backdrop {
+  background: #102b2460;
+  backdrop-filter: blur(3px);
+}
+.navigation-drawer[open] .sidebar {
+  display: flex;
+  position: static;
+  width: 100%;
+  height: 100dvh;
+  padding: 0 12px 18px;
+  border-bottom: 0;
+  gap: 0;
+}
+.navigation-drawer[open] .sidebar :is(.app-name, .side-note, .profile) {
+  display: flex;
+}
+.navigation-drawer[open] .side-note {
+  display: block;
+}
+.navigation-drawer[open] .nav {
+  flex-direction: column;
+  overflow-x: hidden;
+}
+.navigation-drawer[open] .nav button {
+  justify-content: flex-start;
+}
+.navigation-drawer[open] .navigation-collapse {
+  display: none;
+}
+.navigation-drawer[open] .navigation-close {
+  display: inline-flex;
+}
+@media (min-width: 1101px) {
+  .navigation-collapsed {
+    grid-template-columns: var(--workspace-sidebar-collapsed) minmax(0, 1fr);
+  }
+  .navigation-collapsed .sidebar {
+    width: var(--workspace-sidebar-collapsed);
+    padding-inline: 10px;
+  }
+  .navigation-collapsed .sidebar > div:first-child {
+    flex-direction: column;
+    min-height: 88px;
+    padding: 10px 0 6px;
+    gap: 4px;
+  }
+  .navigation-collapsed
+    :is(.brand-word, .app-name, .nav-label, .nav .num, .side-note, .profile) {
+    display: none;
+  }
+  .navigation-collapsed .nav button {
+    justify-content: center;
+    min-height: 42px;
+  }
+}
+@media (min-width: 641px) and (max-width: 1100px) {
+  .app {
+    display: grid;
+    grid-template-columns: var(--workspace-tablet-rail) minmax(0, 1fr);
+  }
+  .app > .sidebar {
+    display: none;
+  }
+  .tablet-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 72px;
+    padding: 16px 10px;
+    background: var(--side);
+    border-right: 1px solid var(--border);
+    z-index: 30;
+  }
+  .tablet-navigation nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  .tablet-navigation button {
+    width: 48px;
+    min-height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+  }
+  .tablet-navigation button.active {
+    background: #e5ece2;
+    color: #345742;
+  }
+}
+@media (max-width: 640px) {
+  .app {
+    display: block;
+  }
+  .app > .sidebar {
+    display: none;
+  }
+  .mobile-navigation {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    min-height: 60px;
+    padding: 12px 16px;
+    background: var(--side);
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-navigation .brand {
+    font-size: 23px;
+    padding: 0;
+  }
+  .mobile-navigation > span {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .mobile-navigation .navigation-toggle {
+    width: 38px;
+    min-height: 38px;
+  }
+  .topbar {
+    min-height: 48px;
+    height: auto;
+    padding: 8px 16px;
+    gap: 10px;
+  }
+  .topbar .breadcrumb {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .top-actions {
+    gap: 6px;
+  }
+  .demo-badge {
+    display: none;
+  }
+  .role-switch {
+    font-size: 10px;
+  }
+  .content {
+    padding: 20px 16px;
+  }
+  .navigation-drawer[open] .sidebar > div:first-child {
+    min-height: 76px;
+  }
+  .navigation-drawer[open] .profile {
+    margin: 0;
+  }
+  .navigation-drawer[open] .nav {
+    padding: 0 0 15px;
+    gap: 4px;
+  }
+  .navigation-drawer[open] .nav button {
+    font-size: 13px;
+    min-height: 40px;
+    padding: 9px 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
+}

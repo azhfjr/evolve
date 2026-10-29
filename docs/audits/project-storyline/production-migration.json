@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-28T08:30:48.860Z",
+  "migrations": [
+    "0038_document_dates.sql",
+    "0039_canonical_historical_cod.sql"
+  ],
+  "integrityVerifiedInsideTransaction": true,
+  "documentMetadata": {
+    "documents": 0,
+    "dated": 0
+  },
+  "syntheticRecords": false,
+  "fileContentsChanged": false
+}

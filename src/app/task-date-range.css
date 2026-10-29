@@ -1,0 +1,61 @@
+/* Date ranges use natural line wrapping rather than overlapping task columns. */
+.task-date-range {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 4px;
+  min-width: 0;
+  line-height: 1.45;
+  text-align: start;
+}
+.task-date-range time {
+  white-space: nowrap;
+}
+.task-date:has(.task-date-range),
+.card-due:has(.task-date-range) {
+  align-items: flex-start;
+  white-space: normal;
+  min-width: 0;
+}
+.task-date:has(.task-date-range) > svg,
+.card-due:has(.task-date-range) > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.kanban-card footer:has(.task-date-range) {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.card-due:has(.task-date-range) {
+  flex: 1 1 105px;
+}
+.focus-due:has(.task-date-range) {
+  min-width: 0;
+  white-space: normal;
+}
+.calendar-task-range[data-range-position="middle"] {
+  border-radius: 2px;
+}
+.calendar-task-range[data-range-position="start"] {
+  border-radius: 6px 2px 2px 6px;
+}
+.calendar-task-range[data-range-position="end"] {
+  border-radius: 2px 6px 6px 2px;
+}
+.calendar-agenda-range {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-weight: 400;
+}
+.task-editor-page .editor-date-property .field-help {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.55;
+}
+.task-editor-page .editor-date-input {
+  min-width: 0;
+  width: 100%;
+}

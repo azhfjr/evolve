@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "deploymentId": "dpl_33A7Uf61RggcjcQvwMda55vB9JgD",
+  "releaseSource": "baa2d0efdc935367d8aafe3ace3859a6ecdfa232",
+  "evidenceCommit": "572e59bf7e28bdf290d57b74c1b64b3add8b3bf8",
+  "applicationSourceUnchanged": true,
+  "verifiedAt": "2026-10-27T13:50:01.731306+00:00",
+  "supersededAssertions": "Recorded separately; corrected contracts and isolated route inspections pass.",
+  "runtimeLogAccess": "403 limitation, documented"
+}

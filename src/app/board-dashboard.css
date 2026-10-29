@@ -1,0 +1,700 @@
+/* Dashboard layout uses shared room typography and surfaces. */
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.br .dashboard-summary > button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-body);
+}
+.dashboard-summary strong {
+  font-size: var(--text-metric);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.dashboard-summary small,
+.dashboard-card p {
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.dashboard-analysis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+  align-items: stretch;
+}
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.dashboard-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+  min-width: 0;
+}
+.dashboard-card .br-panel-heading h2 {
+  font-size: var(--text-panel-title);
+}
+.dashboard-card-body > .dashboard-data {
+  margin-top: auto;
+}
+.dashboard-analysis > .dashboard-card:last-child {
+  grid-column: 1 / -1;
+}
+.dashboard-data {
+  font-size: var(--text-body);
+  min-width: 0;
+  overflow: auto;
+}
+.dashboard-data summary {
+  cursor: pointer;
+  color: var(--muted);
+  padding: 8px 0;
+}
+.dashboard-data table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dashboard-data :is(td, th) {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.br .dashboard-data button {
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  padding: 4px;
+  font-size: var(--text-body);
+}
+.dashboard-selects {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.dashboard-select {
+  display: grid;
+  gap: 6px;
+  min-width: 150px;
+  flex: 1;
+  font-size: var(--text-body);
+}
+.br-portfolio-layout.dashboard-timeline {
+  display: block;
+}
+.dashboard-analysis button:focus-visible,
+.dashboard-summary button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.dashboard-active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.dashboard-active-filters button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+.portfolio-plot {
+  height: 280px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-plot > svg {
+  width: 260px;
+  height: 260px;
+  max-width: 100%;
+  overflow: visible;
+}
+.portfolio-plot svg text {
+  fill: var(--muted);
+  font-size: var(--text-small);
+  font-family: var(--font);
+}
+.portfolio-plot svg line {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.portfolio-plot [role="button"] {
+  cursor: pointer;
+  outline: none;
+}
+.portfolio-plot [role="button"]:focus-visible {
+  stroke: var(--text);
+  stroke-width: 3;
+}
+.portfolio-plot [role="button"]:hover {
+  opacity: 0.85;
+}
+.portfolio-plot-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+.portfolio-plot-scroll svg {
+  display: block;
+  width: 100%;
+  height: 250px;
+}
+.portfolio-plot .portfolio-donut-hole {
+  fill: var(--surface);
+  pointer-events: none;
+}
+.portfolio-plot .portfolio-donut-total {
+  font-size: var(--text-metric);
+  font-weight: 600;
+  fill: var(--text);
+  pointer-events: none;
+}
+.portfolio-plot .portfolio-donut-caption {
+  font-size: var(--text-small);
+  pointer-events: none;
+}
+.portfolio-tooltip {
+  min-height: 36px;
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.portfolio-legend {
+  display: grid;
+  gap: 8px;
+}
+.br .portfolio-legend > button {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--text-body);
+}
+.portfolio-legend :is(strong, small) {
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-legend span {
+  overflow-wrap: anywhere;
+}
+.portfolio-legend i,
+.portfolio-series-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex: none;
+}
+.portfolio-series-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: var(--text-small);
+}
+.portfolio-series-legend span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.portfolio-chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 24px;
+  min-height: 220px;
+  color: var(--muted);
+  font-size: var(--text-body);
+}
+.portfolio-chart-empty svg {
+  width: 96px;
+  height: 64px;
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 5;
+}
+.portfolio-chart-empty p {
+  margin: 0;
+  max-width: 36ch;
+}
+.portfolio-horizontal {
+  height: 280px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 2px;
+}
+.br .portfolio-horizontal-row > button {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  padding: 0 0 10px;
+  text-align: left;
+  font-size: var(--text-body);
+}
+.portfolio-horizontal-row span {
+  overflow-wrap: anywhere;
+}
+.portfolio-horizontal-row strong {
+  font-size: var(--text-body);
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-horizontal-track {
+  height: 14px;
+  background: var(--soft);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.portfolio-horizontal-track i {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+@media (max-width: 800px) {
+  .dashboard-analysis {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .dashboard-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .br .dashboard-summary > button {
+    padding: 16px;
+  }
+  .dashboard-card-body {
+    padding: 16px;
+  }
+  .dashboard-select {
+    min-width: 0;
+    width: 100%;
+  }
+  .dashboard-selects {
+    flex-direction: column;
+  }
+  .portfolio-plot,
+  .portfolio-horizontal {
+    height: 240px;
+  }
+  .portfolio-plot > svg {
+    height: 220px;
+    width: 220px;
+  }
+  .portfolio-plot-scroll svg {
+    height: 240px;
+  }
+}
+.project-asset-map {
+  margin: 24px 0;
+  min-width: 0;
+  background: var(--surface);
+}
+.network-toolbar,
+.network-pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 20px;
+}
+.network-toolbar button,
+.network-pagination button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.network-counts {
+  padding: 0 20px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.network-canvas {
+  width: 100%;
+  height: 360px;
+  display: block;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--accent) 6%, var(--surface)),
+    var(--surface)
+  );
+  touch-action: pan-y;
+}
+.network-canvas.exploring {
+  touch-action: none;
+}
+.network-canvas line {
+  stroke: var(--border);
+  stroke-width: 2;
+}
+.network-canvas line.selected {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+.network-canvas text {
+  fill: var(--text);
+  font-size: 13px;
+  pointer-events: none;
+}
+.network-canvas [role="button"] {
+  cursor: pointer;
+  outline: none;
+}
+.network-canvas [role="button"]:focus circle,
+.network-canvas circle.selected {
+  stroke: var(--text);
+  stroke-width: 4;
+}
+.network-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.network-layout:has(.network-selection) {
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+.network-selection {
+  padding: 16px;
+  border-left: 1px solid var(--border);
+  overflow: auto;
+  max-height: 440px;
+  font-size: 0.875rem;
+}
+.network-selection h3 {
+  overflow-wrap: anywhere;
+}
+.network-selection a {
+  display: block;
+  margin: 12px 0;
+}
+.network-selection dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.network-selection dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.network-list {
+  height: 360px;
+  overflow: auto;
+  list-style: none;
+  padding: 16px;
+  margin: 0;
+}
+.network-list button {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  background: var(--surface);
+  color: var(--text);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+.network-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 16px;
+}
+.network-filters input {
+  min-width: 0;
+}
+.project-asset-map:fullscreen {
+  overflow: auto;
+  padding: 20px;
+  margin: 0;
+}
+.project-asset-map:fullscreen .network-canvas {
+  height: 65vh;
+}
+.network-explore {
+  display: none !important;
+}
+@media (max-width: 800px) {
+  .network-canvas,
+  .network-list {
+    height: 280px;
+  }
+  .network-layout:has(.network-selection) {
+    grid-template-columns: 1fr;
+  }
+  .network-selection {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    max-height: none;
+  }
+  .network-explore {
+    display: inline-flex !important;
+  }
+  .network-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+  .network-toolbar,
+  .network-pagination {
+    padding: 12px;
+  }
+  .network-toolbar button {
+    padding: 9px;
+  }
+}
+
+/* Regional comparison shares the dashboard panel and typography system. */
+.regional-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 1fr);
+  gap: var(--space-5, 24px);
+  padding: var(--space-5, 24px);
+}
+.regional-geography {
+  min-width: 0;
+  align-self: start;
+}
+.regional-geography svg {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+}
+.regional-province {
+  stroke: var(--muted);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+}
+.regional-province.is-selected,
+.regional-province.is-focused {
+  stroke: var(--text);
+  stroke-width: 2.5;
+}
+.regional-scale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: var(--text-small);
+}
+.regional-scale i {
+  width: 120px;
+  height: 8px;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--accent) 25%, var(--surface)),
+    var(--accent)
+  );
+  border-radius: 4px;
+}
+.regional-scale .regional-zero,
+.regional-scale .regional-one {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--soft);
+  border-radius: 3px;
+}
+.regional-scale .regional-one {
+  background: var(--accent);
+}
+.regional-tooltip {
+  min-height: 3em;
+  font-size: var(--text-small);
+  color: var(--muted);
+  margin: 16px 0 0;
+}
+.regional-controls {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  min-width: 0;
+}
+.br .regional-controls > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  min-height: 48px;
+  padding: 10px 12px;
+  font-size: var(--text-body);
+}
+.br .regional-controls > button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+.regional-controls small {
+  display: block;
+  font-size: var(--text-small);
+  color: var(--muted);
+  margin-top: 4px;
+}
+.regional-result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-small);
+  margin-top: 8px;
+}
+.regional-result > span {
+  flex-basis: 100%;
+}
+.regional-data,
+.regional-source {
+  margin: 0 24px 20px;
+  font-size: var(--text-small);
+}
+.regional-source p {
+  max-width: 80ch;
+  color: var(--muted);
+}
+.regional-source a {
+  display: inline-block;
+  margin: 0 16px 8px 0;
+}
+.regional-panel {
+  min-width: 0;
+  margin-bottom: var(--space-5, 24px);
+}
+@media (max-width: 767px) {
+  .regional-body {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px;
+    gap: 16px;
+  }
+  .regional-geography svg {
+    max-height: 300px;
+  }
+  .regional-data,
+  .regional-source {
+    margin-inline: 16px;
+  }
+  .regional-data {
+    overflow: auto;
+  }
+}
+
+/* Shared map and metadata controls use the existing room spacing and typography. */
+.regional-category-legend,
+.regional-map-tools {
+  padding: var(--space-4, 16px);
+  flex-wrap: wrap;
+}
+.regional-category-legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.regional-category-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+.regional-category-legend [aria-pressed="true"] {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.regional-panel:fullscreen {
+  background: var(--surface);
+  overflow: auto;
+  padding: 16px;
+}
+.template-manager fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.template-field-heading h3 {
+  font-size: var(--text-panel-title);
+  line-height: 1.4;
+  margin: 0;
+  overflow-wrap: anywhere;
+  flex: 1 1 200px;
+}
+.template-options {
+  display: grid;
+  gap: 12px;
+}
+.template-option {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.template-option > label:first-child {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.template-option > label:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.template-project-fields {
+  min-width: 0;
+}
+.template-project-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.template-impact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 16px;
+}
+.template-impact dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.template-manager input[type="checkbox"] {
+  width: auto;
+  min-height: auto;
+}
+@media (max-width: 640px) {
+  .template-option {
+    align-items: stretch;
+  }
+}

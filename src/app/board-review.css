@@ -1,0 +1,206 @@
+:is(.br, .br-modal) .br-review-panel {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+  background: var(--surface);
+}
+:is(.br, .br-modal) .br-review-panel h3 {
+  margin: 0;
+}
+:is(.br, .br-modal) .br-review-panel form,
+:is(.br, .br-modal) .br-stage-reason {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+:is(.br, .br-modal) .br-review-panel label,
+:is(.br, .br-modal) .br-stage-reason label,
+:is(.br, .br-modal) .br-review-note-field {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+:is(.br, .br-modal) .br-review-panel textarea,
+:is(.br, .br-modal) .br-stage-reason textarea,
+:is(.br, .br-modal) .br-review-note-field textarea {
+  width: 100%;
+  resize: vertical;
+}
+:is(.br, .br-modal) .br-review-panel button {
+  justify-self: start;
+}
+:is(.br, .br-modal) .br-review-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+:is(.br, .br-modal) .br-review-facts dt {
+  font-size: 12px;
+  color: var(--muted);
+}
+:is(.br, .br-modal) .br-review-facts dd {
+  margin: 4px 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+:is(.br, .br-modal) .br-review-facts dd small {
+  display: block;
+  margin-top: 4px;
+}
+:is(.br, .br-modal) .br-attention-badge {
+  font-size: 12px;
+  border-radius: 20px;
+  background: var(--interaction-hover);
+  padding: 5px 9px;
+}
+:is(.br, .br-modal) .br-data-warning {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+:is(.br, .br-modal) .br-review-note {
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  background: var(--interaction-hover);
+  border-radius: 8px;
+}
+:is(.br, .br-modal) .br-document-check {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+}
+:is(.br, .br-modal) .br-document-check input {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  flex: none;
+}
+:is(.br, .br-modal) .br-document-check span {
+  overflow-wrap: anywhere;
+}
+:is(.br, .br-modal) .br-stage-reason {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+:is(.br, .br-modal) .br-stage-reason div {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+:is(.br, .br-modal) .br-attention-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 16px;
+  font-size: 12px;
+}
+:is(.br, .br-modal) .br-attention-strip button {
+  font-size: 12px;
+  padding: 7px 10px;
+}
+:is(.br, .br-modal) .br-attention-strip button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--interaction-hover);
+}
+:is(.br, .br-modal) .br-history p {
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 5px 0;
+}
+@media (max-width: 600px) {
+  :is(.br, .br-modal) .br-review-facts {
+    grid-template-columns: 1fr;
+  }
+  :is(.br, .br-modal) .br-review-panel {
+    padding: 12px;
+  }
+  :is(.br, .br-modal) .br-attention-strip {
+    gap: 6px;
+  }
+}
+
+.br-form-fields {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+.br-saved-view-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0;
+}
+.br-saved-view-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 0;
+}
+.br-saved-view-row > button:first-child {
+  min-width: 0;
+  justify-content: flex-start;
+  text-align: left;
+}
+.br-saved-view-row span {
+  overflow-wrap: anywhere;
+}
+.br-saved-view-row small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 3px;
+}
+.br-saved-view-row > div {
+  display: flex;
+  gap: 4px;
+}
+.br-save-view-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+  margin: 20px 0;
+}
+.br-save-view-form label {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+  min-width: 150px;
+}
+.br-save-view-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+}
+
+.br-saved-view-row > div button {
+  min-width: 44px;
+  min-height: 44px;
+}
+@media (max-width: 600px) {
+  .br-saved-view-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .br-saved-view-row > button:first-child {
+    grid-column: 1 / -1;
+  }
+  .br-save-view-form input {
+    font-size: 16px;
+  }
+}

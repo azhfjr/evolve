@@ -1,0 +1,30 @@
+{
+  "fixture": {
+    "projects": 1000,
+    "assets": 10000,
+    "tasks": 20000
+  },
+  "metrics": {
+    "/api/board-room?search=Scale": 151.9977469999999,
+    "/api/board-room?region=ID-KI": 194.99413400000049,
+    "/api/board-room/assets?projectScope=%7B%22region%22%3A%22ID-KI%22%7D": 124.82165900000109,
+    "/api/board-room?category=Pembangkit&year=2028": 97.29113199999847,
+    "/api/board-room/assets?q=Scale&page=1": 104.27823500000159,
+    "/api/tasks?limit=100&sort=title": 46.58854100000099,
+    "/api/board-room/connections?category=Pembangkit": 34.39234899999974,
+    "/api/workspace/search?q=Scale": 140.64568399999916,
+    "/api/board-room/project-options?q=Scale": 17.923988000002282,
+    "/api/board-room/hub?id=10000000-0000-4000-8000-000000000001": 24.87307399999918
+  },
+  "pagination": {
+    "projects": 1000,
+    "assets": 10000,
+    "tasks": 20000,
+    "renderedNodes": 173
+  },
+  "environment": {
+    "cpus": 3,
+    "memoryGB": 10
+  },
+  "apiRequestsPerMeasurement": 20
+}

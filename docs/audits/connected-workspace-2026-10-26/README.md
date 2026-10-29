@@ -4,7 +4,7 @@
 
 This is the preserved evidence summary for the 26 October release, not a statement that its source is still deployed. See the [main README](../../../README.md) for the latest recorded application release and current Git integration. Later releases retired meeting-pack creation while preserving historical records and tasks; references below describe the earlier tested workflow.
 
-The numeric results below are historical observations, not tests rerun for this documentation update. Companion JSON files, detailed guides and screenshots remain in the full development checkout; this README-only publication does not include them. Artifact references are shown as paths rather than links to missing GitHub files.
+The numeric results below are historical observations, not tests rerun for this documentation update. Companion JSON files, detailed guides and screenshots are included in the repository. Artifact references below identify the historical evidence files.
 
 ## Original release record
 

@@ -1,0 +1,1481 @@
+{
+  "expected": 295,
+  "verified": 295,
+  "cases": [
+    {
+      "file": "blob-uploads.spec.ts",
+      "title": "Blob SDK upload crosses the real CSP endpoint and persists 262144 bytes with private readback",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "blob-uploads.spec.ts",
+      "title": "Blob SDK upload crosses the real CSP endpoint and persists 11534336 bytes with private readback",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-room.spec.ts",
+      "title": "Board Room navigation matches Locker Room dimensions and supports drawer keyboard navigation",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-room.spec.ts",
+      "title": "Board Room production workflows \u203a authenticated admin creates durable projects through the native form and API",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-room.spec.ts",
+      "title": "Board Room production workflows \u203a progress, Undo in open details, private uploads and explicit validation survive reload",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-room.spec.ts",
+      "title": "Board Room production workflows \u203a CSV column mapping previews exact changes, merges and preserves repeated imports",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-room.spec.ts",
+      "title": "Board Room production workflows \u203a mutation refresh respects filters changed while a request is in flight",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-room.spec.ts",
+      "title": "Board Room production workflows \u203a read-only members and outsiders cannot mutate or bypass origin checks",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-room.spec.ts",
+      "title": "Board Room production workflows \u203a desktop/mobile layouts, keyboard access and automated accessibility checks",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-settings-contract.spec.ts",
+      "title": "Board account, appearance and file controls match Locker composition",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-settings-contract.spec.ts",
+      "title": "Board settings and project metadata expose only the requested controls",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-settings-contract.spec.ts",
+      "title": "Voltage persists through native project controls while Scope is retired",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-sidebar.spec.ts",
+      "title": "Board feature menus fill the sidebar, remain reachable and navigate without replacing it",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-sidebar.spec.ts",
+      "title": "collapse responds before saving and transitions smoothly like Locker Room",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-sidebar.spec.ts",
+      "title": "a delayed dashboard response cannot undo a saved sidebar preference",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "board-sidebar.spec.ts",
+      "title": "responsive sidebar keeps its desktop tree and drawer menus remain usable",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connected-workspace.spec.ts",
+      "title": "assets have native creation, CSV template, searchable data and a connection list",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "selected label connects every project, and each project connects only its own tasks",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "native fullscreen preserves zoom and returns keyboard focus on exit",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "fullscreen fallback fills a phone viewport and Escape restores the map",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "immersive map remeasures after viewport resize and retains working inline controls",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "opening task exits native fullscreen before its destination opens",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "opening project exits native fullscreen before its destination opens",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "opening edit exits native fullscreen before its destination opens",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "browser fullscreen exit closes the immersive modal and restores focus",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "a delayed fullscreen request cannot leave fullscreen active after closing",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "fullscreen supports background dragging and one-finger touch panning",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "node dragging updates its edges without opening it, and Fit map restores the layout",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "wheel zoom keeps the world point under the pointer stationary",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "two-finger touchscreen pinch zooms the graph without moving nodes or opening work",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "wide fullscreen fits separate project clusters and exposes focused node context",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "dense overview keeps nodes separate from controls and a node tap restores interactive detail",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connection-immersive.spec.ts",
+      "title": "label root is a nonnavigating Fit action and never exposes a label editor",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "project hashtags connect inherited tasks while historical costs stay read-only",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "Connection supports keyboard, map controls and accessible reflow at 1440px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "Connection supports keyboard, map controls and accessible reflow at 390px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "Connection supports keyboard, map controls and accessible reflow at 320px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "Locker restores unsubmitted labels without exposing retired financial input",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "Connection API requires membership, and its loading failure can be retried",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "sidebar scroll controls reveal management without moving the page",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "connections.spec.ts",
+      "title": "large connection graphs pan, fit filtered work and edit labels without overwriting project cost",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "cost-large-values.spec.ts",
+      "title": "historical large grouped costs remain read-only and readable at 390px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "cost-large-values.spec.ts",
+      "title": "historical large grouped costs remain read-only and readable at 768px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "cost-large-values.spec.ts",
+      "title": "historical large grouped costs remain read-only and readable at 1440px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "design-parity.spec.ts",
+      "title": "both rooms use matching body type, logo styling and Home navigation",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "design-parity.spec.ts",
+      "title": "dark Board Room highlighted cards and controls do not flash white",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "design-parity.spec.ts",
+      "title": "dark active project stages meet text contrast with the shared accent",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "design-parity.spec.ts",
+      "title": "the project database and import dialog expose the synchronized CSV guide",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "design-parity.spec.ts",
+      "title": "theme changes keep highlighted Home colors atomic",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "Board creation offers labelled documents and uploads after project creation",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "shared Files table has clear metadata, purpose and cross-app archive controls",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "partial creation uploads retry against one project and keep completed files",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "project ZIP contains exact private documents and purpose index; labels persist",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "archive and label routes enforce sign-in and origin boundaries",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "cancelled archive sessions do not leak progress into a reopened download",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "Files typography and labelled controls remain consistent across apps, themes and widths",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "document-workflows.spec.ts",
+      "title": "long document names remain readable in desktop project popups",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "admin deletes a task through confirmation, recovers a lost response and persists removal without affecting other work",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "project deletion confirms financial/file removal, preserves active and archived tasks and returns to Projects",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "a lost project-deletion response leaves an honest missing-project state after cancellation",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "members and outsiders cannot delete; origin protection and stale versions preserve data",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "task editor preserves unsaved changes and uses the saved version for deletion",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "deletion dialogs preserve proportions, focus, and fixed actions at 1440x900",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "deletion dialogs preserve proportions, focus, and fixed actions at 390x740",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "deletion dialogs preserve proportions, focus, and fixed actions at 320x568",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "entity-deletion.spec.ts",
+      "title": "deletion dialogs preserve proportions, focus, and fixed actions at 568x320",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "expense-retirement.spec.ts",
+      "title": "Cost retains option totals while historical Expense data stays untouched",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "expense-retirement.spec.ts",
+      "title": "retired Expense endpoints reject writes and ledger access without expanding permissions",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "member profile persists and workspace branding remains administrator-only",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "CSV preview blocks invalid rows, imports once, then bulk editing persists across reload",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "independent task templates and recurrence persist without relationship controls",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "task and project attachments upload, survive reload, and reject anonymous downloads and other-member deletion",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "a committed assignment reaches another browser inbox within three seconds and opens from its notification",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "settings tabs and task planning remain accessible at 1440px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "settings tabs and task planning remain accessible at 390px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "features.spec.ts",
+      "title": "Calendar consent is separate per account, uses PKCE, and rejects forged callbacks and public maintenance",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "file-management.spec.ts",
+      "title": "admin manages another member's draft metadata and bulk deletion while content stays private",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "file-management.spec.ts",
+      "title": "file download shows real progress, supports cancellation and retries an interrupted response",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "file-management.spec.ts",
+      "title": "Files settings reflows and supports keyboard access at 1440px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "file-management.spec.ts",
+      "title": "Files settings reflows and supports keyboard access at 390px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "file-management.spec.ts",
+      "title": "Files settings reflows and supports keyboard access at 320px",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "file-management.spec.ts",
+      "title": "upload cancellation and finalization retry preserve the draft and avoid uploading twice",
+      "log": "full-browser.log"
+    },
+    {
+      "file": "form-polish.spec.ts",
+      "title": "data-entry panels are readable, centered, and keyboard usable at 1440px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "form-polish.spec.ts",
+      "title": "data-entry panels are readable, centered, and keyboard usable at 768px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "form-polish.spec.ts",
+      "title": "data-entry panels are readable, centered, and keyboard usable at 360px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "form-polish.spec.ts",
+      "title": "financial summaries stay inside each project while Dashboard and Projects stay focused on delivery",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "form-polish.spec.ts",
+      "title": "saved workspace text preferences preserve responsive sizing and reduced motion",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "label-edit-refinement.spec.ts",
+      "title": "overview edits a project label in place, keeps other labels, and follows its renamed map at 1440px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "label-edit-refinement.spec.ts",
+      "title": "connection edits a project label in place, keeps other labels, and follows its renamed map at 390px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "label-edit-refinement.spec.ts",
+      "title": "a concurrent label edit keeps the draft on conflict and saves after explicit reload with inherited task labels",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "label-edit-refinement.spec.ts",
+      "title": "merging a renamed label follows its explicit target and preserves the third label",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "label-picker.spec.ts",
+      "title": "project labels browse without typing and support keyboard selection and canonical creation",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "label-picker.spec.ts",
+      "title": "picker loads the global catalog with paging and selects existing labels without committing a partial query",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "label-picker.spec.ts",
+      "title": "picker exposes loading and retry, and an older request never replaces a newer search",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "label-picker.spec.ts",
+      "title": "picker retains label count and Unicode length validation",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "login and navigation prioritize the user action at 320px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "login and navigation prioritize the user action at 390px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "login and navigation prioritize the user action at 768px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "task page protects edits across browser Back, cancel, sidebar navigation and save",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "creation page reload restores context and draft while pickers support keyboard and Escape",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "project creation recovers incomplete values after close/reload and editing requires a discard decision",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "signing out requires an explicit decision before clearing a task draft",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "native-workspace.spec.ts",
+      "title": "Quick find protects existing edits and retains a creation draft when switching tasks",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "option-cost-totals.spec.ts",
+      "title": "cost detail, editor and project checklist total each option independently",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-analytics.spec.ts",
+      "title": "overview provides seven scoped dashboard charts, data access, and open task drilldowns",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-analytics.spec.ts",
+      "title": "deadline today and workload drills preserve their open scope",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-analytics.spec.ts",
+      "title": "overview charts and tables reflow at 320px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-analytics.spec.ts",
+      "title": "overview charts and tables reflow at 1440px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-dashboard-refinement.spec.ts",
+      "title": "Overview leads with daily work and exposes its map and seven charts at 320px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-dashboard-refinement.spec.ts",
+      "title": "Overview leads with daily work and exposes its map and seven charts at 1440px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-dashboard-refinement.spec.ts",
+      "title": "scheduled day drilldowns include tasks spanning that date",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-dashboard-refinement.spec.ts",
+      "title": "attention groups keep overlapping risks explicit and open-only",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-map-async.spec.ts",
+      "title": "paging the Overview map cancels an old task open and allows the next page to open",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-map-async.spec.ts",
+      "title": "paging the Connection map cancels an old task open and allows the next page to open",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-map.spec.ts",
+      "title": "Overview embeds a usable paginated connection map at 1440px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-map.spec.ts",
+      "title": "Overview embeds a usable paginated connection map at 390px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "overview-map.spec.ts",
+      "title": "Overview connection selector and map traverse more than one page without hiding results",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "page-proportions.spec.ts",
+      "title": "calendar, journal and settings use available space at 320px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "page-proportions.spec.ts",
+      "title": "calendar, journal and settings use available space at 390px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "page-proportions.spec.ts",
+      "title": "calendar, journal and settings use available space at 768px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "page-proportions.spec.ts",
+      "title": "calendar, journal and settings use available space at 1440px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "page-proportions.spec.ts",
+      "title": "task and project names share proportional columns without clipping",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "page-proportions.spec.ts",
+      "title": "account calendar crosses midnight and month boundary before the UTC browser",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "page-proportions.spec.ts",
+      "title": "phone agenda retains the selected date after closing its task editor",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "popup shells and long-form actions stay usable at 1440x900",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "popup shells and long-form actions stay usable at 390x740",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "popup shells and long-form actions stay usable at 320x568",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "popup shells and long-form actions stay usable at 568x320",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "secondary popups and nested pickers retain their focus at 1440px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "secondary popups and nested pickers retain their focus at 390px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "dark task counts and large-text popups stay readable at 1440px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "popup-proportions.spec.ts",
+      "title": "dark task counts and large-text popups stay readable at 390px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "power-dashboard.spec.ts",
+      "title": "Dashboard charts, browser history, live clock, and task drafts work together",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "power-dashboard.spec.ts",
+      "title": "project planning and USD option costs persist through reload without Expense",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "power-dashboard.spec.ts",
+      "title": "saved task views restore filters and layout after reload",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "power-dashboard.spec.ts",
+      "title": "per-task Calendar status is private and consent returns to the selected task",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "power-dashboard.spec.ts",
+      "title": "Dashboard exposes API failures and recovers when retried",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "power-dashboard.spec.ts",
+      "title": "login and Dashboard meet accessibility and reflow checks at 1440px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "power-dashboard.spec.ts",
+      "title": "login and Dashboard meet accessibility and reflow checks at 320px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-checklist.spec.ts",
+      "title": "Projects checklist exposes every option and cost, separate exact totals, filters and keyboard disclosure",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-checklist.spec.ts",
+      "title": "Projects checklist stays accessible without page overflow at 320px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-checklist.spec.ts",
+      "title": "Projects checklist stays accessible without page overflow at 390px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-checklist.spec.ts",
+      "title": "Projects checklist stays accessible without page overflow at 768px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-checklist.spec.ts",
+      "title": "Projects checklist stays accessible without page overflow at 1440px",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-checklist.spec.ts",
+      "title": "legacy projects show their existing costs in the checklist",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-options.spec.ts",
+      "title": "Locker project creation retains category and removes financial input",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "project-options.spec.ts",
+      "title": "deprecated Locker financial writes reject admin input",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "project-plan-inputs.spec.ts",
+      "title": "project COD choices and draft recovery remain available without Locker financial inputs",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-plan-inputs.spec.ts",
+      "title": "authenticated project COD and options persist through create, reload and explicit clearing",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-plan-inputs.spec.ts",
+      "title": "unchanged legacy zero-cost draft replays the original project receipt",
+      "log": "ported-browser.log"
+    },
+    {
+      "file": "project-room-links.spec.ts",
+      "title": "RUPTL links open both independent room records and remain usable on phones",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "project-room-links.spec.ts",
+      "title": "cross-room endpoint requires an application session",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "proportional-long-content.spec.ts",
+      "title": "long project and account content stays inside its container at 320x568",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "proportional-long-content.spec.ts",
+      "title": "long project and account content stays inside its container at 390x740",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "proportional-long-content.spec.ts",
+      "title": "long project and account content stays inside its container at 568x320",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "proportional-long-content.spec.ts",
+      "title": "long project and account content stays inside its container at 768x900",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "proportional-long-content.spec.ts",
+      "title": "long project and account content stays inside its container at 1440x900",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-consistency.spec.ts",
+      "title": "both rooms expose consistent branding and working sidebar utilities",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-consistency.spec.ts",
+      "title": "Board project editor uses asset selection and the five Kalimantan provinces",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-consistency.spec.ts",
+      "title": "Board initial render avoids a duplicate dashboard request and room switching keeps the document",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-consistency.spec.ts",
+      "title": "Board uses shared upload phases, cancellation, download and document deletion confirmation",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-consistency.spec.ts",
+      "title": "Board common management and search features work without leaving the room",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-consistency.spec.ts",
+      "title": "search A to B to A retries an aborted request and navigation Back restores the section",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "both sidebars remove the workspace card and management stays inside its room",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "Board and Locker file managers retain download and removal features with isolated inventories",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "Board journal opens Board projects and only removes its own activity entries",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "readable chart hierarchy and management layouts work on desktop and phone",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "members can use Board people and journal but cannot manage files or remove activity",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "Board journal loads its second page without requesting Locker activity",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "Board settings preserve unsaved edits across sidebar preference updates",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "room-management.spec.ts",
+      "title": "Board settings exports project data and signs out of both rooms",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "shared-storage.spec.ts",
+      "title": "shared and app settings show reconciled usage cards, readable on phones",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "shared-storage.spec.ts",
+      "title": "Locker project exposes Documents and an accessible upload input",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "shared-storage.spec.ts",
+      "title": "new Locker project offers a direct document handoff",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "shared-storage.spec.ts",
+      "title": "Locker project documents upload privately, persist, download and delete",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "shared-storage.spec.ts",
+      "title": "failed storage readings stop loading and can be retried",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "mobile room switcher owns Escape without closing Locker Room navigation",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Google sign-in requests the shared chooser with the existing provider",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Evolve super-app integration \u203a one authenticated entry offers both rooms, real totals, and round-trip app switching",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Evolve super-app integration \u203a shared appearance saves once and follows both rooms, with stale-update protection",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Evolve super-app integration \u203a template directory provides real downloads and a durable stage-settings deep link",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Evolve super-app integration \u203a room switches protect unfinished Locker Room task edits",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Evolve super-app integration \u203a chooser, settings and switcher support responsive layouts, keyboard and light/dark accessibility",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Evolve super-app integration \u203a shared routes enforce invitations, roles, origin checks and settings-only commands",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "super-app.spec.ts",
+      "title": "Evolve super-app integration \u203a one sign-out revokes access to both apps",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "My tasks supplies the owner and create-another retains useful properties",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "saving retains pending checklist input and inherited project hashtags",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "task hashtags are read only and follow the selected project when creating and editing",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "a creation draft survives Escape and reload, then clears after saving",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "field errors focus the right input and a failed save preserves work for retry",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "editing requires an explicit decision before discarding unsaved work",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "calendar creation carries the selected project and date into persistence",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "task editor stays readable and actions stay visible on desktop",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "task editor stays readable and actions stay visible on tablet",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "task editor stays readable and actions stay visible on mobile",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "dark editor passes accessibility checks",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "all primary workspace sections render and remain accessible at 1440px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "all primary workspace sections render and remain accessible at 360px",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "duplicating a maximum-length task title remains valid",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "new tasks inherit active assignee, priority, and status filters",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-composer.spec.ts",
+      "title": "a queued draft autosave cannot restore a task after creation commits",
+      "log": "remaining-round1.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "task creation stages private files, restores them after reload and recovers a lost creation response without duplicating",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "a failed attachment can be retried, and in-flight uploads protect creation and navigation",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "historical project costs retain exact currency totals as read-only records",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "Activity, Settings, creation attachments and Cost reflow accessibly at 1440px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "Activity, Settings, creation attachments and Cost reflow accessibly at 1024px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "Activity, Settings, creation attachments and Cost reflow accessibly at 768px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "Activity, Settings, creation attachments and Cost reflow accessibly at 390px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-costs.spec.ts",
+      "title": "Activity, Settings, creation attachments and Cost reflow accessibly at 320px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-date-range.spec.ts",
+      "title": "task date ranges validate, persist, edit and duplicate through the authenticated workspace",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-date-range.spec.ts",
+      "title": "a date-range draft survives reload and a missing end date is explained",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-date-range.spec.ts",
+      "title": "a range crossing the calendar window remains visible on its active days at 390px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-date-range.spec.ts",
+      "title": "a range crossing the calendar window remains visible on its active days at 1440px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-date-range.spec.ts",
+      "title": "bulk date ranges validate every selected task and clearing the deadline clears its whole schedule",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "list exposes full project identity at 320px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "board exposes full project identity at 320px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "list exposes full project identity at 390px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "board exposes full project identity at 390px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "list exposes full project identity at 641px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "board exposes full project identity at 641px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "list exposes full project identity at 700px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "board exposes full project identity at 700px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "list exposes full project identity at 760px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "board exposes full project identity at 760px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "list exposes full project identity at 1440px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "board exposes full project identity at 1440px in light, dark and large text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "project references distinguish unassigned and unavailable projects in both views",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "project identity follows renames and remains present in project-specific tasks",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "task-project-visibility.spec.ts",
+      "title": "task title and menu remain keyboard operable and board cards retain drag movement",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "theme-bootstrap.spec.ts",
+      "title": "anonymous theme is resolved before body content and tolerates blocked storage",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "theme-bootstrap.spec.ts",
+      "title": "authenticated first device SSR and sidebar use saved account theme despite stale cache",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "theme-settings.spec.ts",
+      "title": "sidebar theme saves preserve unsaved account edits and stay synchronized with Settings",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "archived tasks remain discoverable through global search and can be restored",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "archive offers a visible restore action, keeps content after reload, and supports undo",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "English-only interface ignores legacy locale cookies and keeps user content unchanged",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "English editor has readable fields and accessible recurrence at 1440px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "English editor has readable fields and accessible recurrence at 768px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "English editor has readable fields and accessible recurrence at 360px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "English workspace reflows at 320px with every management page reachable",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "ui-localization-archive.spec.ts",
+      "title": "task queries show loading and retry instead of briefly rendering the wrong task window",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "uploads.spec.ts",
+      "title": "document upload UI persists a task attachment and recovers from rejected file types",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "uploads.spec.ts",
+      "title": "avatar and workspace logo upload UI save valid private images and persist after reload",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-focus.spec.ts",
+      "title": "Home provides live attention counts and matching room links at 390px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-focus.spec.ts",
+      "title": "Home provides live attention counts and matching room links at 1440px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-refinements.spec.ts",
+      "title": "sidebar shows long project names and compact mode retains utilities, focus labels and saved preference",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-refinements.spec.ts",
+      "title": "Ctrl+F opens and refocuses workspace find while Ctrl+K is retired",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-refinements.spec.ts",
+      "title": "admin deletes activity singly and in bulk with confirmation and error recovery; members are denied",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-refinements.spec.ts",
+      "title": "all Settings menus reflow with consistent controls at 1440px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-refinements.spec.ts",
+      "title": "all Settings menus reflow with consistent controls at 768px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-refinements.spec.ts",
+      "title": "all Settings menus reflow with consistent controls at 390px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace-refinements.spec.ts",
+      "title": "all Settings menus reflow with consistent controls at 320px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "signed-out access fails closed and CSRF requests are rejected",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "outsiders and unverified accounts cannot read task data",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "member authorization is enforced by the API",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "admin can create and edit a task, persist comments, archive, and restore it",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "board status menus, filters, calendar, and search are functional",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "invitations grant member access and sole administrator cannot be removed",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "task page focuses its title and Escape restores the creation action",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "Google OAuth initiation uses Google with state and a callback URI",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "desktop and mobile views have no overflow or serious accessibility violations",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "task dialog and sign-in page pass accessibility checks",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "dark theme remains readable and survives reload",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "a late refresh cannot revert a task that just saved",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "mobile navigation and a task edit work at 360px",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "workspace.spec.ts",
+      "title": "a thousand tasks remain paginated, searchable, and exportable",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-layout.spec.ts",
+      "title": "saved-view names retain a usable reading width on phones",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-layout.spec.ts",
+      "title": "approval handoff keeps the same inner spacing as other forms",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-repairs.spec.ts",
+      "title": "Board review fields cannot lose edits during a pending save",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-repairs.spec.ts",
+      "title": "Board project fields stay locked until a save finishes",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-repairs.spec.ts",
+      "title": "Locker saved view name stays locked during a save",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-repairs.spec.ts",
+      "title": "closing Board details requires an explicit decision about review notes",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-repairs.spec.ts",
+      "title": "CSV platform errors explain the recovery action without JSON parser text",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-repairs.spec.ts",
+      "title": "oversized encoded CSV requests are rejected before a network import",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-repairs.spec.ts",
+      "title": "reload warns about an unsaved review and canceling preserves it",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-review.spec.ts",
+      "title": "connected-project navigation protects both review notes until explicitly discarded",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-review.spec.ts",
+      "title": "opening a shareable project page cannot silently discard a review",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-abc-review.spec.ts",
+      "title": "applying a section-only view updates its URL and survives reload",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-control-upgrade.spec.ts",
+      "title": "Board admin reviews accountable progress and project evidence; members remain read-only",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-deeplink.spec.ts",
+      "title": "Board deep links reuse server detail without fetching it a second time",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-evidence.spec.ts",
+      "title": "personal mapping reopens safely and committed batch appears without manual refresh",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-evidence.spec.ts",
+      "title": "filtered portfolio reports preserve selected filters and are private HTML",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-evidence.spec.ts",
+      "title": "report and import journal require authentication",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-review-draft.spec.ts",
+      "title": "an unsaved progress note survives remote stage saves and failed review requests",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-saved-views.spec.ts",
+      "title": "personal Board views persist across sessions without leaking to another account",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-saved-views.spec.ts",
+      "title": "Board saved-view API enforces ownership, versions, limits and admission",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-saved-views.spec.ts",
+      "title": "rename conflicts preserve input and can be refreshed, retried, updated and deleted",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-saved-views.spec.ts",
+      "title": "a successful write remains visible when only the list refresh fails",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-stage-policy.spec.ts",
+      "title": "stage reasons are enforced through API and CSV review controls",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-board-stage-retry.spec.ts",
+      "title": "a failed stage change preserves its reason for retry",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-invitation-handoff.spec.ts",
+      "title": "locker invitation keeps a clear handoff and account registration status",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-invitation-handoff.spec.ts",
+      "title": "board invitation keeps a clear handoff and account registration status",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-operations.spec.ts",
+      "title": "admin checks operations and saves evidence with conflict-safe drafts",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-operations.spec.ts",
+      "title": "operations remains admin-only at navigation, API and page boundaries",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-operations.spec.ts",
+      "title": "operations GET failure can be retried without losing the evidence draft",
+      "log": "remaining-browser.log"
+    },
+    {
+      "file": "z-operations.spec.ts",
+      "title": "recovery evidence cannot be edited while its save is in flight",
+      "log": "remaining-browser.log"
+    }
+  ]
+}

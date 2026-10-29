@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-28T12:53:52.636984+00:00",
+  "temporaryReviewAccessRevoked": true,
+  "temporaryCredentialCopiesRemoved": true,
+  "encryptedRecoveryEvidenceRetained": true,
+  "automaticDomainAssignmentRestored": true,
+  "productionDeploymentId": "dpl_8M7G4rkAZuBRpaYxBnbCdbXRd6bm",
+  "postCleanupChecks": [
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/board-room/project-template",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/costs?id=00000000-0000-4000-8000-000000000001",
+      "status": 401
+    }
+  ]
+}

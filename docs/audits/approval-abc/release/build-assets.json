@@ -1,0 +1,41 @@
+{
+  "deploymentId": "dpl_9jRskUemon5E3Wgk1RS13hr8cUHS",
+  "sourceSha": "8d7cf2a421e17a1780b678a44fc94a86f55a17ae",
+  "heldAssets": [
+    "/_next/static/immutable/chunks/01v-rcp0qbjst.css",
+    "/_next/static/immutable/chunks/01w-jftj0-14x.js",
+    "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+    "/_next/static/immutable/chunks/0m0ea0k8rov1y.js",
+    "/_next/static/immutable/chunks/1jx0q3jgocnjm.js",
+    "/_next/static/immutable/chunks/2-_lmuz2q79_-.js",
+    "/_next/static/immutable/chunks/20frb7xh3x8jm.js",
+    "/_next/static/immutable/chunks/24d6pxpx7t6-_.js",
+    "/_next/static/immutable/chunks/2fl-9jh07aos_.css",
+    "/_next/static/immutable/chunks/33t9pejpzesyu.js",
+    "/_next/static/immutable/chunks/3douyljdx_-l2.js",
+    "/_next/static/immutable/chunks/3rnnfl_uybygh.css",
+    "/_next/static/immutable/chunks/3s-9jwfmurxrn.css",
+    "/_next/static/immutable/chunks/3vm_5q-_sfh1e.js",
+    "/_next/static/immutable/chunks/3wmkl_t0za5ml.js",
+    "/_next/static/immutable/chunks/turbopack-1byz1flvc-bu1.js"
+  ],
+  "publicAssets": [
+    "/_next/static/immutable/chunks/01v-rcp0qbjst.css",
+    "/_next/static/immutable/chunks/01w-jftj0-14x.js",
+    "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+    "/_next/static/immutable/chunks/0m0ea0k8rov1y.js",
+    "/_next/static/immutable/chunks/1jx0q3jgocnjm.js",
+    "/_next/static/immutable/chunks/2-_lmuz2q79_-.js",
+    "/_next/static/immutable/chunks/20frb7xh3x8jm.js",
+    "/_next/static/immutable/chunks/24d6pxpx7t6-_.js",
+    "/_next/static/immutable/chunks/2fl-9jh07aos_.css",
+    "/_next/static/immutable/chunks/33t9pejpzesyu.js",
+    "/_next/static/immutable/chunks/3douyljdx_-l2.js",
+    "/_next/static/immutable/chunks/3rnnfl_uybygh.css",
+    "/_next/static/immutable/chunks/3s-9jwfmurxrn.css",
+    "/_next/static/immutable/chunks/3vm_5q-_sfh1e.js",
+    "/_next/static/immutable/chunks/3wmkl_t0za5ml.js",
+    "/_next/static/immutable/chunks/turbopack-1byz1flvc-bu1.js"
+  ],
+  "exactBuildAssetsMatch": true
+}

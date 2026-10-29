@@ -1,0 +1,32 @@
+# Changed files
+
+- `.github/workflows/quality.yml`
+- `docs/audits/approval-abc/changed-files.md`
+- `docs/audits/approval-abc/evidence/guard-320.png`
+- `docs/audits/approval-abc/evidence/template-1440-light.png`
+- `docs/audits/approval-abc/evidence/template-390-dark.png`
+- `docs/audits/approval-abc/investigations.md`
+- `docs/audits/approval-abc/verification.md`
+- `e2e/room-management.spec.ts`
+- `playwright.approval.config.ts`
+- `playwright.expansion-cross.config.ts`
+- `playwright.expansion.config.ts`
+- `quality/approval-abc.spec.ts`
+- `quality/feature-expansion.spec.ts`
+- `src/app/board-dashboard.css`
+- `src/app/files-workspace.css`
+- `src/components/account-settings.tsx`
+- `src/components/board-room/board-room.tsx`
+- `src/components/board-room/navigation.tsx`
+- `src/components/board-room/project-template-manager.tsx`
+- `src/components/board-room/template-recovery.tsx`
+- `src/components/connected/actions.tsx`
+- `src/components/connected/data.ts`
+- `src/components/room-templates.tsx`
+- `src/components/sidebar-common-links.tsx`
+- `src/components/workspace-home.tsx`
+- `src/components/workspace.tsx`
+- `src/lib/connected/drafts.ts`
+- `src/lib/project-template/model.ts`
+- `tests/connected-transport.test.ts`
+- `tests/template-draft-recovery.test.ts`

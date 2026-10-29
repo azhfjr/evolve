@@ -1,0 +1,3 @@
+RUPTL Code,Asset name,Primary category,Capacity,Capacity unit,Location,Voltage,Project ID
+KAL-EXAMPLE-001,Example power plant,Pembangkit,100,MW,Kalimantan Timur,150 kV,
+KAL-EXAMPLE-002,Example transmission line,Transmisi,75,kms,Kalimantan Selatan,150 kV,

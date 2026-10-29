@@ -1,0 +1,20 @@
+{
+  "sourceSha": "8d7cf2a421e17a1780b678a44fc94a86f55a17ae",
+  "sourceDigest": "d057c365d7e11cecd6975f7183ee6d5168a4a7e20e0b9274de5f0b87fa0ba1cb",
+  "domainPassed": 346,
+  "chromiumExpansionPassed": 22,
+  "firefoxExpansionPassed": 22,
+  "costPassed": 8,
+  "connectedPassed": 14,
+  "regionalPassed": 9,
+  "navigationPassed": 12,
+  "nativeZoomPassed": 1,
+  "types": true,
+  "lint": true,
+  "format": true,
+  "dependencyAdvisories": 0,
+  "webKit": "BLOCKED: missing libGLESv2.so.2",
+  "migrationsRequired": false,
+  "rollbackDeploymentId": "dpl_8M7G4rkAZuBRpaYxBnbCdbXRd6bm",
+  "userDeploymentAuthorized": true
+}

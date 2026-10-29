@@ -1,0 +1,12 @@
+{
+  "dataset": "IDN-ADM1-65028918",
+  "revision": "9469f09",
+  "boundaryYear": 2017,
+  "source": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/IDN/ADM1/geoBoundaries-IDN-ADM1_simplified.geojson",
+  "sourceSHA256": "5a6be3d1484166132751fe535dd164e1491e657f2d38dced177f067a7bc00d8f",
+  "derivedSHA256": "a123d856e531afc1ce4c190dfd5f0a9417e50025d03c67ac282952182755f95a",
+  "license": "Open Database License 1.0",
+  "licenseURL": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution": "\u00a9 OpenStreetMap contributors. Boundaries distributed by geoBoundaries; source: OpenStreetMap / Wambacher.",
+  "transformation": "Extract five provinces by shapeISO; retain source geometry unchanged; retain only code and sourceName properties. No coordinate simplification."
+}

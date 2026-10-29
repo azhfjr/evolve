@@ -1,0 +1,16 @@
+# Board Room and Locker Room feature expansion
+
+Approved source: user's uploaded feature expansion production brief v1.1, 28 October2026. Base ab74db6. Keep the existing identity, schemas and storage contracts; production publication is authorized after verified gates.
+
+## Behavior
+
+- Dedicated Storyline navigation/page uses searchable canonical project selector and URL project identity. Reuse current project timeline, date metadata, pagination, private content and version actions. No dashboard widget; project detail retains the shared timeline and links to the dedicated view.
+- Board Room is the only project financial writer. Reuse grouped option/item editors, exact two-decimal money/six-decimal rate validation and separate unit totals. Store costs in the existing canonical project row; independent cost version prevents metadata edits from invalidating or overwriting financial updates. Preserve all legacy/read-only costs and history; no inferred reassignment to new project identities. Deprecate Locker financial mutation paths and remove input controls.
+- Board Map uses the same regional component and aggregation as Overview, with local/shared filters and synchronized paginated project list. Both show province/category totals for the three canonical categories plus Uncategorized, accessible controls/legend and missing/unrecognized locations. No coordinates invented.
+- Admin Project Template: draft editing, publish immutable revisions, stable unique keys/options, order, guidance, required/active flags. No destructive deletion of previously published identities; deactivate instead. Custom fields are categorical metadata, not replacements for primary project category.
+- Project payload pins templateRevision and preserves customValues. New projects use current published revision. Existing projects advance through explicit preview/confirm sync, preserving all populated/inactive values and leaving new fields unset. Required fields apply to new projects and relevant custom metadata edits; unrelated system-field edits retain legacy unsets. Optimistic versions, transaction locks, preview tokens/idempotency and audit records protect publishing and sync.
+- Shared definitions render create/edit/detail; custom-value IDs validated server-side. CSV/custom metadata exports and applicable filtering/search preserve values and taxonomy. Keep earlier COD guards and Document Date semantics.
+
+## Verification and release
+
+TDD domain/integration for roles, costs/precision/audit, template identity/requirements/publish/sync conflicts/idempotency, retained inactive values, CSV, map count reconciliation and scope. Browser journeys cover Storyline navigation/deep links/isolation, Board cost editing versus Locker read-only, template create/edit/publish/sync, map/category/list interactions and responsive keyboard/accessibility states. Audit known routes and affected dialogs at mobile/tablet/desktop, both themes. Run types/lint/format/dependency/build and appropriate regression suites; independent final review and fix important findings. Rehearse additive migrations/rollback against encrypted backup; verify held build before same-build promotion. Production smoke checks are read-only; no synthetic production files/records. Record actual PASS/FAIL/NOT RUN, limitations and deployment identity.

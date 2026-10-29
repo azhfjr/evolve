@@ -1,0 +1,26 @@
+{
+  "scope": "isolated local production build",
+  "dataset": {
+    "boardProjects": 5000,
+    "lockerTasks": 10000,
+    "lockerProjects": 500,
+    "privateFiles": 1000
+  },
+  "hardware": {
+    "platform": "linux",
+    "logicalCpus": 3,
+    "memoryBytes": 10452471808
+  },
+  "samplesPerAPI": 100,
+  "readConcurrency": 5,
+  "metrics": {
+    "/api/board-room?category=Pembangkit": 137.623155,
+    "/api/tasks?limit=50&open=true": 60.67456099999981,
+    "coldNavigationP95": 1098.939841000003,
+    "filterP95": 519.1845109999995,
+    "detailP95": 243.98265099999844,
+    "lockerFilterP95": 618.4103739999991,
+    "lockerDetailP95": 533.0936599999986
+  },
+  "productionChanged": false
+}

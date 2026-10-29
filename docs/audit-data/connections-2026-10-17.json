@@ -1,0 +1,836 @@
+[
+  {
+    "width": 1440,
+    "name": "overview",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "projects",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "inbox",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "mytasks",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "tasks",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "archive",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "people",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "activity",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "settings-account",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "settings-appearance",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "settings-calendar",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "settings-workspace",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "overview",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "projects",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "inbox",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "mytasks",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "tasks",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "archive",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "people",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "activity",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "settings-account",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "settings-appearance",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "settings-calendar",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "settings-workspace",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "overview",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "projects",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "inbox",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "mytasks",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "tasks",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "archive",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "people",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "activity",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "settings-account",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "settings-appearance",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "settings-calendar",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "settings-workspace",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "overview",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "projects",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "inbox",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "mytasks",
+    "overflow": false,
+    "headerHeight": 153.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "tasks",
+    "overflow": false,
+    "headerHeight": 153.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "archive",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "people",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "activity",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "settings-account",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 648,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "settings-appearance",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 548,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "settings-calendar",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 648,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "settings-workspace",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 648,
+    "inputFont": "14px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "overview",
+    "overflow": false,
+    "headerHeight": 173.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "projects",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "inbox",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "mytasks",
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "tasks",
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "archive",
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "people",
+    "overflow": false,
+    "headerHeight": 173.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "activity",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "settings-account",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFont": "16px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "settings-appearance",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFont": "16px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "settings-calendar",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "settings-workspace",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFont": "16px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "overview",
+    "overflow": false,
+    "headerHeight": 173.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "projects",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "inbox",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "mytasks",
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "tasks",
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "archive",
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "people",
+    "overflow": false,
+    "headerHeight": 173.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "activity",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "settings-account",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFont": "16px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "settings-appearance",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFont": "16px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "settings-calendar",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "settings-workspace",
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFont": "16px",
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "connection-map",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "connection-list",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "name": "connection-dark",
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "connection-map",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "connection-list",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "name": "connection-dark",
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "connection-map",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "connection-list",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 1024,
+    "name": "connection-dark",
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "connection-map",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "connection-list",
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "name": "connection-dark",
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "connection-map",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "connection-list",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "name": "connection-dark",
+    "overflow": false,
+    "headerHeight": 123.171875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "connection-map",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "connection-list",
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  },
+  {
+    "width": 320,
+    "name": "connection-dark",
+    "overflow": false,
+    "headerHeight": 150.359375,
+    "inputFont": null,
+    "violations": [],
+    "pageErrors": []
+  }
+]

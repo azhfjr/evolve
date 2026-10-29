@@ -1,0 +1,662 @@
+/* Proportional navigation and settings, using the existing workspace tokens. */
+:root {
+  --workspace-sidebar-width: clamp(248px, 18vw, 272px);
+  --workspace-sidebar-collapsed: 76px;
+  --workspace-tablet-rail: 72px;
+  --workspace-navigation-drawer: 320px;
+}
+.app-shell {
+  --sidebar-width: var(--workspace-sidebar-width);
+}
+.sidebar {
+  padding-inline: 12px;
+  transition:
+    width 180ms ease,
+    transform 180ms ease;
+}
+.main-shell {
+  transition: margin-left 180ms ease;
+}
+.sidebar-brand {
+  min-height: 76px;
+  padding: 15px 2px;
+}
+.sidebar .brand-word strong {
+  font-size: 23px;
+}
+.sidebar .brand-word small {
+  font-size: var(--text-small);
+  letter-spacing: 0.01em;
+}
+.sidebar .workspace-picker {
+  min-height: 64px;
+  padding: 10px 8px;
+}
+.sidebar .workspace-picker > span:nth-child(2),
+.profile-button > span:not(.avatar) {
+  flex: 1;
+  min-width: 0;
+}
+.sidebar .workspace-picker strong,
+.sidebar .profile-button strong,
+.sidebar .nav-item > span:first-of-type {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+.sidebar .workspace-picker small {
+  white-space: normal;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--text-small);
+}
+.sidebar .nav-item {
+  min-height: 40px;
+  padding: 9px 10px;
+  gap: 10px;
+  font-size: var(--text-body);
+}
+.sidebar .nav-item > :is(svg, i) {
+  flex-shrink: 0;
+}
+.sidebar .nav-item > span:first-of-type {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+.sidebar .project-nav-count {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.sidebar .project-dot {
+  font-size: 0;
+  font-style: normal;
+}
+.sidebar-search {
+  gap: 8px;
+  padding: 9px 10px;
+}
+.sidebar-search > span {
+  min-width: 0;
+  flex: 1;
+  text-align: left;
+}
+.sidebar-search kbd {
+  margin: 0;
+  white-space: nowrap;
+  font-size: var(--text-small);
+  padding: 2px 4px;
+}
+.sidebar-utility button {
+  min-height: 36px;
+  font-size: var(--text-body);
+}
+.sidebar .profile-button {
+  padding: 10px 2px;
+  gap: 9px;
+}
+.sidebar .profile-button strong {
+  font-size: var(--text-body);
+}
+.sidebar .profile-button small {
+  font-size: var(--text-small);
+}
+.sidebar-hint {
+  position: fixed;
+  z-index: 100;
+  max-width: min(260px, calc(100vw - 110px));
+  padding: 9px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  animation: sidebar-hint-enter 120ms ease-out;
+}
+@keyframes sidebar-hint-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (min-width: 1101px) {
+  .sidebar-collapsed .sidebar {
+    width: 76px;
+    padding-inline: 10px;
+  }
+  .sidebar-collapsed .main-shell {
+    margin-left: 76px;
+  }
+  .sidebar-collapsed .sidebar-brand {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 4px;
+    min-height: 88px;
+    padding: 10px 0 6px;
+    justify-content: center;
+  }
+  .sidebar-collapsed .sidebar-brand .sidebar-collapse {
+    position: static;
+    margin: 0;
+    width: 36px;
+    height: 32px;
+    min-height: 32px;
+  }
+  .sidebar-collapsed .sidebar .brand {
+    justify-content: center;
+  }
+  .sidebar-collapsed .sidebar .brand > span:first-child {
+    width: 30px;
+    height: 30px;
+  }
+  .sidebar-collapsed .workspace-picker,
+  .sidebar-collapsed .sidebar-search,
+  .sidebar-collapsed .nav-item,
+  .sidebar-collapsed .profile-button {
+    width: 44px;
+    min-height: 40px;
+    margin: 3px auto;
+    padding: 6px;
+    border-radius: 9px;
+  }
+  .sidebar-collapsed .workspace-picker {
+    min-height: 44px;
+    border-color: transparent;
+    background: transparent;
+  }
+  .sidebar-collapsed .workspace-avatar {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    font-size: var(--text-small);
+  }
+  .sidebar-collapsed .sidebar .nav-item {
+    position: relative;
+    min-height: 40px;
+  }
+  .sidebar-collapsed .sidebar .project-dot {
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 650;
+    color: var(--text);
+  }
+  .sidebar-collapsed .sidebar .nav-item > span {
+    display: none;
+  }
+  .sidebar-collapsed .sidebar-nav-items {
+    padding-block: 5px 8px;
+  }
+  .sidebar-collapsed .sidebar-scroll-control {
+    display: none;
+  }
+  .sidebar-collapsed .sidebar-utility {
+    display: grid;
+    gap: 2px;
+    justify-items: center;
+    padding: 5px 0;
+  }
+  .sidebar-collapsed .sidebar-utility button {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    min-height: 34px;
+    padding: 6px;
+  }
+  .sidebar-collapsed .sidebar-utility button > span {
+    display: none;
+  }
+  .sidebar-collapsed .sidebar-scroll-area::before,
+  .sidebar-collapsed .sidebar-scroll-area::after {
+    height: 12px;
+  }
+}
+.app-shell .workspace-main[data-page="settings"] {
+  max-width: 1080px;
+}
+.account-settings {
+  grid-template-columns: 164px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.settings-navigation {
+  top: 84px;
+  gap: 4px;
+}
+.settings-navigation button {
+  min-height: 38px;
+  padding: 9px 11px;
+  font-size: var(--text-body);
+  line-height: 1.4;
+  gap: 8px;
+}
+.settings-detail {
+  padding: 22px;
+  border-radius: 12px;
+}
+.settings-detail > header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.settings-detail > header .eyebrow {
+  font-size: var(--text-small);
+  letter-spacing: 0.1em;
+}
+.settings-detail > header h2 {
+  font-size: 19px;
+  line-height: 1.4;
+  margin: 5px 0 7px;
+  letter-spacing: -0.35px;
+}
+.settings-detail > header p {
+  font-size: var(--text-body);
+  line-height: 1.65;
+  max-width: 70ch;
+}
+.settings-detail > .standard-form,
+.settings-detail > .calendar-settings {
+  max-width: 660px;
+}
+.settings-detail .standard-form {
+  gap: 16px;
+}
+.settings-detail .standard-form label {
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1.5;
+  min-width: 0;
+}
+.settings-detail
+  .standard-form
+  :is(input:not([type="checkbox"]):not([type="radio"]), textarea, .app-select) {
+  font-size: 14px;
+  min-height: 38px;
+  border-radius: 8px;
+}
+.settings-detail .standard-form textarea {
+  line-height: 1.65;
+}
+.settings-detail :is(.field-help, small) {
+  font-size: var(--text-small);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.settings-detail :is(.preference-checks, .appearance-options) {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 9px;
+  padding: 12px;
+  gap: 10px;
+}
+.settings-detail .appearance-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.settings-detail .appearance-options label {
+  padding: 12px 8px;
+  min-height: 44px;
+  font-size: var(--text-body);
+}
+.settings-detail .preference-checks label,
+.settings-detail .checkbox-line {
+  display: flex;
+  align-items: start;
+  gap: 9px;
+  font-weight: 400;
+}
+.settings-detail input:is([type="checkbox"], [type="radio"]) {
+  width: 16px;
+  height: 16px;
+  min-height: 0;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+.settings-detail .image-upload-row {
+  gap: 12px;
+  padding-bottom: 4px;
+}
+.settings-detail .profile-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 11px;
+}
+.settings-detail .workspace-controls section {
+  padding-block: 18px;
+}
+.settings-detail .workspace-controls h3 {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.settings-detail .workspace-controls .form-grid {
+  gap: 14px;
+}
+.settings-detail .working-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 0 0;
+}
+.settings-detail .working-days label {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-small);
+  padding: 6px;
+}
+.settings-detail .form-actions {
+  padding-top: 14px;
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
+  gap: 8px;
+}
+.settings-detail .button {
+  font-size: var(--text-body);
+  min-height: 38px;
+  padding: 8px 12px;
+}
+.settings-utilities {
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.settings-utilities h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.settings-utilities p {
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+.settings-detail .integration-identity {
+  padding: 14px;
+  border-radius: 9px;
+  gap: 12px;
+}
+.settings-detail .integration-identity > svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+.settings-detail .integration-identity > div {
+  min-width: 0;
+}
+.settings-detail .integration-identity h3 {
+  font-size: 15px;
+}
+.settings-detail .integration-identity p {
+  font-size: var(--text-small);
+  overflow-wrap: anywhere;
+}
+.settings-detail .calendar-settings > p {
+  font-size: var(--text-body);
+  line-height: 1.7;
+}
+.settings-detail .calendar-settings :is(.info-box, .connection-status) {
+  font-size: var(--text-small);
+  padding: 12px;
+  line-height: 1.6;
+}
+.settings-detail .calendar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.settings-detail .file-storage-summary strong {
+  font-size: var(--text-body);
+}
+.settings-detail .file-storage-summary p {
+  font-size: var(--text-small);
+}
+.settings-detail .file-selection-bar {
+  gap: 8px;
+}
+.activity-selection-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-small);
+  color: var(--muted);
+  background: var(--bg);
+}
+.activity-selection-bar label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.activity-selection-bar > .button {
+  margin-left: auto;
+}
+.activity-management input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  min-height: 0;
+  accent-color: var(--accent);
+}
+.activity-management .activity-row[data-manageable="true"] {
+  grid-template-columns: 20px 32px minmax(0, 1fr) 32px;
+  gap: 10px;
+}
+.activity-row[data-selected="true"] {
+  background: var(--soft);
+}
+.activity-management .activity-row > input {
+  margin-top: 5px;
+}
+.activity-management .activity-row > .activity-delete {
+  width: 32px;
+  min-height: 32px;
+  height: 32px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+.activity-management .activity-row p {
+  font-size: var(--text-body);
+}
+.activity-management .activity-meta :is(time, small) {
+  font-size: var(--text-small);
+}
+.activity-delete-preview {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.activity-delete-preview li {
+  font-size: var(--text-body);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.modal .modal-heading h2 {
+  font-size: 19px;
+  line-height: 1.4;
+}
+.modal .modal-description {
+  font-size: var(--text-body);
+  line-height: 1.65;
+  max-width: 70ch;
+}
+.search-dialog .search-scope {
+  font-size: var(--text-small);
+  gap: 8px;
+}
+.search-dialog .search-modal-input {
+  padding-block: 10px;
+}
+.search-dialog .search-modal-input input {
+  font-size: 16px;
+}
+.search-dialog .search-results {
+  max-height: min(340px, 42dvh);
+  overflow-y: auto;
+}
+.search-dialog .search-results button {
+  padding-block: 12px;
+  font-size: 14px;
+}
+.search-dialog .search-results button > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 960px) {
+  .account-settings {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .account-settings .settings-navigation {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    position: static;
+    gap: 4px;
+    padding: 2px;
+    max-width: 100%;
+    overflow: visible;
+  }
+  .account-settings .settings-navigation button {
+    justify-content: center;
+    padding: 9px 6px;
+    flex-direction: column;
+    gap: 5px;
+    font-size: var(--text-small);
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    min-width: 0;
+  }
+}
+@media (max-width: 640px) {
+  .sidebar {
+    width: min(320px, calc(100vw - 20px));
+  }
+  .account-settings {
+    display: grid;
+  }
+  .settings-detail {
+    padding: 16px;
+  }
+  .settings-detail > header {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+  .settings-detail > header h2 {
+    font-size: 18px;
+  }
+  .settings-detail > header p {
+    font-size: var(--text-small);
+  }
+  .settings-detail
+    .standard-form
+    :is(
+      input:not([type="checkbox"]):not([type="radio"]),
+      textarea,
+      .app-select
+    ) {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .settings-detail .button {
+    min-height: 44px;
+    white-space: normal;
+  }
+  .settings-detail .appearance-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .settings-detail .appearance-options label {
+    padding: 12px;
+  }
+  .settings-detail .form-actions > .button {
+    flex: 1;
+  }
+  .settings-detail .integration-identity {
+    flex-wrap: wrap;
+  }
+  .settings-detail .integration-identity .pill {
+    margin-left: 38px;
+  }
+  .settings-utilities {
+    padding: 16px;
+  }
+  .activity-selection-bar {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .activity-management .activity-row[data-manageable="true"] {
+    grid-template-columns: 18px minmax(0, 1fr) 36px;
+    gap: 9px;
+    padding: 12px;
+  }
+  .activity-management .activity-row[data-manageable="true"] > .avatar {
+    display: none;
+  }
+  .activity-management .activity-row > .activity-delete {
+    width: 36px;
+    height: 44px;
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .main-shell {
+    transition: none !important;
+  }
+  .sidebar-hint {
+    animation: none;
+  }
+}
+html:has(.app-shell[data-reduce-motion="true"]) :is(.sidebar, .main-shell) {
+  transition: none !important;
+}
+html:has(.app-shell[data-reduce-motion="true"]) .sidebar-hint {
+  animation: none;
+}
+.surface-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 240px;
+  font-size: var(--text-body);
+  color: var(--muted);
+}
+@media (max-width: 480px) {
+  .account-settings .settings-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .account-settings .settings-navigation button {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 40px;
+    padding: 9px;
+    font-size: var(--text-small);
+  }
+  .account-settings .settings-navigation button:last-child:nth-child(odd) {
+    grid-column: 1/-1;
+  }
+}

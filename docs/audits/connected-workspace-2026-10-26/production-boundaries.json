@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-26T20:18:48.183112+07:00",
+  "target": "existing production, unchanged",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "body": {
+        "status": "ready",
+        "database": "connected",
+        "schema": "current",
+        "authentication": "configured"
+      }
+    },
+    {
+      "path": "/api/workspace",
+      "status": 401,
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/board-room",
+      "status": 401,
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    }
+  ]
+}

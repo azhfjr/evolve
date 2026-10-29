@@ -1,0 +1,78 @@
+{
+  "at": "2026-10-28T08:25:23.100816+00:00",
+  "implementationCommit": "50fc13cd09fc6bf5fd6feafa5aeef2ee7567e4c7",
+  "domainPassed": 328,
+  "browserSuites": {
+    "full-browser": {
+      "passed": 306,
+      "log": "full-browser.log"
+    },
+    "browser": {
+      "passed": 7,
+      "log": "browser.log"
+    },
+    "cross": {
+      "passed": 12,
+      "log": "cross.log"
+    },
+    "connected": {
+      "passed": 14,
+      "log": "connected.log"
+    },
+    "version-cross": {
+      "passed": 2,
+      "log": "version-cross.log"
+    },
+    "regional": {
+      "passed": 9,
+      "log": "regional.log"
+    },
+    "routes": {
+      "passed": 3,
+      "log": "routes.log"
+    }
+  },
+  "crossBrowserSkipped": 2,
+  "skipReason": "Native zoom uses Chromium extension API; actual 200 percent zoom passed in Chromium for both apps.",
+  "types": "passed",
+  "lint": "passed",
+  "format": "passed",
+  "productionBuild": "passed",
+  "dependencyAdvisories": 0,
+  "independentReview": {
+    "range": "251e903..ca47d8e",
+    "critical": 0,
+    "important": 0,
+    "minor": 1,
+    "followUpFixes": "Failing-then-passing regression tests and relevant suites."
+  },
+  "productionStatus": "production_verified_read_only_smoke",
+  "limitations": [
+    "One deferred focus-return fallback after remote row removal",
+    "Google consent completion and external Calendar writes not performed",
+    "Production smoke checks were read-only"
+  ],
+  "deployment": {
+    "id": "dpl_HEug9h7EGT5XBUd5R3H5xrCBzWSo",
+    "sourceSha": "49befd13bd5a8682c010e28f6bce4966428fb210",
+    "sourceDigest": "a334b6db3051cb0d524780da7ae119acad88895d3799afa5dfa3b78b2ed73445",
+    "url": "https://evolve-rensist.vercel.app",
+    "rollbackDeploymentId": "dpl_33A7Uf61RggcjcQvwMda55vB9JgD",
+    "heldChecks": 15,
+    "productionChecks": 15,
+    "reviewAccessRevoked": true,
+    "automaticDomainAssignmentRestored": true
+  },
+  "runtimeLogAccess": {
+    "runtimeLogs": "403 forbidden",
+    "runtimeErrors": "403 forbidden",
+    "cli": "not installed",
+    "applicationHealthVerifiedSeparately": true
+  },
+  "finalDomainRecheck": {
+    "passed": 328,
+    "failed": 0,
+    "afterFinalApplicationChanges": true
+  },
+  "applicationSourceUnchangedSinceHeldBuild": true
+}

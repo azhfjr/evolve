@@ -1,0 +1,231 @@
+name: Quality
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: evolve
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: evolve
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U evolve -d evolve"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://evolve:local-ci-fixture-only@127.0.0.1:5432/evolve
+      BETTER_AUTH_SECRET: ci-tests-only-not-for-production-7f08eaf46c601a7a
+      ADMIN_EMAIL: jarjirjor777@gmail.com
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:db:prepare
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run test:e2e
+      - run: npm audit --omit=dev --audit-level=moderate
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-test-results
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
+  cross-browser:
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [firefox, webkit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: evolve
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: evolve
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U evolve -d evolve"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://evolve:local-ci-fixture-only@127.0.0.1:5432/evolve
+      BETTER_AUTH_SECRET: ci-tests-only-not-for-production-7f08eaf46c601a7a
+      ADMIN_EMAIL: jarjirjor777@gmail.com
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - run: npm run test:db:prepare
+      - run: npm run quality:cross -- --project=${{ matrix.browser }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: critical-${{ matrix.browser }}
+          path: |
+            playwright-report/cross-browser/
+            test-results/cross-browser/
+          retention-days: 14
+  scale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: evolve
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: evolve
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U evolve -d evolve"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://evolve:local-ci-fixture-only@127.0.0.1:5432/evolve
+      BETTER_AUTH_SECRET: ci-tests-only-not-for-production-7f08eaf46c601a7a
+      ADMIN_EMAIL: jarjirjor777@gmail.com
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run quality:scale
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: synthetic-scale-results
+          path: .data/scale-results.json
+          retention-days: 14
+  connected-regressions:
+    name: ${{ matrix.suite }} / ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [expansion, costs, connected, regional]
+        browser: [chromium, firefox, webkit]
+        include:
+          - suite: expansion
+            config: playwright.expansion.config.ts
+            cross: playwright.expansion-cross.config.ts
+          - suite: costs
+            config: playwright.board-costs.config.ts
+            cross: playwright.board-costs-cross.config.ts
+          - suite: connected
+            config: playwright.connected.config.ts
+            cross: playwright.connected-cross.config.ts
+          - suite: regional
+            config: playwright.regional.config.ts
+            cross: playwright.regional-cross.config.ts
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: evolve
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: evolve
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U evolve -d evolve"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://evolve:local-ci-fixture-only@127.0.0.1:5432/evolve
+      BETTER_AUTH_SECRET: ci-tests-only-not-for-production-7f08eaf46c601a7a
+      ADMIN_EMAIL: jarjirjor777@gmail.com
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - run: npm run test:db:prepare
+      - if: matrix.browser == 'chromium'
+        run: npx playwright test --config ${{ matrix.config }}
+      - if: matrix.browser != 'chromium'
+        run: npx playwright test --config ${{ matrix.cross }} --project=${{ matrix.browser }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: connected-${{ matrix.suite }}-${{ matrix.browser }}
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
+
+  canonical-scale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: evolve
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: evolve
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U evolve -d evolve"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://evolve:local-ci-fixture-only@127.0.0.1:5432/evolve
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npx tsx scripts/prepare-connected-scale.ts
+      - run: npx playwright test --config playwright.connected-scale.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: canonical-scale-results
+          path: |
+            test-results/connected-scale-evidence.json
+            test-results/connected-scale-query-plans.json
+            test-results/connected-scale/
+          retention-days: 14

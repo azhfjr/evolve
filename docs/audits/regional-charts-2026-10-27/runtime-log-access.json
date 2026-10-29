@@ -1,0 +1,9 @@
+{
+  "operation": "Vercel get_runtime_logs",
+  "deploymentId": "dpl_33A7Uf61RggcjcQvwMda55vB9JgD",
+  "status": 403,
+  "result": "forbidden",
+  "cliAvailable": false,
+  "applicationHealth": "ready (live production health check)",
+  "limitation": "Provider runtime-log scan unavailable; no claim of error-free platform logs."
+}

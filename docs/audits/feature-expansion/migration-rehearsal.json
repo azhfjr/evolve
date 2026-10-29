@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-28T11:56:33.638Z",
+  "restoredTables": 47,
+  "restoreHashesReconciled": true,
+  "migrationHashesReconciled": true,
+  "migrations": [
+    "0040_board_costs_and_project_templates.sql",
+    "0041_preserve_project_template_metadata.sql"
+  ],
+  "existingRowsPreserved": true,
+  "fileContentsChanged": false,
+  "restoreMilliseconds": 818
+}

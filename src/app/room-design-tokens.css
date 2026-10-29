@@ -1,0 +1,209 @@
+/* Balanced portfolio palette and shared type roles. */
+:root {
+  --chart-generation: #49795c;
+  --chart-transmission: #7d68bd;
+  --chart-substation: #b77740;
+  --chart-valid: var(--accent);
+  --chart-review: #b77740;
+  --chart-neutral: #87949c;
+}
+html[data-theme="dark"] {
+  --chart-generation: #86c49c;
+  --chart-transmission: #b9a4ed;
+  --chart-substation: #e4b47b;
+  --chart-review: #e4b47b;
+  --chart-neutral: #9aadb7;
+}
+/* One visual contract across task management, project monitoring and portals. */
+:root,
+.app-shell,
+.br,
+.br-modal,
+.room-switch-dialog {
+  --interaction-bg: color-mix(in srgb, var(--accent) 9%, var(--surface));
+  --interaction-hover: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --on-accent: #fff;
+}
+html[data-theme="dark"] {
+  --on-accent: #102c23;
+}
+html[data-theme="dark"] :is(.app-shell, .br, .br-modal, .room-switch-dialog) {
+  --on-accent: #102c23;
+}
+:is(.sidebar, .br-brand) .brand {
+  color: var(--text);
+  font-family: var(--font);
+  letter-spacing: normal;
+}
+:is(.sidebar, .br-brand) .brand-word strong {
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  color: var(--text);
+}
+:is(.sidebar, .br-brand) .brand-word .brand-tagline {
+  font-size: var(--text-small);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  color: var(--muted);
+}
+:is(.sidebar, .br-brand) .brand-mark {
+  width: 30px;
+  height: 30px;
+}
+:is(.app-shell .workspace-main, .br .br-content) {
+  padding: 24px;
+}
+.nav-item:hover,
+.select-option[data-highlighted],
+.dropdown-menu [role="menuitem"][data-highlighted],
+.dropdown-menu [role="menuitemradio"][data-highlighted] {
+  background: var(--interaction-hover);
+  color: var(--text);
+}
+html[data-theme="dark"] .nav-item:hover {
+  background: var(--interaction-hover);
+}
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--text);
+}
+@media (max-width: 1100px) {
+  :is(.app-shell .workspace-main, .br .br-content) {
+    padding: 18px;
+  }
+}
+@media (max-width: 640px) {
+  :is(.app-shell .workspace-main, .br .br-content) {
+    padding: 16px;
+  }
+}
+
+:is(.sidebar, .br-sidebar) .profile-button strong {
+  font-size: var(--text-label);
+}
+:is(.sidebar, .br-sidebar) .profile-button small,
+.room-switcher small {
+  font-size: var(--text-small);
+}
+
+:is(.sidebar, .br-sidebar) .workspace-picker small {
+  font-size: var(--text-small);
+}
+:is(.sidebar, .br-sidebar) .nav-item.active,
+html[data-theme="dark"] :is(.sidebar, .br-sidebar) .nav-item.active {
+  background: var(--interaction-bg);
+  color: var(--accent);
+  box-shadow: inset 3px 0 var(--accent);
+}
+:is(.sidebar, .br-sidebar) .nav-item.active svg {
+  color: var(--accent);
+}
+
+/* Change theme colors atomically; preserve motion that explains layout/focus. */
+html
+  :is(.app-shell, .super-app, .br, .br-modal, .room-switch-dialog)
+  :is(button, a, input, select, textarea) {
+  transition-property: border-color, box-shadow, transform, opacity;
+}
+
+/* Charts use one readable hierarchy; labels never shrink to fit the plot. */
+.overview-dashboard :is(.overview-bar-heading, .status-breakdown button),
+.br :is(.br-chart-bar > span, .br-mix-row, .br-stage-counts span) {
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+.overview-dashboard
+  :is(
+    .overview-bar-row small,
+    .overview-data,
+    .overview-schedule-day time,
+    .overview-schedule-figure figcaption,
+    .overview-empty
+  ),
+.br :is(.br-chart-bar small, .br-chart-body .br-note, .br-stage-counts small) {
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+.overview-dashboard .overview-schedule-day strong,
+.br .br-mix-row > b {
+  font-size: var(--text-body);
+  font-variant-numeric: tabular-nums;
+}
+.br .br-stage-counts {
+  grid-template-columns: repeat(10, minmax(136px, 1fr));
+  align-items: stretch;
+}
+.br .br-stage-counts > button {
+  padding: 14px 12px;
+  min-width: 0;
+}
+.br .br-stage-counts span {
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+.br .br-stage-counts strong {
+  font: 650 24px/1.3 var(--font);
+  font-variant-numeric: tabular-nums;
+}
+.br .br-chart-bar > span {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.br .br-chart-bar small {
+  white-space: nowrap;
+}
+.br .br-mix-row {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto auto;
+  gap: 10px;
+}
+.br .br-mix-row > span {
+  overflow-wrap: anywhere;
+}
+.room-template-grid {
+  margin-top: 0;
+}
+.room-template-grid > section {
+  min-width: 0;
+}
+.room-template-grid button {
+  align-self: flex-start;
+}
+
+@media (min-width: 651px) and (max-width: 1100px) {
+  .overview-dashboard .overview-schedule-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+/* Shared settings compose exactly the same way inside either room. */
+.account-settings {
+  line-height: 1.55;
+}
+.br .shared-management-panel .search-field input {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  min-height: 0;
+}
+.br-scope-detail {
+  grid-column: 1 / -1;
+}
+.br-scope-detail b {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.br-table-scroll .br-scope-cell {
+  min-width: 180px;
+  max-width: 320px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.br-table-scroll .br-voltage-cell {
+  min-width: 110px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

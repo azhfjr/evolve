@@ -1,0 +1,1154 @@
+[
+  {
+    "name": "overview",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "projects",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "inbox",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "mytasks",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "tasks",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "archive",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "people",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "activity",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "activityRowHeight": 74.6875,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-account",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-appearance",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-calendar",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-workspace",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-map",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-list",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-dark-large",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["15px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-attachments",
+    "width": 1440,
+    "overflow": false,
+    "inputFonts": ["20px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-dark-large",
+    "width": 1440,
+    "overflow": false,
+    "inputFonts": ["20px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor-dark-large",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-detail",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 95.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "expense-dialog",
+    "width": 1440,
+    "overflow": false,
+    "headerHeight": 95.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "overview",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "projects",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "inbox",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "mytasks",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "tasks",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "archive",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "people",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "activity",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "activityRowHeight": 74.6875,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-account",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-appearance",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-calendar",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-workspace",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 798,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-map",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-list",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-dark-large",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["15px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-attachments",
+    "width": 1280,
+    "overflow": false,
+    "inputFonts": ["20px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-dark-large",
+    "width": 1280,
+    "overflow": false,
+    "inputFonts": ["20px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor-dark-large",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-detail",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 95.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "expense-dialog",
+    "width": 1280,
+    "overflow": false,
+    "headerHeight": 95.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "overview",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "projects",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "inbox",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "mytasks",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "tasks",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "archive",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "people",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "activity",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "activityRowHeight": 74.6875,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-account",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-appearance",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-calendar",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-workspace",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 730,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-map",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-list",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-dark-large",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["15px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-attachments",
+    "width": 1024,
+    "overflow": false,
+    "inputFonts": ["20px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-dark-large",
+    "width": 1024,
+    "overflow": false,
+    "inputFonts": ["20px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor-dark-large",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-detail",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 125.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "expense-dialog",
+    "width": 1024,
+    "overflow": false,
+    "headerHeight": 125.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "overview",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "projects",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "inbox",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "mytasks",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 153.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "tasks",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 153.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "archive",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "people",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "activity",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "activityRowHeight": 74.6875,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-account",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 648,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-appearance",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 544,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-calendar",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 648,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-workspace",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "settingsWidth": 648,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-map",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-list",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["12px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-dark-large",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["15px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-attachments",
+    "width": 768,
+    "overflow": false,
+    "inputFonts": ["20px", "14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-dark-large",
+    "width": 768,
+    "overflow": false,
+    "inputFonts": ["20px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 93.078125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor-dark-large",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 99.484375,
+    "inputFonts": ["18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-detail",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 155.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "expense-dialog",
+    "width": 768,
+    "overflow": false,
+    "headerHeight": 155.578125,
+    "inputFonts": ["14px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "overview",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 173.96875,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "projects",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "inbox",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "mytasks",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "tasks",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "archive",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "people",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "activity",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "activityRowHeight": 118.0625,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-account",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-appearance",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-calendar",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-workspace",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 358,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-map",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["12px", "16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-list",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["12px", "16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-dark-large",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 123.171875,
+    "inputFonts": ["15px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-attachments",
+    "width": 390,
+    "overflow": false,
+    "inputFonts": ["20px", "16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-dark-large",
+    "width": 390,
+    "overflow": false,
+    "inputFonts": ["20px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor-dark-large",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 123.171875,
+    "inputFonts": ["18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-detail",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 181.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "expense-dialog",
+    "width": 390,
+    "overflow": false,
+    "headerHeight": 181.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "overview",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 173.96875,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "projects",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "inbox",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "mytasks",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "tasks",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "archive",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "people",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 151.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "activity",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "activityRowHeight": 118.0625,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-account",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-appearance",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-calendar",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFonts": [],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "settings-workspace",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 89.578125,
+    "settingsWidth": 288,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-map",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["12px", "16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-list",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["12px", "16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "connection-dark-large",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 150.359375,
+    "inputFonts": ["15px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-attachments",
+    "width": 320,
+    "overflow": false,
+    "inputFonts": ["20px", "16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "task-dark-large",
+    "width": 320,
+    "overflow": false,
+    "inputFonts": ["20px", "18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 111.96875,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-editor-dark-large",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 150.359375,
+    "inputFonts": ["18px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "cost-detail",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 233.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  },
+  {
+    "name": "expense-dialog",
+    "width": 320,
+    "overflow": false,
+    "headerHeight": 233.578125,
+    "inputFonts": ["16px"],
+    "pageErrors": [],
+    "violations": []
+  }
+]

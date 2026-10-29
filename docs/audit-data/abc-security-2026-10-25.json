@@ -1,0 +1,18 @@
+{
+  "policy": "blocking; no exception or SDK downgrade",
+  "counts": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 4,
+    "critical": 0,
+    "total": 4
+  },
+  "advisories": ["https://github.com/advisories/GHSA-mrhx-c7xc-m3w5"],
+  "affectedPackages": [
+    "@vercel/blob",
+    "@vercel/cli-config",
+    "@vercel/oidc",
+    "zod"
+  ]
+}

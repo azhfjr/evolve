@@ -1,0 +1,98 @@
+{
+  "applicationSource": "baa2d0efdc935367d8aafe3ace3859a6ecdfa232",
+  "applicationCodeUnchangedSince": "f0d225e",
+  "heldDeployment": "dpl_33A7Uf61RggcjcQvwMda55vB9JgD",
+  "domain": {
+    "passed": 320,
+    "failed": 0
+  },
+  "fullChromium": {
+    "passed": 305,
+    "supersededContractFailures": 1,
+    "correctedContractRetestPassed": 1,
+    "note": "Old assertion required ignoring saved text preferences; current approved contract respects them. Corrected actual browser journey passes."
+  },
+  "dashboard": {
+    "passed": 10
+  },
+  "connectedChromium": {
+    "passed": 14
+  },
+  "criticalFirefoxWebKit": {
+    "passed": 8
+  },
+  "connectedFirefoxWebKit": {
+    "passed": 28
+  },
+  "regionalChromium": {
+    "passed": 9
+  },
+  "regionalFirefoxWebKit": {
+    "passed": 17,
+    "supersededRouteHarnessFailures": 1
+  },
+  "finalIsolatedRouteAudit": {
+    "passed": 3,
+    "failed": 0,
+    "browsers": ["Chromium", "Firefox", "WebKit"],
+    "principalRouteEntries": 32,
+    "widths": [390, 1440],
+    "themes": ["light", "dark"],
+    "fontScale": "large",
+    "note": "Every application page error asserted before closing each isolated route page. Navigation separately verified."
+  },
+  "responsiveMatrix": {
+    "widths": [320, 390, 768, 1024, 1440, 1920],
+    "apps": ["Board Room", "Locker Room"],
+    "themes": ["light", "dark"],
+    "fontScales": ["standard", "large"],
+    "reducedMotion": true
+  },
+  "nativeZoom": {
+    "checks": [
+      {
+        "route": "/board-room",
+        "zoom": 2,
+        "width": 720,
+        "scroll": 720,
+        "ratio": 2
+      },
+      {
+        "route": "/app",
+        "zoom": 2,
+        "width": 720,
+        "scroll": 720,
+        "ratio": 2
+      }
+    ],
+    "success": true
+  },
+  "scale": {
+    "fixture": {
+      "projects": 1000,
+      "assets": 10000,
+      "tasks": 20000
+    },
+    "p95RangeMs": [17.923988000002282, 194.99413400000049],
+    "pagination": {
+      "projects": 1000,
+      "assets": 10000,
+      "tasks": 20000,
+      "renderedNodes": 173
+    },
+    "environment": {
+      "cpus": 3,
+      "memoryGB": 10
+    }
+  },
+  "heldChecks": 11,
+  "dependencyAdvisories": 0,
+  "productionStatus": "production verified: health/access/static assets; signed-in workflows verified in disposable environment",
+  "temporaryAccessRevoked": true,
+  "runtimeLogs": "403 forbidden on final deployment; CLI unavailable",
+  "productionSyntheticData": false,
+  "productionDeployment": "dpl_33A7Uf61RggcjcQvwMda55vB9JgD",
+  "productionURL": "https://evolve-rensist.vercel.app",
+  "rollbackDeployment": "dpl_2Fd3rdfaXKHLrBxe37refYhKyoSS",
+  "productionChecks": 11
+}

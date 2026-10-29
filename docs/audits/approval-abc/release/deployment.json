@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-29T00:59:57.262415+07:00",
+  "url": "https://evolve-rensist.vercel.app",
+  "deploymentId": "dpl_9jRskUemon5E3Wgk1RS13hr8cUHS",
+  "deploymentURL": "https://evolve-g63cbmc2w-jarjirjor777-5316.vercel.app",
+  "target": "production",
+  "state": "READY",
+  "sourceSha": "8d7cf2a421e17a1780b678a44fc94a86f55a17ae",
+  "sourceDigest": "d057c365d7e11cecd6975f7183ee6d5168a4a7e20e0b9274de5f0b87fa0ba1cb",
+  "rollbackDeploymentId": "dpl_8M7G4rkAZuBRpaYxBnbCdbXRd6bm",
+  "heldChecks": 23,
+  "publicChecksAfterCleanup": 23,
+  "matchingBuildAssets": 16,
+  "runtimeErrorScan": {
+    "status": "BLOCKED",
+    "httpStatus": 403
+  },
+  "signedInProductionMutationJourneys": "NOT RUN",
+  "databaseMigrations": false
+}

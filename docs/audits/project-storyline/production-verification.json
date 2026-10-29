@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-28T08:39:58.560Z",
+  "origin": "https://evolve-rensist.vercel.app",
+  "deploymentId": "dpl_HEug9h7EGT5XBUd5R3H5xrCBzWSo",
+  "sourceSha": "49befd13bd5a8682c010e28f6bce4966428fb210",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/board-room",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/assets",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/connections",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/storyline?id=00000000-0000-4000-8000-000000000001",
+      "status": 401
+    },
+    {
+      "path": "/api/attachments/00000000-0000-4000-8000-000000000001/metadata",
+      "status": 401
+    },
+    {
+      "path": "/api/attachments/manage",
+      "status": 401
+    },
+    {
+      "path": "/api/workspace",
+      "status": 401
+    },
+    {
+      "path": "/api/workspace/search?q=project",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/meetings",
+      "status": 404
+    },
+    {
+      "path": "/geodata/kalimantan-provinces.json",
+      "status": 200
+    },
+    {
+      "path": "/geodata/provenance.json",
+      "status": 200
+    },
+    {
+      "path": "/board-room",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/app",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/workspace",
+      "status": 200,
+      "signInBoundaryVisible": true
+    }
+  ],
+  "browserErrors": [],
+  "syntheticRecords": false,
+  "syntheticFiles": false,
+  "signedInProductionJourneys": false,
+  "success": true
+}

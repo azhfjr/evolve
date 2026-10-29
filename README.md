@@ -10,7 +10,7 @@
 
 The existing Vercel project **evolve** is connected to this repository, with **main** as its production branch. Git-triggered builds are enabled. Automatic production-domain assignment is held so a verified demo can be shared before publication.
 
-**Important:** when this documentation update began, GitHub `main` contained only an initial README. The application source, migrations, tests and detailed evidence exist in the development workspace and were previously deployed directly to Vercel. This documentation-only update does not synchronize that application source or make this GitHub checkout runnable. The commands and directory descriptions below document the full application checkout. Publish the reviewed source separately before expecting Git-based application builds to succeed.
+The application source, migrations, tests and documentation are synchronized to this repository. Earlier application releases were deployed directly from the development workspace; this source synchronization establishes the Git-based development baseline without publishing a new production release. See the [cloud workspace setup guide](docs/CLOUD_WORKSPACE_SETUP.md) for repeatable onboarding.
 
 The latest recorded application release uses source `c0f13a1`, deployment `dpl_8KJ3XVDmvmy3ESV2ZRDo3u6MjfJz`. Documentation commits are not application releases. Older dated verification records describe their own release, not necessarily the current website.
 
@@ -121,7 +121,7 @@ In the full source checkout, `src/app` contains routes/API handlers and shared s
 
 Navigation sections within a room may use query parameters rather than separate page paths. Server authorization applies independently of menu visibility.
 
-## Development setup — full source checkout required
+## Development setup
 
 Prerequisites: Node.js 24, npm, and preferably local PostgreSQL 17. Docker is optional for the local database helper.
 
@@ -187,7 +187,7 @@ npx playwright test --config playwright.connected-scale.config.ts
 
 `quality:scale` uses its guarded localhost `evolve_perf` fixture. Canonical connected scale uses `evolve_connected_perf`, with 1,000 projects, 10,000 assets and 20,000 tasks. These are disposable performance fixtures, not production load generators. Local p95 targets do not establish a production SLA.
 
-The full checkout's GitHub Quality workflow defines static/domain/Chromium checks, Firefox/WebKit journeys, feature-suite matrices and scale jobs. This README update alone does not install that workflow on GitHub.
+The full checkout's GitHub Quality workflow defines static/domain/Chromium checks, Firefox/WebKit journeys, feature-suite matrices and scale jobs. The workflow is included in `.github/workflows/quality.yml`; check GitHub Actions for actual remote run outcomes.
 
 ### Recorded results, not freshly rerun claims
 
@@ -212,7 +212,7 @@ Schema changes require recoverable database and actual file-content evidence. Re
 - [Historical standalone Board Room mockup](docs/mockups/board-room/README.md): browser-local prototype, not the authenticated application.
 - [Connected-workspace historical verification](docs/audits/connected-workspace-2026-10-26/README.md): dated release evidence and limits.
 
-Detailed companion guides, screenshots, source files and machine-readable audit artifacts remain in the full development checkout until separately synchronized. Historical feature proposals are not proof that a feature is active. Meeting-pack creation was retired from active navigation; retained historical meeting records and existing follow-up tasks must not be deleted as documentation cleanup.
+Detailed companion guides, screenshots, source files and machine-readable audit artifacts are included in this repository. Historical feature proposals are not proof that a feature is active. Meeting-pack creation was retired from active navigation; retained historical meeting records and existing follow-up tasks must not be deleted as documentation cleanup.
 
 ## Security and contribution expectations
 

@@ -1,0 +1,243 @@
+.portfolio-page .portfolio-view-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.portfolio-page .portfolio-result-count,
+.portfolio-page .checklist-help {
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+.portfolio-page .portfolio-view-switch {
+  display: inline-flex;
+  padding: 3px;
+  gap: 3px;
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  background: var(--surface);
+}
+.portfolio-page .portfolio-view-switch button {
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+.portfolio-page .portfolio-view-switch button[aria-pressed="true"] {
+  background: var(--soft);
+  color: var(--accent-ink, var(--accent));
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+.portfolio-page .portfolio-cod-year {
+  display: block;
+  color: var(--muted);
+  font-size: var(--text-caption);
+  margin-top: 8px;
+}
+.portfolio-page .project-checklist {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.portfolio-page .checklist-project {
+  min-width: 0;
+  padding: 0;
+  overflow-wrap: anywhere;
+}
+.portfolio-page .checklist-project-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+}
+.portfolio-page .checklist-project-identity {
+  flex: 1;
+  min-width: 0;
+}
+.portfolio-page .checklist-project-identity small {
+  color: var(--muted);
+  font-size: var(--text-caption);
+}
+.portfolio-page .checklist-project-identity h2 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+.portfolio-page .checklist-project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.portfolio-page .checklist-open-project {
+  flex-shrink: 0;
+  min-height: 40px;
+}
+.portfolio-page .checklist-project-details > summary,
+.portfolio-page .checklist-option > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 18px;
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+.portfolio-page .checklist-project-details > summary {
+  border-top: 1px solid var(--border);
+}
+.portfolio-page .project-checklist summary::-webkit-details-marker {
+  display: none;
+}
+.portfolio-page .project-checklist summary:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: -3px;
+  border-radius: 6px;
+}
+.portfolio-page .project-checklist summary:hover {
+  background: var(--soft);
+}
+.portfolio-page .project-checklist summary small {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: var(--text-caption);
+  font-weight: 400;
+}
+.portfolio-page .checklist-chevron {
+  transform: rotate(-90deg);
+}
+.portfolio-page details[open] > summary > .checklist-chevron {
+  transform: rotate(0);
+}
+.portfolio-page .checklist-options {
+  display: grid;
+  gap: 12px;
+  padding: 0 18px 18px;
+}
+.portfolio-page .checklist-option {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 0;
+}
+.portfolio-page .checklist-option-name {
+  min-width: 0;
+}
+.portfolio-page .checklist-costs {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.portfolio-page .checklist-costs li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(65px, auto) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px 16px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+.portfolio-page .checklist-cost-unit {
+  color: var(--muted);
+  font-size: var(--text-caption);
+}
+.portfolio-page .checklist-cost-amount {
+  text-align: right;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-page .checklist-unit-totals {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-page .checklist-unit-totals strong {
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+.portfolio-page .checklist-option-total-row,
+.portfolio-page .checklist-project-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  font-size: var(--text-caption);
+  line-height: 1.6;
+}
+.portfolio-page .checklist-option-total-row > span,
+.portfolio-page .checklist-project-total-row > span {
+  color: var(--muted);
+}
+.portfolio-page .checklist-project-total-row {
+  background: var(--soft);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.portfolio-page .checklist-no-costs {
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: 1.6;
+  padding: 12px 18px;
+}
+@media (max-width: 640px) {
+  .portfolio-page .management-toolbar > .search-field {
+    flex-basis: 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+  .portfolio-page .management-toolbar > .app-select {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .portfolio-page .checklist-project-header {
+    flex-wrap: wrap;
+    padding: 14px;
+  }
+  .portfolio-page .checklist-open-project {
+    width: 100%;
+  }
+  .portfolio-page .checklist-options {
+    padding: 0 10px 12px;
+  }
+  .portfolio-page .checklist-project-details > summary,
+  .portfolio-page .checklist-option > summary {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  .portfolio-page .project-checklist summary small {
+    flex-basis: 100%;
+    margin-left: 26px;
+  }
+  .portfolio-page .checklist-costs li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 12px;
+    gap: 4px 10px;
+  }
+  .portfolio-page .checklist-cost-amount {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+  .portfolio-page .checklist-unit-totals {
+    justify-content: flex-start;
+  }
+  .portfolio-page .checklist-option-total-row,
+  .portfolio-page .checklist-project-total-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+  }
+}

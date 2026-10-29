@@ -4,7 +4,7 @@ An interactive design preview with a browser-local project database. It reuses E
 
 ## Status and relationship to the application
 
-This prototype predates the connected Board Room/Locker Room application. Its local CSV contract, year limits, seeded data and navigation demonstrate the historical design; they are not the production API contract. The current product overview is in the [main README](../../../README.md). This README is published separately; its companion HTML, scripts, fonts, templates and screenshots remain in the full development checkout until the source is synchronized to GitHub. Downloading only this README does not provide a runnable mockup.
+This prototype predates the connected Board Room/Locker Room application. Its local CSV contract, year limits, seeded data and navigation demonstrate the historical design; they are not the production API contract. The current product overview is in the [main README](../../../README.md). Companion HTML, scripts, fonts, templates and screenshots are included in this repository. Clone or download the complete directory to run the mockup.
 
 No current availability check of the historical hosted preview is claimed. For the live authenticated application, use https://evolve-rensist.vercel.app.
 

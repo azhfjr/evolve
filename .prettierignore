@@ -1,0 +1,11 @@
+node_modules
+.next
+.data
+package-lock.json
+playwright-report
+test-results
+
+.vercel
+
+# Generated pinned geometry; byte checksum is part of its provenance.
+public/geodata/kalimantan-provinces.json

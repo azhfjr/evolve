@@ -1,0 +1,10 @@
+ALTER TABLE project ADD COLUMN owner_email text REFERENCES member(email), ADD COLUMN status text NOT NULL DEFAULT 'active', ADD COLUMN start_date text, ADD COLUMN target_date text, ADD COLUMN currency text NOT NULL DEFAULT 'IDR', ADD COLUMN budget numeric(14,2) NOT NULL DEFAULT 0, ADD COLUMN reference text NOT NULL DEFAULT '', ADD COLUMN location text NOT NULL DEFAULT '', ADD COLUMN version integer NOT NULL DEFAULT 1;
+ALTER TABLE project ADD CONSTRAINT project_currency_check CHECK(currency IN ('IDR','USD')), ADD CONSTRAINT project_budget_check CHECK(budget>=0), ADD CONSTRAINT project_status_check CHECK(status IN ('planned','active','on_hold','completed')), ADD CONSTRAINT project_dates_check CHECK(start_date IS NULL OR target_date IS NULL OR start_date<=target_date);
+ALTER TABLE workspace_setting ADD COLUMN configuration jsonb NOT NULL DEFAULT '{}';
+-- statement-breakpoint
+CREATE TABLE project_expense(id text PRIMARY KEY,project_id text NOT NULL REFERENCES project(id),currency text NOT NULL CHECK(currency IN ('IDR','USD')),amount numeric(14,2) NOT NULL CHECK(amount>0),description text NOT NULL,category text NOT NULL CHECK(category IN ('engineering','procurement','construction','operations','other')),booked_on text NOT NULL,payee text NOT NULL DEFAULT '',created_by text NOT NULL REFERENCES member(email),created_at timestamptz NOT NULL DEFAULT now(),voided boolean NOT NULL DEFAULT false,version integer NOT NULL DEFAULT 1);
+CREATE INDEX expense_project_date_idx ON project_expense(project_id,booked_on DESC,id DESC);
+CREATE TABLE saved_view(id text PRIMARY KEY,owner_email text NOT NULL REFERENCES member(email),name text NOT NULL,filters jsonb NOT NULL,created_at timestamptz NOT NULL DEFAULT now(),UNIQUE(owner_email,name));
+CREATE TABLE calendar_task_preference(email text NOT NULL REFERENCES member(email),task_id text NOT NULL REFERENCES task(id),enabled boolean NOT NULL,PRIMARY KEY(email,task_id));
+ALTER TABLE calendar_oauth_state ADD COLUMN return_task_id text REFERENCES task(id);
+CREATE INDEX activity_actor_created_idx ON activity(actor,created_at DESC,id DESC);

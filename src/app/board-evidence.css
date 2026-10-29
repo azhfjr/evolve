@@ -1,0 +1,65 @@
+.br-evidence-panel {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  margin: 20px 0;
+}
+.br-evidence-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.br .br-evidence-panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+.br-evidence-heading > div {
+  max-width: 850px;
+}
+.br-evidence-heading > a {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 9px 13px;
+  border-radius: 8px;
+}
+.br-mapping-actions {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+.br-mapping-actions > label {
+  flex: 1;
+  min-width: 160px;
+}
+.br-mapping-actions > button {
+  flex-shrink: 0;
+}
+.br .br-personal-mapping-note {
+  margin-top: 6px;
+}
+@media (max-width: 700px) {
+  .br-evidence-panel {
+    padding: 16px;
+  }
+  .br-evidence-heading {
+    flex-direction: column;
+  }
+  .br-evidence-heading > a {
+    white-space: normal;
+    min-height: 44px;
+  }
+  .br-mapping-actions > button {
+    min-height: 44px;
+  }
+}

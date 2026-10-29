@@ -1,0 +1,142 @@
+/* Task identity and metadata share one layout at each breakpoint. The scoped
+   selectors keep older workspace styles from clipping project references. */
+.task-reference-list .task-row .task-project,
+.task-reference-board .kanban-card .project-tag {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  max-width: none;
+  color: var(--text);
+  background: transparent;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+.task-reference-list .task-project-name,
+.task-reference-board .task-project-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.task-reference-list .task-project > .project-dot,
+.task-reference-board .project-tag > .project-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  margin-top: 0.55em;
+  border-radius: 50%;
+}
+.task-reference-board .kanban-card .kanban-card-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
+}
+.task-reference-board .kanban-card-top > .task-menu-button {
+  flex-shrink: 0;
+}
+
+@media (min-width: 761px) {
+  .task-list.task-reference-list
+    > .task-group
+    > :is(.task-table-head, .task-row) {
+    display: grid;
+    grid-template-columns:
+      minmax(200px, 1.35fr) minmax(180px, 1.35fr)
+      110px 106px minmax(130px, 1fr) 44px;
+    gap: 8px;
+    min-width: 840px;
+    padding-inline: 14px;
+  }
+  .task-list.task-reference-list.archive-task-list
+    > .task-group
+    > :is(.task-table-head, .task-row) {
+    grid-template-columns:
+      minmax(200px, 1.35fr) minmax(180px, 1.35fr)
+      110px 106px minmax(130px, 1fr) 144px;
+    min-width: 940px;
+  }
+  .task-reference-list .task-row > * {
+    min-width: 0;
+    grid-column: auto;
+    grid-row: auto;
+    order: 0;
+  }
+  .task-reference-list .task-row .task-project,
+  .task-reference-list .task-row .task-assignee {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .task-list.task-reference-list,
+  .task-reference-list > .task-group {
+    min-width: 0;
+    overflow: visible;
+  }
+  .task-list.task-reference-list > .task-group > .task-table-head {
+    display: none;
+  }
+  .task-list.task-reference-list > .task-group > .task-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "name name"
+      "project project"
+      "date priority"
+      "assignee actions";
+    min-width: 0;
+    min-height: 0;
+    gap: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+  .task-reference-list .task-row > * {
+    min-width: 0;
+    order: 0;
+    padding-left: 0;
+  }
+  .task-reference-list .task-row > .task-name-cell {
+    grid-area: name;
+    align-items: flex-start;
+  }
+  .task-reference-list .task-row > .task-project {
+    grid-area: project;
+  }
+  .task-reference-list .task-row > .task-date {
+    grid-area: date;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .task-reference-list .task-row > .task-priority {
+    grid-area: priority;
+    flex-wrap: wrap;
+  }
+  .task-reference-list .task-row > .task-assignee {
+    grid-area: assignee;
+    justify-content: flex-start;
+  }
+  .task-reference-list .task-row .task-assignee-name {
+    white-space: normal;
+    overflow: visible;
+    overflow-wrap: anywhere;
+  }
+  .task-reference-list .task-row > .task-row-actions {
+    grid-area: actions;
+    align-self: center;
+    flex-wrap: wrap;
+    border-top: 0;
+    padding-top: 0;
+  }
+  .task-reference-list .task-row .task-name {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}

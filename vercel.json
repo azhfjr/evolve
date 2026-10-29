@@ -1,0 +1,51 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "functions": {
+    "src/app/api/**/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/queues/calendar/route.ts": {
+      "maxDuration": 60,
+      "experimentalTriggers": [
+        {
+          "type": "queue/v2beta",
+          "topic": "evolve-calendar"
+        }
+      ]
+    },
+    "src/app/api/calendar/callback/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/tasks/export/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/maintenance/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/workspace/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/calendar/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/tasks/*/calendar/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/attachments/*/content/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/attachments/manage/route.ts": {
+      "maxDuration": 60
+    }
+  },
+  "regions": ["sin1"],
+  "crons": [
+    {
+      "path": "/api/maintenance",
+      "schedule": "0 2 * * *"
+    }
+  ]
+}

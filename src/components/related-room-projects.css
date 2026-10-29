@@ -1,0 +1,57 @@
+.related-room-projects {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 16px;
+  margin-block: 14px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.related-room-heading {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.related-room-heading h3 {
+  margin: 0;
+  font-size: 14px;
+}
+.related-room-heading > span {
+  color: var(--muted);
+  font-size: 12px;
+  margin-left: auto;
+}
+.related-room-projects p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-block: 8px;
+}
+.related-room-projects small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.related-room-projects ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.related-room-projects a {
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 8px;
+  min-height: 40px;
+  font-size: 14px;
+}
+.related-room-projects a:hover {
+  color: var(--accent);
+}
+.related-room-projects a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

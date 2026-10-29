@@ -1,0 +1,19 @@
+{
+  "checks": [
+    {
+      "route": "/board-room",
+      "zoom": 2,
+      "width": 720,
+      "scroll": 720,
+      "ratio": 2
+    },
+    {
+      "route": "/app",
+      "zoom": 2,
+      "width": 720,
+      "scroll": 720,
+      "ratio": 2
+    }
+  ],
+  "success": true
+}

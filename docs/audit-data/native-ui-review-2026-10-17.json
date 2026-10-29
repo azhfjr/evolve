@@ -1,0 +1,166 @@
+{
+  "origin": "http://127.0.0.1:3000",
+  "observedAt": "2026-10-16T21:23:26.292Z",
+  "screens": [
+    {
+      "width": 1440,
+      "name": "Login geometry",
+      "buttonY": 584.78125,
+      "buttonBottom": 634.78125
+    },
+    {
+      "width": 1440,
+      "name": "Login",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "name": "Overview",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "name": "Task editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "name": "Priority menu",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "name": "Project editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "name": "Dark task editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "name": "Login geometry",
+      "buttonY": 597.53125,
+      "buttonBottom": 647.53125
+    },
+    {
+      "width": 768,
+      "name": "Login",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "name": "Overview",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "name": "Task editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "name": "Priority menu",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "name": "Project editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "name": "Login geometry",
+      "buttonY": 347.125,
+      "buttonBottom": 397.125
+    },
+    {
+      "width": 390,
+      "name": "Login",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "name": "Overview",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "name": "Task editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "name": "Priority menu",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "name": "Project editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "name": "Dark task editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "name": "Login geometry",
+      "buttonY": 418.0625,
+      "buttonBottom": 468.0625
+    },
+    {
+      "width": 320,
+      "name": "Login",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "name": "Overview",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "name": "Task editor",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "name": "Priority menu",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "name": "Project editor",
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "environment": "Local production build, isolated browser demo. Sign-in is unconfigured locally; real Google consent is not part of these visual checks.",
+  "animationPolicy": "Font loading and finite entrance animations settle before each scan.",
+  "sourceNote": "Screenshots show synthetic data. Full CI results and hosted preview are linked from the review pull request."
+}

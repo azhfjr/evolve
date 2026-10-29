@@ -1,0 +1,114 @@
+{
+  "at": "2026-10-28T17:58:47.377Z",
+  "origin": "https://evolve-rensist.vercel.app",
+  "deploymentId": "dpl_9jRskUemon5E3Wgk1RS13hr8cUHS",
+  "sourceSha": "8d7cf2a421e17a1780b678a44fc94a86f55a17ae",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/board-room",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/assets",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/project-template",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/costs?id=00000000-0000-4000-8000-000000000001",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/connections",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/storyline?id=00000000-0000-4000-8000-000000000001",
+      "status": 401
+    },
+    {
+      "path": "/api/attachments/00000000-0000-4000-8000-000000000001/metadata",
+      "status": 401
+    },
+    {
+      "path": "/api/attachments/manage",
+      "status": 401
+    },
+    {
+      "path": "/api/workspace",
+      "status": 401
+    },
+    {
+      "path": "/api/workspace/search?q=project",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/meetings",
+      "status": 404
+    },
+    {
+      "path": "/geodata/kalimantan-provinces.json",
+      "status": 200
+    },
+    {
+      "path": "/geodata/provenance.json",
+      "status": 200
+    },
+    {
+      "path": "/board-room",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/board-room?section=storyline",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/board-room?section=costs",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/board-room?section=map",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/board-room?section=project-template",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/board-room?section=templates",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/app",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/app?section=templates",
+      "status": 200,
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/workspace",
+      "status": 200,
+      "signInBoundaryVisible": true
+    }
+  ],
+  "browserErrors": [],
+  "syntheticRecords": false,
+  "syntheticFiles": false,
+  "signedInProductionJourneys": false,
+  "success": true
+}

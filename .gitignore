@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+.data/
+.env*
+!.env.example
+.vercel/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Per-task implementation scratch
+.superpowers/
+
+# Encrypted artifacts generated only in temporary release rehearsal builds
+public/__release-recovery/

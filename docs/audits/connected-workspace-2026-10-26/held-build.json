@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-26T20:19:24.747467+07:00",
+  "target": "local held production-mode build, disposable test database",
+  "sourceCommit": "457d5652b2a17a702109d032aba08c943e3e9221",
+  "buildId": "0zCsAuweDM6hspDZaVBCt",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "body": {
+        "status": "ready",
+        "database": "connected",
+        "schema": "current",
+        "authentication": "configured"
+      }
+    },
+    {
+      "path": "/api/workspace",
+      "status": 401,
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/board-room/assets",
+      "status": 401,
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    },
+    {
+      "path": "/api/workspace/archive",
+      "status": 401,
+      "body": {
+        "error": "Sign in with Google to continue."
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "deploymentId": "dpl_2Fd3rdfaXKHLrBxe37refYhKyoSS",
+  "sourceSha": "6db519e07fdac31cce137adb81d0bef6d118409f",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/board-room",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/assets",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/connections",
+      "status": 401
+    },
+    {
+      "path": "/api/attachments/manage",
+      "status": 401
+    },
+    {
+      "path": "/api/workspace/search?q=project",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/meetings",
+      "status": 404
+    },
+    {
+      "path": "/workspace/meetings/00000000-0000-0000-0000-000000000001",
+      "status": 404
+    }
+  ],
+  "success": true,
+  "syntheticFiles": false
+}
