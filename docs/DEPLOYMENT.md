@@ -2,7 +2,11 @@
 
 Evolve uses Vercel project `prj_4Cvh0pTUBDKUvva5eE9GmNLFcNie` in team `jarjirjor777-5316` (`team_mF9F9Hs0sIxRfeZwh6VpBQB3`). The production origin is **https://evolve-rensist.vercel.app**; `evolve-three-plum.vercel.app` redirects there. The sole administrator is `jarjirjor777@gmail.com`, and access remains invite only.
 
-Use [RELEASE.md](RELEASE.md) for the latest verified deployment and limitations. A Vercel `READY` build alone is not functional acceptance. Verify schema, authorization responses and a browser flow after promotion.
+Use [the current README release summary](../README.md#repository-and-publication-status) and [EA release evidence](audits/ea-approved/release/deployment.md) for the latest recorded verified application deployment and limitations. Older release guides describe historical checkpoints. A Vercel `READY` build alone is not functional acceptance. Verify schema, authorization responses and a browser flow after promotion.
+
+## Repository and application links
+
+Source: [azhfjr/evolve](https://github.com/azhfjr/evolve), production branch `main`. Vercel project: [evolve](https://vercel.com/jarjirjor777-5316/evolve). Git integration is connected; automatic production publication is held for the owner’s demo-first workflow. See the [application and repository link directory](../README.md#evolve-links).
 
 ## Connected services
 

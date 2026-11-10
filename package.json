@@ -65,5 +65,14 @@
     "@vercel/cli-config": {
       "zod": "4.6.7"
     }
+  },
+  "description": "Evolve: connected Board Room project monitoring and Locker Room task management.",
+  "homepage": "https://evolve-rensist.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azhfjr/evolve.git"
+  },
+  "bugs": {
+    "url": "https://github.com/azhfjr/evolve/issues"
   }
 }

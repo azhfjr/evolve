@@ -4,7 +4,26 @@
 
 - **Website:** https://evolve-rensist.vercel.app
 - **GitHub:** https://github.com/azhfjr/evolve
-- **Documentation updated:** 29 October 2026 (Asia/Singapore)
+- **Documentation updated:** 10 November 2026 (Asia/Singapore)
+
+## Evolve links
+
+| Destination                  | Link                                                                                      |
+| ---------------------------- | ----------------------------------------------------------------------------------------- |
+| Production website / sign-in | [Open Evolve](https://evolve-rensist.vercel.app)                                          |
+| App chooser                  | [Choose Board Room or Locker Room](https://evolve-rensist.vercel.app/workspace)           |
+| Board Room                   | [Project monitoring](https://evolve-rensist.vercel.app/board-room)                        |
+| Locker Room                  | [Task management](https://evolve-rensist.vercel.app/app)                                  |
+| Shared settings              | [Account, appearance and Files](https://evolve-rensist.vercel.app/workspace/settings)     |
+| Templates                    | [Workspace templates](https://evolve-rensist.vercel.app/workspace/templates)              |
+| Legacy archive               | [Read-only archived work](https://evolve-rensist.vercel.app/workspace/archive)            |
+| Operations                   | [Authorized operational controls](https://evolve-rensist.vercel.app/workspace/operations) |
+| Browser-only demo            | [Explore the demo](https://evolve-rensist.vercel.app/demo)                                |
+| Source code                  | [GitHub repository](https://github.com/azhfjr/evolve)                                     |
+| CI results                   | [GitHub Actions](https://github.com/azhfjr/evolve/actions/workflows/quality.yml)          |
+| Issues                       | [Report a bug or request a feature](https://github.com/azhfjr/evolve/issues)              |
+
+Private pages require sign-in and appropriate permissions; a GitHub account does not grant Evolve membership. Files is a section within Shared Settings rather than a separate public file browser. Use the production origin above for everyday access. Generated deployment/branch URLs in dated audits identify historical builds and are not the canonical website. CI links expose actual run status, not a guarantee that every check passed.
 
 ## Repository and publication status
 

@@ -8,6 +8,17 @@ The initial source synchronization uses a current-tree snapshot atop the existin
 
 Git-triggered builds do not authorize publication. Keep automatic production-domain assignment held. Prepare, verify and share a working demo before promoting a final production build. Repository synchronization does not change the production database or publish a new application release.
 
+## Connected destinations
+
+- Production: https://evolve-rensist.vercel.app
+- App chooser: https://evolve-rensist.vercel.app/workspace
+- GitHub: https://github.com/azhfjr/evolve
+- CI: https://github.com/azhfjr/evolve/actions/workflows/quality.yml
+- Vercel project: https://vercel.com/jarjirjor777-5316/evolve
+- Git integration settings: https://vercel.com/jarjirjor777-5316/evolve/settings/git
+
+Vercel settings require account/team access. The canonical website is distinct from generated deployment or branch URLs. Local `BETTER_AUTH_URL` remains a local origin; production uses the canonical HTTPS origin. OAuth callbacks must retain their documented paths.
+
 ## Repeatable development setup
 
 Use Node.js 24 and npm. From the repository root:
