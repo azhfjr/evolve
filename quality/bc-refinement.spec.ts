@@ -102,7 +102,7 @@ test("changed pages reflow at six widths with both themes, large fonts and reduc
         await page.evaluate((theme) => {
           document.documentElement.dataset.theme = theme;
           document
-            .querySelectorAll(".super-app,.app-shell,.br")
+            .querySelectorAll(".super-app,.app-shell,.br,.connected-demo")
             .forEach((e) => e.setAttribute("data-font-scale", "large"));
         }, theme);
         expect(
@@ -163,4 +163,36 @@ test("attention shortcuts preserve filters and member workbench is read-only", a
   await expect(
     page.getByRole("button", { name: "Mark finding resolved" }),
   ).toHaveCount(0);
+});
+test("review regression: removing an attention reason retains portfolio scope", async ({
+  page,
+}) => {
+  const scope = JSON.stringify({ category: "Pembangkit" });
+  await page.goto(
+    "/board-room?section=quality&qualityTab=attention&qualityAttention=stale&qualityScope=" +
+      encodeURIComponent(scope),
+  );
+  await page.getByRole("link", { name: "Show all attention reasons" }).click();
+  await expect(page).not.toHaveURL(/qualityAttention=/);
+  expect(new URL(page.url()).searchParams.get("qualityScope")).toBe(scope);
+});
+test("review regression: complete stage table includes not started", async ({
+  page,
+}) => {
+  await page.goto("/board-room");
+  await page.getByText("All stage counts", { exact: true }).click();
+  await expect(
+    page.getByRole("table", { name: "Complete stage counts" }).getByRole("row"),
+  ).toHaveCount(12);
+});
+test("review regression: connected demo responds to the shared large-font token", async ({
+  page,
+}) => {
+  await page.goto("/demo");
+  await page
+    .locator(".connected-demo")
+    .evaluate((el) => el.setAttribute("data-font-scale", "large"));
+  await expect(
+    page.getByRole("heading", { name: "Explore the connected workspace" }),
+  ).toHaveCSS("font-size", "28px");
 });

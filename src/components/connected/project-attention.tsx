@@ -32,7 +32,16 @@ export function ProjectAttention({
             : "One row per project. All applicable reasons remain visible; progress reviews follow the existing 30-day policy."}
       </p>
       {attention && (
-        <Link href="/board-room?section=quality&qualityTab=attention">
+        <Link
+          href={
+            "/board-room?" +
+            new URLSearchParams({
+              section: "quality",
+              qualityTab: "attention",
+              ...(scope ? { qualityScope: scope } : {}),
+            })
+          }
+        >
           Show all attention reasons
         </Link>
       )}

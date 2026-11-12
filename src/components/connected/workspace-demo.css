@@ -17,7 +17,7 @@
   border-bottom: 1px solid var(--border);
 }
 .connected-demo header > a:first-child {
-  font-size: 24px;
+  font-size: var(--page-title-size, 24px);
   font-weight: 750;
 }
 .connected-demo main {
@@ -26,7 +26,7 @@
   padding: 24px;
 }
 .connected-demo h1 {
-  font-size: 24px;
+  font-size: var(--page-title-size, 24px);
   line-height: 1.3;
 }
 .connected-demo h2 {
@@ -37,7 +37,7 @@
 }
 .connected-demo small,
 .connected-demo .eyebrow {
-  font-size: 12px;
+  font-size: var(--text-small, 12px);
   color: var(--muted);
 }
 .demo-rooms,
@@ -131,4 +131,9 @@
   .demo-controls > * {
     width: 100%;
   }
+}
+
+.connected-demo[data-font-scale="large"] {
+  --text-body: 16px;
+  --text-small: 14px;
 }

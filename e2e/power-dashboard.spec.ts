@@ -233,9 +233,9 @@ for (const width of [1440, 320])
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
-    for (const path of ["/", "/demo"]) {
+    for (const path of ["/", "/demo?legacy=1"]) {
       await page.goto(path);
-      if (path === "/demo")
+      if (path === "/demo?legacy=1")
         await expect(page.locator(".dashboard-page")).toBeVisible();
       expect(
         await page.evaluate(

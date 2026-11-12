@@ -417,7 +417,7 @@ test("Board Room navigation matches Locker Room dimensions and supports drawer k
   await page.emulateMedia({ reducedMotion: "reduce" });
   const locker = await context.newPage();
   await locker.emulateMedia({ reducedMotion: "reduce" });
-  await locker.goto("/demo");
+  await locker.goto("/demo?legacy=1");
   await page.goto("/board-room");
   for (const width of [1280, 1440, 1640]) {
     await page.setViewportSize({ width, height: 900 });

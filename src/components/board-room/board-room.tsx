@@ -526,15 +526,23 @@ function BoardRoomContent({
       <SummaryStrip
         kind="stages"
         className="br-stage-counts"
-        entries={data.config.stages.map((name, i) => ({
-          label: name,
-          count: summary.stages[i + 1],
-          selected: query.stage === String(i + 1),
-          select: () =>
-            filter({
-              stage: query.stage === String(i + 1) ? "" : String(i + 1),
-            }),
-        }))}
+        entries={[
+          {
+            label: "Not started",
+            count: summary.stages[0],
+            selected: query.stage === "0",
+            select: () => filter({ stage: query.stage === "0" ? "" : "0" }),
+          },
+          ...data.config.stages.map((name, i) => ({
+            label: name,
+            count: summary.stages[i + 1],
+            selected: query.stage === String(i + 1),
+            select: () =>
+              filter({
+                stage: query.stage === String(i + 1) ? "" : String(i + 1),
+              }),
+          })),
+        ]}
       >
         {data.config.stages.map((s, i) => (
           <button
