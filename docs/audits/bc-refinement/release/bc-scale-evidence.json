@@ -1,0 +1,37 @@
+{
+  "fixture": {
+    "projects": 2000,
+    "assets": 10000,
+    "tasks": 20000,
+    "documents": 2000
+  },
+  "metrics": {
+    "/api/board-room?search=Scale": 321.5012139999999,
+    "/api/board-room/attention?tab=attention": 145.66261399999894,
+    "/api/attachments/manage?room=all&history=all": 74.02255299999888,
+    "/api/board-room?region=ID-KI": 599.3115260000013,
+    "/api/board-room/assets?projectScope=%7B%22region%22%3A%22ID-KI%22%7D": 367.5613020000019,
+    "/api/board-room?category=Pembangkit&year=2028": 562.0260769999986,
+    "/api/board-room/assets?q=Scale&page=1": 366.2904200000048,
+    "/api/tasks?limit=100&sort=title": 139.210404999998,
+    "/api/board-room/connections?category=Pembangkit": 143.1774910000022,
+    "/api/workspace/search?q=Scale": 515.6005179999993,
+    "/api/board-room/project-options?q=Scale": 75.4153559999977,
+    "/api/board-room/hub?id=10000000-0000-4000-8000-000000000001": 93.91569999999774
+  },
+  "pagination": {
+    "projects": 2000,
+    "assets": 10000,
+    "tasks": 20000,
+    "renderedNodes": 147
+  },
+  "environment": {
+    "cpus": 3,
+    "memoryGB": 10
+  },
+  "browserMemory": {
+    "usedJSHeapSize": 19177308,
+    "totalJSHeapSize": 27627332
+  },
+  "apiRequestsPerMeasurement": 20
+}

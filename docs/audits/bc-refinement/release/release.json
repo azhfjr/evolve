@@ -1,0 +1,17 @@
+{
+  "deployedSourceSha": "2046c10c6752e2240cc88920c89df81a1d8ba957",
+  "deploymentId": "dpl_9RoGY5F9PRsGffUw7GyQk4qH6BwS",
+  "productionUrl": "https://evolve-rensist.vercel.app",
+  "sourceDigest": "f3198bc2717063eda592bf3d30dfdfd8f127735d373b335e89fa1a52a9396315",
+  "rollbackDeploymentId": "dpl_8KJ3XVDmvmy3ESV2ZRDo3u6MjfJz",
+  "state": "READY",
+  "productionAliasVerified": true,
+  "temporaryAccessRemoved": true,
+  "autoAssignCustomDomains": false,
+  "runtimeLogScan": {
+    "verified": false,
+    "httpStatus": 404,
+    "note": "Runtime-log API attempt unavailable; no error-free platform scan claimed"
+  },
+  "verifiedAt": "2026-11-12T22:00:24.292887+00:00"
+}

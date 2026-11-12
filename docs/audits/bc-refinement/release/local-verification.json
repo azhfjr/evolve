@@ -1,0 +1,53 @@
+{
+  "domain": {
+    "status": "pass",
+    "log": "/tmp/bc-domain-release.log",
+    "assertedOutput": "\u2139 pass 352"
+  },
+  "chromiumRefinement": {
+    "status": "pass",
+    "log": "/tmp/bc-refinement-release-final.log",
+    "assertedOutput": "11 passed"
+  },
+  "firefoxRefinement": {
+    "status": "pass",
+    "log": "/tmp/bc-firefox-complete.log",
+    "assertedOutput": "11 passed"
+  },
+  "firefoxCritical": {
+    "status": "pass",
+    "log": "/tmp/bc-critical-firefox.log",
+    "assertedOutput": "3 passed"
+  },
+  "scale": {
+    "status": "pass",
+    "log": "/tmp/bc-scale-final.log",
+    "assertedOutput": "2 passed"
+  },
+  "EV01": {
+    "status": "pass",
+    "log": "/tmp/bc-ev01-green.log",
+    "assertedOutput": "1 passed"
+  },
+  "format": {
+    "status": "pass",
+    "log": "/tmp/bc-format-final.log",
+    "assertedOutput": "All matched files use Prettier code style!"
+  },
+  "productionDependencies": {
+    "status": "pass",
+    "vulnerabilities": 0,
+    "log": "/tmp/bc-audit-final.json"
+  },
+  "sourceSha": "2046c10c6752e2240cc88920c89df81a1d8ba957",
+  "typecheck": "pass",
+  "lint": "pass",
+  "fullChromium": {
+    "passed": 294,
+    "failed": 1,
+    "remainingFailure": "EV-01 targeted closure passed"
+  },
+  "webKit": "blocked missing libGLESv2.so.2",
+  "productionProviderCapacity": "not run",
+  "sourceDeltaSinceDomainAndScale": "Only demo CSS foreground, accessibility test timing and verification documentation; domain/storage/scale code unchanged."
+}

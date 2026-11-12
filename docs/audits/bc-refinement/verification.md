@@ -20,7 +20,7 @@ Approved scope: shared UI, navigation strips, Data Quality/attention/review work
 
 | Check                             | Observed result                                                                                                       | Status / limitation                                                                                                                                                                 |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| New B/C browser acceptance        | 11/11 Chromium; Firefox 10/11 initial; contrast test 1/1 PASS after settling theme transitions                        | PASS; six widths (320/390/768/1024/1440/1920), themes, large fonts, reduced motion, scope preservation, member read-only workbench, complete stage-zero summary, archive appearance |
+| New B/C browser acceptance        | 11/11 Chromium; 11/11 Firefox final complete run                                                                      | PASS; six widths (320/390/768/1024/1440/1920), themes, large fonts, reduced motion, scope preservation, member read-only workbench, complete stage-zero summary, archive appearance |
 | Full existing Chromium regression | 294/295 passed; sole failure was unchanged ambiguous connection-map heading                                           | EV-01 repaired the locator with exact text and heading level; affected journey then 1/1 PASS. The complete suite was not repeated after this locator-only repair.                   |
 | Native browser zoom               | Board and Locker at actual 200% via chrome.tabs.setZoom; viewport/scroll width 720/720                                | PASS; recorded screenshots and JSON                                                                                                                                                 |
 | WebKit                            | Browser failed before application launch: missing libGLESv2.so.2                                                      | BLOCKED; no WebKit application pass claimed                                                                                                                                         |
@@ -46,4 +46,73 @@ The public connected demo never calls private mutation endpoints. It stores vali
 
 The original 1,000-project canonical fixture is unchanged by default. The new runner opts into2,000 projects against the same guarded localhost disposable database, then generates local synthetic files. Scale tests must run sequentially with other browser suites sharing `.next`.
 
-EV-01/EV-02 are now explicitly approved and their focused regressions pass. Production is held until remaining release checks and exact held-build verification complete. Provider-level capacity/concurrency, real Google consent, real-device behavior and production recovery are not established by local fixtures. No synthetic business records/files are created in production.
+EV-01/EV-02 are now explicitly approved and their focused regressions pass. Release completed after local gates, shared working preview and exact held-build verification; the same build was promoted and verified at the production alias. Provider-level capacity/concurrency, real Google consent, real-device behavior and production recovery are not established by local fixtures. No synthetic business records/files are created in production.
+
+## Published release
+
+- Live: https://evolve-rensist.vercel.app; deployed application commit `2046c10c6752e2240cc88920c89df81a1d8ba957` on `feat/bc-refinement`.
+- Vercel deployment `dpl_9RoGY5F9PRsGffUw7GyQk4qH6BwS`: READY; live alias and source digest independently verified after promotion.
+- Same held build promoted without rebuilding. Held verification: 19/19 checks; production verification: 19/19 checks. Both include health, unauthenticated private-route boundaries/cache headers, geography checksum, sign-in route boundaries, demo accessibility at 390/1440 in both themes and a synthetic browser-local project-to-task journey. No browser runtime errors observed in these checked journeys.
+- Rollback target retained: `dpl_8KJ3XVDmvmy3ESV2ZRDo3u6MjfJz`. Automatic domain assignment remains disabled to preserve the owner’s demo-first release preference.
+- Temporary held-build review access revoked. Earlier static-demo share link was already absent/expired (API confirmed not found); its local credential record was removed.
+- Final B/C browser runs: Chromium 11/11, Firefox 11/11. The final theme-timing test also passes in an additional targeted Chromium rerun. Full lint/format passed; final typecheck and changed-test lint/format passed again.
+- No migration, provider change, production synthetic database records or production file uploads occurred. Signed-in production mutation journeys were intentionally not exercised; authenticated end-to-end writes were verified in isolated fixtures.
+
+See [release metadata](release/release.json), [held verification](release/held-verification.json), [production verification](release/production-verification.json), [local verification](release/local-verification.json) and [scale measurements](release/bc-scale-evidence.json).
+
+Remaining limits: WebKit launch dependency unavailable; real Google consent, real devices, provider-level capacity/concurrency and realistic large-file transfer stress remain unverified. Runtime-log access was retried and returned HTTP 404; platform-wide runtime-error/drain coverage is unverified. Seven development-only moderate dependency entries remain outside the approved scoped patch. The browser-local demo multi-tab overwrite limitation is deferred. No unresolved critical/important application finding remains from the reviewed B/C scope; these limits are not represented as passing tests.
+
+## Changed files
+
+Application/test/CI paths compared with `39dc18b` (release evidence files are additional documentation):
+
+- `.github/workflows/quality.yml`
+- `docs/audits/bc-refinement/verification.md`
+- `e2e/board-room.spec.ts`
+- `e2e/connected-workspace.spec.ts`
+- `e2e/connections.spec.ts`
+- `e2e/form-polish.spec.ts`
+- `e2e/native-workspace.spec.ts`
+- `e2e/overview-analytics.spec.ts`
+- `e2e/popup-proportions.spec.ts`
+- `e2e/power-dashboard.spec.ts`
+- `e2e/ui-localization-archive.spec.ts`
+- `e2e/workspace-refinements.spec.ts`
+- `e2e/workspace.spec.ts`
+- `package-lock.json`
+- `package.json`
+- `playwright.bc-cross.config.ts`
+- `playwright.bc-scale.config.ts`
+- `playwright.bc.config.ts`
+- `quality/bc-refinement.spec.ts`
+- `quality/bc-scale.spec.ts`
+- `scripts/prepare-bc-scale.ts`
+- `scripts/prepare-connected-scale.ts`
+- `src/app/api/board-room/attention/route.ts`
+- `src/app/board-dashboard.css`
+- `src/app/demo/page.tsx`
+- `src/app/room-design-tokens.css`
+- `src/app/super-app.css`
+- `src/app/workspace/archive/page.tsx`
+- `src/components/account-settings.tsx`
+- `src/components/board-room/board-room.tsx`
+- `src/components/board-room/dashboard-charts.tsx`
+- `src/components/board-room/portfolio-charts.tsx`
+- `src/components/board-room/project-detail.tsx`
+- `src/components/board-room/summary-strip.tsx`
+- `src/components/connected/actions.tsx`
+- `src/components/connected/explore.tsx`
+- `src/components/connected/project-attention.tsx`
+- `src/components/connected/workspace-demo.css`
+- `src/components/connected/workspace-demo.tsx`
+- `src/components/related-room-projects.tsx`
+- `src/components/workspace-focus.css`
+- `src/components/workspace-home.tsx`
+- `src/components/workspace-surface.tsx`
+- `src/lib/assets/explore.ts`
+- `src/lib/board-room/attention.ts`
+- `src/lib/board-room/navigation-context.ts`
+- `src/lib/project-room-links.ts`
+- `tests/connected-assets.test.ts`
+- `tests/project-room-links.test.ts`
+- `tests/queue-dependency-security.test.ts`

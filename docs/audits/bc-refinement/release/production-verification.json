@@ -1,0 +1,98 @@
+{
+  "at": "2026-11-12T21:59:06.919Z",
+  "origin": "https://evolve-rensist.vercel.app",
+  "deploymentId": "dpl_9RoGY5F9PRsGffUw7GyQk4qH6BwS",
+  "sourceSha": "2046c10c6752e2240cc88920c89df81a1d8ba957",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/board-room",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/assets",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/attention?tab=attention",
+      "status": 401
+    },
+    {
+      "path": "/api/board-room/connections",
+      "status": 401
+    },
+    {
+      "path": "/api/attachments/manage",
+      "status": 401
+    },
+    {
+      "path": "/api/workspace",
+      "status": 401
+    },
+    {
+      "path": "/api/workspace/search?q=project",
+      "status": 401
+    },
+    {
+      "path": "/geodata/kalimantan-provinces.json",
+      "status": 200
+    },
+    {
+      "path": "/board-room",
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/board-room?section=quality&qualityTab=reviews",
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/app",
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/workspace",
+      "signInBoundaryVisible": true
+    },
+    {
+      "path": "/workspace/archive",
+      "signInBoundaryVisible": true
+    },
+    {
+      "surface": "demo",
+      "width": 390,
+      "theme": "light",
+      "axeViolations": []
+    },
+    {
+      "surface": "demo",
+      "width": 390,
+      "theme": "dark",
+      "axeViolations": []
+    },
+    {
+      "surface": "demo",
+      "width": 1440,
+      "theme": "light",
+      "axeViolations": []
+    },
+    {
+      "surface": "demo",
+      "width": 1440,
+      "theme": "dark",
+      "axeViolations": []
+    },
+    {
+      "journey": "synthetic project to Locker follow-up task",
+      "success": true
+    }
+  ],
+  "browserErrors": [],
+  "privateDemoMutations": [],
+  "syntheticProductionRecords": false,
+  "syntheticProductionFiles": false,
+  "signedInProductionJourneys": false,
+  "success": true
+}
