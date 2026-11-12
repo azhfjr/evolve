@@ -195,4 +195,26 @@ test("review regression: connected demo responds to the shared large-font token"
   await expect(
     page.getByRole("heading", { name: "Explore the connected workspace" }),
   ).toHaveCSS("font-size", "28px");
+  await expect(page.locator(".connected-demo")).toHaveCSS("font-size", "16px");
+});
+test("archive uses shared typography and saved appearance attributes", async ({
+  page,
+}) => {
+  await page.goto("/workspace/archive");
+  await expect(page.locator(".super-app")).toHaveAttribute(
+    "data-font-scale",
+    /standard|large/,
+  );
+  await page
+    .locator(".super-app")
+    .evaluate((el) => el.setAttribute("data-font-scale", "standard"));
+  await expect(
+    page.getByRole("heading", { name: "Legacy Locker archive" }),
+  ).toHaveCSS("font-size", "24px");
+  await page
+    .locator(".super-app")
+    .evaluate((el) => el.setAttribute("data-font-scale", "large"));
+  await expect(
+    page.getByRole("heading", { name: "Legacy Locker archive" }),
+  ).toHaveCSS("font-size", "28px");
 });

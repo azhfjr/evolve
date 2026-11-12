@@ -3,7 +3,7 @@
   background: var(--bg);
   color: var(--text);
   font:
-    14px/1.5 "Inter Variable",
+    var(--text-body, 14px)/1.5 "Inter Variable",
     sans-serif;
 }
 .connected-demo header {

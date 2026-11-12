@@ -64,6 +64,9 @@
   "overrides": {
     "@vercel/cli-config": {
       "zod": "4.6.7"
+    },
+    "@vercel/queue": {
+      "minimatch": "11.0.8"
     }
   },
   "description": "Evolve: connected Board Room project monitoring and Locker Room task management.",

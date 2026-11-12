@@ -136,7 +136,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [expansion, costs, connected, regional]
+        suite: [expansion, costs, connected, regional, refinement]
         browser: [chromium, firefox, webkit]
         include:
           - suite: expansion
@@ -151,6 +151,9 @@ jobs:
           - suite: regional
             config: playwright.regional.config.ts
             cross: playwright.regional-cross.config.ts
+          - suite: refinement
+            config: playwright.bc.config.ts
+            cross: playwright.bc-cross.config.ts
     services:
       postgres:
         image: postgres:17
@@ -228,4 +231,44 @@ jobs:
             test-results/connected-scale-evidence.json
             test-results/connected-scale-query-plans.json
             test-results/connected-scale/
+          retention-days: 14
+
+  refinement-scale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: evolve
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: evolve
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U evolve -d evolve"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://evolve:local-ci-fixture-only@127.0.0.1:5432/evolve
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npx tsx scripts/prepare-bc-scale.ts
+      - run: npx playwright test --config playwright.bc-scale.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: refinement-scale-results
+          path: |
+            test-results/bc-scale-evidence.json
+            test-results/bc-scale-fixture.json
+            test-results/connected-scale-query-plans.json
+            test-results/bc-scale/
           retention-days: 14

@@ -43,7 +43,11 @@ test("assets have native creation, CSV template, searchable data and a connectio
   ).toBeVisible();
   await page.goto("/board-room?section=connections");
   await expect(
-    page.getByRole("heading", { name: "Project–asset connections" }),
+    page.getByRole("heading", {
+      name: "Project–asset connections",
+      level: 2,
+      exact: true,
+    }),
   ).toBeVisible();
   await expect(
     page.getByRole("button", {

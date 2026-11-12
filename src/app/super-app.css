@@ -299,6 +299,7 @@
   color: var(--accent);
   font-size: 12px;
 }
+.super-content .connected-panel > h1,
 .super-page-heading h1 {
   margin: 12px 0 8px;
   font:

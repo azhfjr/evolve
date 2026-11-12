@@ -1,6 +1,6 @@
 # Evolve B/C refinement — EV-06–EV-16
 
-Approved scope: shared UI, navigation strips, Data Quality/attention/review workflows, connected demo, charts, personal context and isolated scale verification. Base: `39dc18b`. No A-group repair, storage-provider migration or production publication is included.
+Approved scope: shared UI, navigation strips, Data Quality/attention/review workflows, connected demo, charts, personal context and isolated scale verification. Base: `39dc18b`. Original A-group exclusions remain, except the owner subsequently approved EV-01’s exact heading locator and EV-02’s Queue-scoped dependency patch. Production publication is authorized after verified demo and release gates. No storage-provider migration is included.
 
 ## Changes
 
@@ -18,13 +18,25 @@ Approved scope: shared UI, navigation strips, Data Quality/attention/review work
 
 ## Verification ledger
 
-- New browser acceptance tests reproduced all four initial missing behaviors before implementation. Fresh-build closure:6/6 passed, including six widths, both themes, large-font/reduced-motion states and member read-only behavior.
-- Domain/integration suite:351/351 passed on the implementation checkpoint.
-- Asset/attention suite:11/11; cross-room links:3/3, including deliberate read-permission contract update and RED→GREEN identity-mode regression.
-- Typecheck, lint and full formatting checks passed at the implementation checkpoint. Browser suites built and started production-mode Next.js.
-- Scale:2/2 passed; complete2,000/10,000/20,000 record traversal,147 rendered graph nodes,58,240 allocated bytes across2,240 file versions. Twelve endpoint p95 samples14.0–398.7ms (3 warmups,20 measurements). Sampled Chromium JS heap19.8MB, not peak memory or a production SLA.
-- Full Chromium and critical cross-browser results remain pending final regression/review.
-- Test traces, screenshot files and raw logs are under ignored `test-results` and `/tmp/bc-*`; fixture sessions remain private in ignored `.data`.
+| Check                             | Observed result                                                                                                       | Status / limitation                                                                                                                                                                 |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| New B/C browser acceptance        | 10/10 Chromium, 10/10 Firefox                                                                                         | PASS; six widths (320/390/768/1024/1440/1920), themes, large fonts, reduced motion, scope preservation, member read-only workbench, complete stage-zero summary, archive appearance |
+| Full existing Chromium regression | 294/295 passed; sole failure was unchanged ambiguous connection-map heading                                           | EV-01 repaired the locator with exact text and heading level; affected journey then 1/1 PASS. The complete suite was not repeated after this locator-only repair.                   |
+| Native browser zoom               | Board and Locker at actual 200% via chrome.tabs.setZoom; viewport/scroll width 720/720                                | PASS; recorded screenshots and JSON                                                                                                                                                 |
+| WebKit                            | Browser failed before application launch: missing libGLESv2.so.2                                                      | BLOCKED; no WebKit application pass claimed                                                                                                                                         |
+| Queue dependency regression       | Reproduced vulnerable scoped version 10.2.6, then 11.0.8 passes route glob and SDK callback/send compatibility checks | PASS; @vercel/queue stays 0.8.0; no global minimatch override                                                                                                                       |
+| Production dependency audit       | npm audit --omit=dev: zero advisories                                                                                 | PASS; full audit still reports seven moderate development-only ESLint-chain entries from GHSA-g3hv-75wg-m249; broader toolchain changes remain excluded                             |
+| Hosted synthetic demo             | Project → Locker follow-up journey; no runtime errors; /api/workspace returns 404                                     | PASS; client-only preview, Vercel owner sign-in, no production bindings                                                                                                             |
+
+Domain/integration, final scale recheck and held-build observations are appended below after completion. Typecheck, lint and full formatting checks passed on the release candidate. Browser suites build and run production-mode Next.js.
+
+Scale checkpoint: 2/2 passed; complete 2,000/10,000/20,000 record traversal, 147 rendered graph nodes, 58,240 allocated bytes across 2,240 file versions. Twelve endpoint p95 samples 14.0–398.7ms (3 warmups,20 measurements). Sampled Chromium JS heap 19.8MB, not peak memory or a production SLA. Final rerun preserves raw JSON in ignored `.vercel/bc-evidence/`.
+
+## Independent review and rulings
+
+One independent final review found no critical finding or authorization bypass. The single correction pass fixed: removing a reason losing portfolio scope; two remaining legacy demo fixtures; missing Not started in the complete stage table; and incomplete large-font demo coverage. Each had reproduced failing evidence, followed by targeted passing checks. Archive appearance was also reproduced and corrected through the existing saved-experience boundary.
+
+Deferred minor: two tabs of the browser-local synthetic demo can overwrite one another’s demo state. It does not affect authenticated drafts or production records. No second implementation-review agent was used.
 
 ## Safety and decisions
 
@@ -34,4 +46,4 @@ The public connected demo never calls private mutation endpoints. It stores vali
 
 The original 1,000-project canonical fixture is unchanged by default. The new runner opts into2,000 projects against the same guarded localhost disposable database, then generates local synthetic files. Scale tests must run sequentially with other browser suites sharing `.next`.
 
-Production remains held for demo review and unresolved EV-01/EV-02 release findings. Provider-level capacity/concurrency, real Google consent, real-device behavior and production recovery are not established by local fixtures. No synthetic business records/files are created in production.
+EV-01/EV-02 are now explicitly approved and their focused regressions pass. Production is held until remaining release checks and exact held-build verification complete. Provider-level capacity/concurrency, real Google consent, real-device behavior and production recovery are not established by local fixtures. No synthetic business records/files are created in production.
