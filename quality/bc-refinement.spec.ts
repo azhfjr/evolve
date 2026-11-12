@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import AxeBuilder from "@axe-core/playwright";
 test.beforeEach(async ({ context }) => {
   const tokens = JSON.parse(await readFile(".data/e2e-auth.json", "utf8"));
   await context.addCookies([
@@ -217,4 +218,32 @@ test("archive uses shared typography and saved appearance attributes", async ({
   await expect(
     page.getByRole("heading", { name: "Legacy Locker archive" }),
   ).toHaveCSS("font-size", "28px");
+});
+
+test("connected demo selected controls meet contrast requirements in both themes", async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  await page.goto("/demo");
+  await page
+    .getByRole("heading", { name: "Explore the connected workspace" })
+    .waitFor();
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    for (const theme of ["light", "dark"]) {
+      await page.evaluate((value) => {
+        document.documentElement.dataset.theme = value;
+      }, theme);
+      const result = await new AxeBuilder({ page })
+        .include(".connected-demo")
+        .withTags(["wcag2a", "wcag2aa"])
+        .analyze();
+      expect(
+        result.violations.filter(
+          (item) => item.impact === "serious" || item.impact === "critical",
+        ),
+        `${width} ${theme}`,
+      ).toEqual([]);
+    }
+  }
 });

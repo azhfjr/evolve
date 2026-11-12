@@ -63,7 +63,7 @@
 .connected-demo button[aria-pressed="true"] {
   border-color: var(--accent);
   background: var(--soft);
-  color: var(--accent);
+  color: var(--text);
 }
 .connected-demo label {
   display: flex;
