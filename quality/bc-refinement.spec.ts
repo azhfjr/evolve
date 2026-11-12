@@ -231,8 +231,17 @@ test("connected demo selected controls meet contrast requirements in both themes
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     for (const theme of ["light", "dark"]) {
-      await page.evaluate((value) => {
+      await page.evaluate(async (value) => {
         document.documentElement.dataset.theme = value;
+        await Promise.all(
+          document
+            .getAnimations()
+            .filter(
+              (animation) =>
+                animation.effect?.getComputedTiming().iterations !== Infinity,
+            )
+            .map((animation) => animation.finished.catch(() => undefined)),
+        );
       }, theme);
       const result = await new AxeBuilder({ page })
         .include(".connected-demo")
