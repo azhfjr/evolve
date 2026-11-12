@@ -97,6 +97,7 @@ test("links find exact normalized RUPTL codes and show all duplicate matches wit
       p.href.startsWith("/app?section=project&project="),
     ),
   );
+  assert.equal(linked.identityMode, "legacy");
   const reverse = await relatedRoomProjects(admin, {
     room: "locker",
     id: lockerId,

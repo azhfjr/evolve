@@ -249,7 +249,7 @@ export function AccountSettings({
         })}
       </div>
       <div className="settings-content">
-        {data.actor.isAdmin && (
+        {data.actor.isAdmin && tab !== "files" && (
           <a
             className="button secondary"
             href="/board-room?section=project-template"

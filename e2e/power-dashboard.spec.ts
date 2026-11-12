@@ -35,7 +35,7 @@ async function command(page: Page, data: unknown) {
 test("Dashboard charts, browser history, live clock, and task drafts work together", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await expect(
     page.getByRole("heading", { name: "Overview", exact: true }),
   ).toBeVisible();

@@ -56,9 +56,16 @@
 .super-content {
   width: 100%;
   max-width: 1280px;
-  margin: auto;
-  padding: clamp(28px, 4vw, 64px) 32px;
+  margin: 0 auto;
+  padding: 24px 32px;
   flex: 1;
+}
+.super-content.super-toolbar {
+  flex: none;
+  padding-block: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .super-intro {
   margin-bottom: 32px;
@@ -73,7 +80,7 @@
 }
 .super-intro h1 {
   font:
-    750 clamp(34px, 4vw, 54px)/1.08 "Manrope Variable",
+    750 var(--page-title-size, 24px)/1.25 "Inter Variable",
     sans-serif;
   letter-spacing: -0.045em;
   margin: 0 0 18px;
@@ -293,9 +300,9 @@
   font-size: 12px;
 }
 .super-page-heading h1 {
-  margin: 16px 0 10px;
+  margin: 12px 0 8px;
   font:
-    750 clamp(26px, 3vw, 36px)/1.15 "Manrope Variable",
+    750 var(--page-title-size, 24px)/1.25 "Inter Variable",
     sans-serif;
   letter-spacing: -0.035em;
 }

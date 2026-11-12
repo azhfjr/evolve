@@ -4,7 +4,6 @@ import { sql, type SQL } from "drizzle-orm";
 import { z } from "zod";
 import { database } from "../db";
 import { assertActorActive } from "../membership";
-import { requireAdmin } from "../permissions";
 import type { Actor } from "../types";
 export type QualityIssue = {
   version?: number;
@@ -15,7 +14,6 @@ export type QualityIssue = {
   href: string;
 };
 export async function assetQuality(actor: Actor, page = 1) {
-  requireAdmin(actor);
   page = z.number().int().min(1).parse(page);
   const { db } = await database();
   await assertActorActive(db, actor);

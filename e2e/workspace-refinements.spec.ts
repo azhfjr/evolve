@@ -66,7 +66,7 @@ test("sidebar shows long project names and compact mode retains utilities, focus
 test("Ctrl+F opens and refocuses workspace find while Ctrl+K is retired", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await expect(page.locator(".sidebar-search kbd")).toHaveText("Ctrl F");
   await page.keyboard.press("Control+k");
   await expect(page.getByRole("dialog")).toHaveCount(0);

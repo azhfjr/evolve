@@ -574,6 +574,76 @@ export function ProjectDetail({
                     </label>
                   </div>
                 )}
+                <section
+                  className="br-review-panel"
+                  aria-label="Evidence review summary"
+                >
+                  <h3>Project evidence review</h3>
+                  <p>
+                    {detail.project.valid
+                      ? "Valid — current evidence reviewed."
+                      : detail.attachments.length
+                        ? "Needs review — current evidence is not yet approved."
+                        : "No files — add evidence before reviewing."}
+                  </p>
+                  <p>
+                    Uploading files never automatically makes a project valid.
+                    Validity applies to the project, not individual files.
+                  </p>
+                  <dl className="br-review-facts">
+                    <div>
+                      <dt>Current evidence revision</dt>
+                      <dd>{detail.project.documentRevision}</dd>
+                    </div>
+                    <div>
+                      <dt>Last reviewed revision</dt>
+                      <dd>
+                        {detail.project.reviewedRevision ??
+                          "No recorded review"}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>Last reviewer</dt>
+                      <dd>{detail.project.reviewedBy || "Not recorded"}</dd>
+                    </div>
+                  </dl>
+                  <p>
+                    {detail.project.reviewedAt
+                      ? `Last recorded review: ${new Date(detail.project.reviewedAt).toLocaleString()}. ${detail.attachments.filter((f) => Date.parse(f.createdAt) > Date.parse(detail.project.reviewedAt!)).length} current files uploaded since that review.`
+                      : "No recorded review baseline is available."}{" "}
+                    The exact previously reviewed file set was not recorded;
+                    this is not a complete before/after comparison. Open each
+                    document’s revision history to inspect retained versions.
+                  </p>
+                  <details>
+                    <summary>Recent evidence events</summary>
+                    <p>
+                      The latest project-history window is shown; it may not
+                      include every older review.
+                    </p>
+                    <ol>
+                      {detail.history
+                        .filter((h) =>
+                          [
+                            "validated",
+                            "validation_revoked",
+                            "documents_changed",
+                          ].includes(h.kind),
+                        )
+                        .map((h) => (
+                          <li key={h.id}>
+                            {h.kind === "validated"
+                              ? "Project approved"
+                              : h.kind === "validation_revoked"
+                                ? "Validity revoked"
+                                : "Evidence changed"}{" "}
+                            · {new Date(h.createdAt).toLocaleString()} ·{" "}
+                            {h.actor}
+                          </li>
+                        ))}
+                    </ol>
+                  </details>
+                </section>
                 {detail.attachments.map((f) => (
                   <div className="br-document" key={f.id}>
                     <FileText size={18} />

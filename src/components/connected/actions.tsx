@@ -105,6 +105,11 @@ export function PersonalActions() {
     <section className="connected-panel">
       <div className="connected-heading">
         <h2>Your action centre</h2>
+        <p>
+          Tasks are assigned to you; notifications explain changes; document
+          reviews need administrator action. Reading a notification never
+          completes the underlying work.
+        </p>
       </div>
       <div className="connected-actions">
         {["tasks", "notifications", "document reviews"].map((f) => (
@@ -175,7 +180,11 @@ export function PersonalActions() {
         {filter === "document reviews" &&
           r.data?.review.map((p) => (
             <li key={p.id}>
-              <Link href={"/board-room/projects/" + p.id}>{p.name}</Link>
+              <Link
+                href={"/board-room/projects/" + p.id + "?projectTab=documents"}
+              >
+                {p.name}
+              </Link>
               <p>Ready documents need an administrator’s review.</p>
             </li>
           ))}

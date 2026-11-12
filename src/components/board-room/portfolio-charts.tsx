@@ -8,6 +8,7 @@ import {
 } from "@/lib/portfolio-chart-geometry";
 export type ChartDatum = {
   label: string;
+  selected?: boolean;
   value: number | string;
   color?: string;
   display?: string;
@@ -159,6 +160,7 @@ export function RoundChart({
                 d={path}
                 fill={r.color ?? fallback[p.index % fallback.length]}
                 role="button"
+                aria-pressed={r.selected}
                 tabIndex={0}
                 aria-label={`Select ${description}`}
                 onClick={r.action}
@@ -209,6 +211,7 @@ export function RoundChart({
           <button
             key={r.label}
             aria-label={r.label}
+            aria-pressed={r.selected}
             onClick={r.action}
             onFocus={() => setActiveLabel(r.label)}
             onBlur={() => setActiveLabel(null)}
@@ -318,6 +321,7 @@ export function ColumnChart({
                     height={Math.max(2, ratios[i] * plotHeight)}
                     fill="var(--accent)"
                     role="button"
+                    aria-pressed={r.selected}
                     tabIndex={0}
                     aria-label={description}
                     onClick={r.action}
@@ -435,6 +439,7 @@ export function StackedColumns({
                         height={h}
                         fill={r.color}
                         role="button"
+                        aria-pressed={r.selected}
                         tabIndex={0}
                         aria-label={description}
                         onClick={r.action}
@@ -542,7 +547,11 @@ export function HorizontalBars({
         {rows.length ? (
           rows.map((r) => (
             <div className="portfolio-horizontal-row" key={r.label}>
-              <button aria-label={r.label} onClick={r.action}>
+              <button
+                aria-label={r.label}
+                aria-pressed={r.selected}
+                onClick={r.action}
+              >
                 <span>{r.label}</span>
                 <strong>{r.value.toLocaleString()}</strong>
               </button>

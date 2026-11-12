@@ -1,5 +1,6 @@
 /* Balanced portfolio palette and shared type roles. */
 :root {
+  --page-title-size: 24px;
   --chart-generation: #49795c;
   --chart-transmission: #7d68bd;
   --chart-substation: #b77740;
@@ -206,4 +207,8 @@ html
   min-width: 110px;
   white-space: normal;
   overflow-wrap: anywhere;
+}
+
+[data-font-scale="large"] {
+  --page-title-size: 28px;
 }

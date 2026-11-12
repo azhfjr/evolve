@@ -4,7 +4,58 @@ import Link from "next/link";
 import type { QualityIssue } from "@/lib/assets/explore";
 import { connectedRequest, useConnectedData } from "./data";
 import { useURLState } from "./url-state";
-export function QualityWorkspace() {
+import { ProjectAttention } from "./project-attention";
+export function QualityWorkspace({ admin = false }: { admin?: boolean }) {
+  const [tab] = useURLState("qualityTab", "quality", (v) =>
+    ["quality", "attention", "reviews"].includes(String(v)),
+  );
+  const [attention] = useURLState("qualityAttention", "", (v) =>
+    ["", "stale", "incomplete", "unassigned"].includes(String(v)),
+  );
+  const [scope] = useURLState("qualityScope", "");
+  return (
+    <>
+      <nav
+        className="connected-actions"
+        aria-label="Quality workbench sections"
+      >
+        {[
+          ["quality", "Data quality"],
+          ["attention", "Project attention"],
+          ["reviews", "Document reviews"],
+        ].map(([key, label]) => (
+          <Link
+            key={key}
+            aria-current={tab === key ? "page" : undefined}
+            href={
+              "/board-room?" +
+              new URLSearchParams({
+                section: "quality",
+                qualityTab: key,
+                ...(scope ? { qualityScope: scope } : {}),
+              })
+            }
+          >
+            {label}
+          </Link>
+        ))}
+      </nav>
+      {tab === "quality" ? (
+        <>
+          <AssetQuality admin={admin} />
+          <ProjectAttention tab="regions" />
+        </>
+      ) : (
+        <ProjectAttention
+          key={tab + attention}
+          tab={tab as "attention" | "reviews"}
+          attention={tab === "attention" ? attention : ""}
+        />
+      )}
+    </>
+  );
+}
+function AssetQuality({ admin }: { admin: boolean }) {
   const [actionError, setActionError] = useState("");
   const [page, setPage] = useURLState("qualityPage", 1);
   const r = useConnectedData<{
@@ -34,7 +85,7 @@ export function QualityWorkspace() {
                 <strong>{i.name}</strong>
                 <p>{i.reason}</p>
                 <Link href={i.href}>Review record</Link>
-                {i.kind === "import_conflict" && (
+                {admin && i.kind === "import_conflict" && (
                   <button
                     onClick={async () => {
                       try {

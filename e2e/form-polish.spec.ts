@@ -20,7 +20,7 @@ for (const width of [1440, 768, 360])
   }) => {
     test.setTimeout(60000);
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto("/demo");
+    await page.goto("/demo?legacy=1");
     await page.getByRole("button", { name: "New task", exact: true }).click();
     const dialog = editorSurface(page);
     await expect(
@@ -129,7 +129,7 @@ for (const width of [1440, 768, 360])
 test("financial summaries stay inside each project while Dashboard and Projects stay focused on delivery", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await nav(page, "Projects");
   await page.getByRole("button", { name: "New project", exact: true }).click();
   const dialog = editorSurface(page);

@@ -178,7 +178,7 @@ test("English-only interface ignores legacy locale cookies and keeps user conten
   await expect(
     page.getByRole("button", { name: "Continue with Google", exact: true }),
   ).toBeVisible();
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await page.getByRole("button", { name: "New task", exact: true }).click();
   const dialog = editorSurface(page);
   await dialog
@@ -203,7 +203,7 @@ for (const width of [1440, 768, 360])
     page,
   }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto("/demo");
+    await page.goto("/demo?legacy=1");
     await page.getByRole("button", { name: "New task", exact: true }).click();
     const dialog = editorSurface(page);
     await dialog
@@ -246,7 +246,7 @@ test("English workspace reflows at 320px with every management page reachable", 
 }) => {
   test.setTimeout(90000);
   await page.setViewportSize({ width: 320, height: 900 });
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await expect(page.locator(".topbar")).toBeVisible();
   for (const label of [
     "Overview",

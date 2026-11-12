@@ -191,7 +191,7 @@ test("admin can create and edit a task, persist comments, archive, and restore i
 test("board status menus, filters, calendar, and search are functional", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await nav(page, "All tasks");
   await page.getByRole("tab", { name: "Board", exact: true }).click();
   await page
@@ -290,7 +290,7 @@ test("invitations grant member access and sole administrator cannot be removed",
 test("task page focuses its title and Escape restores the creation action", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   const button = page.getByRole("button", { name: "New task", exact: true });
   await button.click();
   await expect(
@@ -322,7 +322,7 @@ test("desktop and mobile views have no overflow or serious accessibility violati
 }) => {
   for (const width of [1440, 768, 360]) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto("/demo");
+    await page.goto("/demo?legacy=1");
     await expect(
       page.getByRole("heading", { name: "Overview", exact: true }),
     ).toBeVisible();
@@ -350,7 +350,7 @@ test("desktop and mobile views have no overflow or serious accessibility violati
 test("task dialog and sign-in page pass accessibility checks", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await page.getByRole("button", { name: "New task", exact: true }).click();
   expect(
     (await scan(page)).violations.map((v) => ({
@@ -373,7 +373,7 @@ test("task dialog and sign-in page pass accessibility checks", async ({
   ).toEqual([]);
 });
 test("dark theme remains readable and survives reload", async ({ page }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await page.getByRole("button", { name: "Settings", exact: true }).click();
   await page.getByRole("tab", { name: "Appearance", exact: true }).click();
   await page.getByRole("radio", { name: "Dark", exact: true }).check();
@@ -448,7 +448,7 @@ test("a late refresh cannot revert a task that just saved", async ({
 
 test("mobile navigation and a task edit work at 360px", async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 });
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await nav(page, "All tasks");
   await page.getByRole("tab", { name: "Board", exact: true }).click();
   await page

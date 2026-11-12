@@ -1,4 +1,5 @@
 "use client";
+import { SummaryStrip } from "./summary-strip";
 import { useConnectedData } from "../connected/data";
 import type { TemplateView } from "@/lib/project-template/service";
 import { chartQuery } from "@/lib/board-room/chart-filters";
@@ -449,7 +450,22 @@ function BoardRoomContent({
         <b>Planned COD by year</b>
         <small>Other filters apply · Select a year to focus</small>
       </div>
-      <div className="br-year-grid">
+      <SummaryStrip
+        kind="years"
+        className="br-year-grid"
+        entries={[
+          ...years,
+          ...(summary.years.some((y) => y.year === null) ? [null] : []),
+        ].map((year) => {
+          const key = year === null ? "unknown" : String(year);
+          return {
+            label: year === null ? "COD not set" : String(year),
+            count: summary.years.find((y) => y.year === year)?.total ?? 0,
+            selected: query.year === key,
+            select: () => filter({ year: query.year === key ? "" : key }),
+          };
+        })}
+      >
         {[
           ...years,
           ...(summary.years.some((y) => y.year === null) ? [null] : []),
@@ -486,7 +502,7 @@ function BoardRoomContent({
             </button>
           );
         })}
-      </div>
+      </SummaryStrip>
     </section>
   );
   const stageCounts = (
@@ -507,7 +523,19 @@ function BoardRoomContent({
           {summary.stages[0]} not started
         </button>
       </div>
-      <div className="br-stage-counts">
+      <SummaryStrip
+        kind="stages"
+        className="br-stage-counts"
+        entries={data.config.stages.map((name, i) => ({
+          label: name,
+          count: summary.stages[i + 1],
+          selected: query.stage === String(i + 1),
+          select: () =>
+            filter({
+              stage: query.stage === String(i + 1) ? "" : String(i + 1),
+            }),
+        }))}
+      >
         {data.config.stages.map((s, i) => (
           <button
             className={query.stage === String(i + 1) ? "selected" : ""}
@@ -531,7 +559,7 @@ function BoardRoomContent({
             </span>
           </button>
         ))}
-      </div>
+      </SummaryStrip>
     </section>
   );
   const filters = (
@@ -1175,9 +1203,18 @@ function BoardRoomContent({
                 <button
                   aria-pressed={query.attention === "stale"}
                   onClick={() =>
-                    filter({
-                      attention: query.attention === "stale" ? "" : "stale",
-                    })
+                    router.push(
+                      "/board-room?" +
+                        new URLSearchParams({
+                          section: "quality",
+                          qualityTab: "attention",
+                          qualityAttention: "stale",
+                          qualityScope: JSON.stringify({
+                            ...query,
+                            attention: "",
+                          }),
+                        }),
+                    )
                   }
                 >
                   Progress reviews due
@@ -1185,10 +1222,18 @@ function BoardRoomContent({
                 <button
                   aria-pressed={query.attention === "incomplete"}
                   onClick={() =>
-                    filter({
-                      attention:
-                        query.attention === "incomplete" ? "" : "incomplete",
-                    })
+                    router.push(
+                      "/board-room?" +
+                        new URLSearchParams({
+                          section: "quality",
+                          qualityTab: "attention",
+                          qualityAttention: "incomplete",
+                          qualityScope: JSON.stringify({
+                            ...query,
+                            attention: "",
+                          }),
+                        }),
+                    )
                   }
                 >
                   Missing information
@@ -1196,10 +1241,18 @@ function BoardRoomContent({
                 <button
                   aria-pressed={query.attention === "unassigned"}
                   onClick={() =>
-                    filter({
-                      attention:
-                        query.attention === "unassigned" ? "" : "unassigned",
-                    })
+                    router.push(
+                      "/board-room?" +
+                        new URLSearchParams({
+                          section: "quality",
+                          qualityTab: "attention",
+                          qualityAttention: "unassigned",
+                          qualityScope: JSON.stringify({
+                            ...query,
+                            attention: "",
+                          }),
+                        }),
+                    )
                   }
                 >
                   Unassigned contacts
@@ -1267,12 +1320,9 @@ function BoardRoomContent({
           {section === "connections" && (
             <ProjectAssetMap stages={data.config.stages} />
           )}
-          {section === "quality" &&
-            (data.actor.isAdmin ? (
-              <QualityWorkspace />
-            ) : (
-              <p>Data quality management is available to administrators.</p>
-            ))}
+          {section === "quality" && (
+            <QualityWorkspace admin={data.actor.isAdmin} />
+          )}
           {section === "database" && (
             <>
               <section className="br-panel br-upload-panel">

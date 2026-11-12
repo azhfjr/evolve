@@ -213,7 +213,7 @@ for (const width of [1440, 390, 320])
   }) => {
     test.setTimeout(60000);
     await page.setViewportSize({ width, height: 900 });
-    await page.goto("/demo");
+    await page.goto("/demo?legacy=1");
     await page
       .getByRole("button", { name: "Explore #design connections", exact: true })
       .click();
@@ -366,7 +366,7 @@ test("sidebar scroll controls reveal management without moving the page", async 
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 600 });
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   const navArea = page.locator(".sidebar-scroll-area nav");
   const before = await navArea.evaluate((e) => e.scrollTop);
   await page

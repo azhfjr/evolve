@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
+import { querySchema } from "@/lib/board-room/model";
 import type { BoardSnapshot, BoardQuery } from "@/lib/board-room/model";
 import { chartQuery } from "@/lib/board-room/chart-filters";
 import { AppSelect } from "../app-select";
@@ -110,6 +111,10 @@ export function DashboardCharts({
       : "uncategorized";
   const locations = a.locations.map((r) => ({
     label: r.location || "Unspecified",
+    selected:
+      r.location === null
+        ? query.missingLocation
+        : query.location === r.location,
     value: r.count,
     action: () =>
       filter({
@@ -121,11 +126,25 @@ export function DashboardCharts({
   if (!allLocations && locations.length > 8)
     visibleLocations.push({
       label: `Other (${locations.length - 8} locations)`,
+      selected: false,
       value: locations.slice(8).reduce((n, r) => n + r.value, 0),
       action: () => setAllLocations(true),
     });
   return (
     <section className="dashboard-analysis" aria-label="Portfolio charts">
+      <div className="dashboard-chart-context">
+        <p>
+          {s.total.toLocaleString()} matching projects · charts share the
+          current filters. Select a segment to explore; full counts and
+          percentages are available in View data.
+        </p>
+        <button
+          type="button"
+          onClick={() => onQueryChange(querySchema.parse({ sort: query.sort }))}
+        >
+          Clear portfolio filters
+        </button>
+      </div>
       <Card
         title="Document readiness"
         note="Current evidence · uploading alone does not make a project valid"
@@ -149,6 +168,9 @@ export function DashboardCharts({
               ] as const
             ).map((x) => ({
               label: x.label,
+              selected:
+                query.category === category(r.category) &&
+                query.validation === x.state,
               value: r[x.state],
               color: x.color,
               action: () =>
@@ -179,11 +201,13 @@ export function DashboardCharts({
             rows={[
               {
                 label: "Projects with assets",
+                selected: query.assetCoverage === "linked",
                 value: a.coverage.linked,
                 action: () => filter({ assetCoverage: "linked" }),
               },
               {
                 label: "Projects without assets",
+                selected: query.assetCoverage === "unlinked",
                 value: a.coverage.unlinked,
                 action: () => filter({ assetCoverage: "unlinked" }),
               },
@@ -220,6 +244,7 @@ export function DashboardCharts({
           label="Projects by category"
           rows={s.categories.map((r) => ({
             label: r.name,
+            selected: query.category === category(r.name),
             value: r.total,
             color: categoryColor(r.name),
             action: () => filter({ category: category(r.name) }),
@@ -267,6 +292,8 @@ export function DashboardCharts({
           unit={unit}
           rows={capacities.map((r) => ({
             label: String(r.year ?? "Unscheduled"),
+            selected:
+              query.year === (r.year === null ? "unknown" : String(r.year)),
             value: r.total,
             records: r.measuredCount,
             action: () => {

@@ -698,3 +698,49 @@
     align-items: stretch;
   }
 }
+
+/* Portfolio exploration state is explicit for pointer, touch and keyboard users. */
+.dashboard-chart-context {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dashboard-chart-context p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-small, 12px);
+  max-width: 80ch;
+}
+.portfolio-plot [aria-pressed="true"] {
+  stroke: var(--text);
+  stroke-width: 2;
+}
+.portfolio-legend button[aria-pressed="true"] {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.summary-strip > .connected-actions {
+  justify-content: space-between;
+  margin: 8px 0;
+}
+.summary-strip details {
+  margin-top: 8px;
+}
+.summary-strip summary {
+  cursor: pointer;
+  padding: 8px 0;
+  font-size: var(--text-small, 12px);
+}
+.summary-strip table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.summary-strip th,
+.summary-strip td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}

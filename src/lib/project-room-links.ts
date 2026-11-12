@@ -11,6 +11,7 @@ export const roomLinkQuery = z.object({
   id: z.uuid(),
 });
 export type RelatedProjects = {
+  identityMode?: "canonical" | "legacy";
   code: string;
   targetRoom: "locker" | "board";
   projects: { id: string; name: string; href: string }[];
@@ -58,6 +59,7 @@ export async function relatedRoomProjects(
                 .from(s.boardRoomProject)
                 .where(eq(s.boardRoomProject.id, query.id));
         return {
+          identityMode: "canonical",
           code,
           targetRoom,
           hasMore: false,
@@ -70,7 +72,14 @@ export async function relatedRoomProjects(
           })),
         };
       }
-      if (!code) return { code, targetRoom, projects: [], hasMore: false };
+      if (!code)
+        return {
+          identityMode: "legacy",
+          code,
+          targetRoom,
+          projects: [],
+          hasMore: false,
+        };
       const matches =
         query.room === "board"
           ? await tx
@@ -89,6 +98,7 @@ export async function relatedRoomProjects(
               .orderBy(s.boardRoomProject.externalId, s.boardRoomProject.id)
               .limit(21);
       return {
+        identityMode: "legacy",
         code,
         targetRoom,
         hasMore: matches.length > 20,

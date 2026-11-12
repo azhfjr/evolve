@@ -26,7 +26,7 @@ for (const width of [320, 390, 768])
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth),
     ).toBe(width);
-    await page.goto("/demo");
+    await page.goto("/demo?legacy=1");
     await expect(page.locator("main h1")).toHaveText("Overview");
     if (width === 768)
       expect((await page.locator(".main-shell").boundingBox())!.x).toBe(72);
@@ -213,7 +213,7 @@ test("project creation recovers incomplete values after close/reload and editing
 test("signing out requires an explicit decision before clearing a task draft", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await page.getByRole("button", { name: "New task", exact: true }).click();
   await page
     .getByLabel("Task title", { exact: true })

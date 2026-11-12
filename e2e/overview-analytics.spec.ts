@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("overview provides seven scoped dashboard charts, data access, and open task drilldowns", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   const overview = page.locator(".overview-dashboard");
   await expect(
     overview.locator(".overview-analytics-grid > section"),
@@ -37,11 +37,11 @@ test("overview provides seven scoped dashboard charts, data access, and open tas
 test("deadline today and workload drills preserve their open scope", async ({
   page,
 }) => {
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   await page.getByRole("button", { name: /^Due today:.*View tasks$/ }).click();
   await expect(page).toHaveURL(/dueBucket=today/);
   await expect(page).toHaveURL(/open=true/);
-  await page.goto("/demo");
+  await page.goto("/demo?legacy=1");
   const firstOwner = page
     .locator("[aria-labelledby=overview-workload-title] .overview-bar-row")
     .first();
@@ -53,7 +53,7 @@ test("deadline today and workload drills preserve their open scope", async ({
 for (const width of [320, 1440]) {
   test(`overview charts and tables reflow at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto("/demo");
+    await page.goto("/demo?legacy=1");
     await expect(page.locator(".overview-analytics-grid")).toBeVisible();
     await page.locator(".overview-status summary").click();
     await expect(page.locator(".overview-status table")).toBeVisible();

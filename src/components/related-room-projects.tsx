@@ -57,7 +57,11 @@ export function RelatedRoomProjects({
         <h3>Connected projects</h3>
         <span>{target}</span>
       </div>
-      <p>Matched by RUPTL Code. Each room keeps its own records and updates.</p>
+      <p>
+        {data?.identityMode === "canonical"
+          ? "One shared project identity. Board Room monitors the project; Locker Room manages its tasks."
+          : "Matched by RUPTL Code. Each room keeps its own records and updates."}
+      </p>
       {error ? (
         <div role="alert">
           <p>{error}</p>
@@ -69,14 +73,18 @@ export function RelatedRoomProjects({
         <p role="status">Finding connected projects…</p>
       ) : (
         <>
-          {!data.code ? (
+          {!data.code && data.identityMode !== "canonical" ? (
             <p>
               Add a RUPTL Code in the project reference to find matching
               projects.
             </p>
           ) : (
             <>
-              <small>RUPTL Code · {data.code}</small>
+              <small>
+                {data.identityMode === "canonical"
+                  ? "Shared project"
+                  : `RUPTL Code · ${data.code}`}
+              </small>
               {data.projects.length ? (
                 <ul>
                   {data.projects.map((project) => (

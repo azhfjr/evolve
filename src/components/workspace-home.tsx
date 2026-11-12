@@ -143,7 +143,7 @@ export function WorkspaceHome({
           </button>
         </nav>
       </header>
-      <div className="super-content">
+      <div className="super-content super-toolbar">
         <UnifiedSearch />
         <small role="status">{liveState}</small>
       </div>

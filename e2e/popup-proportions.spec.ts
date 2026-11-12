@@ -48,7 +48,7 @@ for (const viewport of [
   }) => {
     test.setTimeout(90000);
     await page.setViewportSize(viewport);
-    await page.goto("/demo");
+    await page.goto("/demo?legacy=1");
     await page.locator(".dashboard-page").waitFor();
     await page.keyboard.press("Control+f");
     let dialog = await inspectDialog(page);

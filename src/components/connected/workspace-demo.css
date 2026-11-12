@@ -1,0 +1,134 @@
+.connected-demo {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font:
+    14px/1.5 "Inter Variable",
+    sans-serif;
+}
+.connected-demo header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 5vw;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.connected-demo header > a:first-child {
+  font-size: 24px;
+  font-weight: 750;
+}
+.connected-demo main {
+  max-width: 1280px;
+  margin: auto;
+  padding: 24px;
+}
+.connected-demo h1 {
+  font-size: 24px;
+  line-height: 1.3;
+}
+.connected-demo h2 {
+  font-size: 16px;
+}
+.connected-demo h3 {
+  font-size: 14px;
+}
+.connected-demo small,
+.connected-demo .eyebrow {
+  font-size: 12px;
+  color: var(--muted);
+}
+.demo-rooms,
+.demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  margin: 20px 0;
+}
+.connected-demo button,
+.connected-demo select {
+  font: inherit;
+  min-height: 40px;
+  padding: 8px 12px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  max-width: 100%;
+}
+.connected-demo button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--soft);
+  color: var(--accent);
+}
+.connected-demo label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-block: 12px;
+}
+.connected-demo li label {
+  flex-direction: row;
+  align-items: center;
+}
+.connected-demo input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+.demo-panel,
+.demo-guide {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  overflow-wrap: anywhere;
+}
+.demo-guide ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  padding-left: 20px;
+}
+.demo-years {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.demo-years button {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+.demo-years strong {
+  font-size: 20px;
+}
+.demo-notice {
+  padding: 12px;
+  background: var(--soft);
+  border-left: 3px solid var(--accent);
+}
+.connected-demo :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .demo-years {
+    grid-template-columns: 1fr;
+  }
+  .connected-demo main {
+    padding: 16px;
+  }
+  .demo-guide ol {
+    display: block;
+  }
+  .demo-controls > * {
+    width: 100%;
+  }
+}

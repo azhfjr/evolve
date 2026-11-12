@@ -167,7 +167,7 @@ test("asset import rechecks preview and applies all rows atomically", async () =
 test("quality explains mixed-unit differences and connections retain empty projects", async () => {
   const { assetQuality, assetConnections } =
     await import("../src/lib/assets/explore");
-  await assert.rejects(assetQuality(member), /admin/i);
+  assert.ok((await assetQuality(member)).total >= 0);
   const quality = await assetQuality(admin);
   assert.ok(quality.checkedAt);
   assert.ok(quality.issues.some((i) => i.kind === "unassigned"));
@@ -328,5 +328,33 @@ test("asset import receipt replay rejects changed source data", async () => {
       token: p.token,
     }),
     /changed/i,
+  );
+});
+test("project attention is grouped, complete beyond pagination, and authorized for members", async () => {
+  const attentionModule = await import("../src/lib/board-room/attention");
+  const all = await attentionModule.projectAttention(member, {
+    tab: "attention",
+    page: 1,
+  });
+  assert.equal(
+    new Set(all.projects.map((p) => p.id)).size,
+    all.projects.length,
+  );
+  assert.ok(all.total >= 2);
+  assert.ok(all.projects.every((p) => p.reasons.length > 0));
+  const regions = await attentionModule.projectAttention(member, {
+    tab: "regions",
+    page: 1,
+  });
+  assert.ok(
+    regions.projects.every((p) =>
+      ["missing", "unrecognized"].includes(p.region),
+    ),
+  );
+  await assert.rejects(
+    attentionModule.projectAttention(
+      { ...member, email: "unknown@example.test" },
+      { tab: "attention" },
+    ),
   );
 });
