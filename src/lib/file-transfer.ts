@@ -29,6 +29,46 @@ async function json(response: Response) {
     );
   return body;
 }
+function uploadToR2(
+  file: File,
+  permission: NonNullable<UploadReservation["upload"]>,
+  onProgress: (value: number) => void,
+  signal?: AbortSignal,
+) {
+  signal?.throwIfAborted();
+  return new Promise<void>((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    const abort = () => xhr.abort();
+    xhr.open("PUT", permission.url);
+    xhr.timeout = 300000;
+    for (const [key, value] of Object.entries(permission.headers))
+      xhr.setRequestHeader(key, value);
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable)
+        onProgress((event.loaded / event.total) * 100);
+    };
+    // An immutable object may already exist when retrying a lost response.
+    // Finalization still validates bytes and checks the active reservation.
+    xhr.onload = () =>
+      xhr.status === 412 || (xhr.status >= 200 && xhr.status < 300)
+        ? resolve()
+        : reject(
+            new FileTransferError(
+              "Document could not be uploaded. Try again.",
+              xhr.status,
+            ),
+          );
+    xhr.onerror = xhr.ontimeout = () =>
+      reject(
+        new FileTransferError("Upload connection interrupted. Try again."),
+      );
+    xhr.onabort = () =>
+      reject(signal?.reason ?? new DOMException("Aborted", "AbortError"));
+    xhr.onloadend = () => signal?.removeEventListener("abort", abort);
+    signal?.addEventListener("abort", abort, { once: true });
+    xhr.send(file);
+  });
+}
 export async function uploadAttachment(
   file: File,
   entityType: AttachmentEntity,
@@ -88,6 +128,15 @@ export async function uploadAttachment(
           onProgress(event.percentage);
         },
       });
+    } else if (reservation.provider === "r2") {
+      if (!reservation.upload)
+        throw new FileTransferError(
+          "Upload permission unavailable. Try again.",
+          503,
+        );
+      options.onPhase?.("uploading");
+      await uploadToR2(file, reservation.upload, onProgress, options.signal);
+      onProgress(100);
     } else {
       options.onPhase?.("uploading");
       await json(

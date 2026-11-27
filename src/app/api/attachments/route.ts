@@ -11,7 +11,12 @@ import {
   cleanupAttachments,
   listAttachments,
   reserveAttachment,
+  ownedReservation,
 } from "@/lib/attachments";
+import { r2UploadPermission } from "@/lib/r2-storage";
+import { requireHealthyR2 } from "@/lib/r2-reconciliation";
+import { database } from "@/lib/db";
+import { AppError } from "@/lib/permissions";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) {
@@ -51,9 +56,22 @@ export async function POST(request: Request) {
         );
       }
     });
-    return privateJson(
-      await reserveAttachment(actor, await requestJson(request, 4096)),
+    const reservation = await reserveAttachment(
+      actor,
+      await requestJson(request, 4096),
     );
+    if (reservation.provider !== "r2" || reservation.file)
+      return privateJson(reservation);
+    if (process.env.EVOLVE_STORAGE_WRITE_MODE === "paused")
+      throw new AppError("Document uploads are paused.", 503);
+    const item = await ownedReservation(actor, reservation.id);
+    if (item.state !== "pending")
+      throw new AppError("Upload reservation changed. Try again.", 409);
+    await requireHealthyR2((await database()).db);
+    return privateJson({
+      ...reservation,
+      upload: await r2UploadPermission(item),
+    });
   } catch (e) {
     return apiFailure(e);
   }

@@ -36,7 +36,7 @@ export async function GET() {
     if (
       !(
         await db.execute(
-          sql`SELECT name FROM evolve_migration WHERE name='0041_preserve_project_template_metadata.sql'`,
+          sql`SELECT name FROM evolve_migration WHERE name='0042_attachment_r2.sql'`,
         )
       ).rows.length
     )

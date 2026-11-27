@@ -23,6 +23,7 @@ export type RecoveryEvidence = z.infer<typeof evidenceInputSchema> & {
 };
 export type OperationsMetrics = {
   storageBytes: number;
+  storageLimit?: number;
   calendarPending: number;
   calendarFailed: number;
   calendarOverdue: number;
@@ -82,7 +83,8 @@ export function classifyOperations(
       severity: "critical",
       message: "The latest observed maintenance attempt failed.",
     });
-  const ratio = metrics.storageBytes / WORKSPACE_FILE_LIMIT;
+  const ratio =
+    metrics.storageBytes / (metrics.storageLimit ?? WORKSPACE_FILE_LIMIT);
   if (ratio >= 0.95)
     signals.push({
       code: "storage_critical",

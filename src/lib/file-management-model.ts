@@ -1,5 +1,6 @@
 import { documentPurposeSchema, type DocumentPurpose } from "./document-model";
 import { z } from "zod";
+export const R2_FILE_LIMIT = 9_000_000_000;
 export const WORKSPACE_FILE_LIMIT = 1024 * 1024 * 1024;
 export const fileRoomSchema = z.enum(["locker", "board"]);
 export type FileRoom = z.infer<typeof fileRoomSchema>;
@@ -92,3 +93,10 @@ export type FileRemovalReferences = {
   profiles: { email: string; version: number }[];
   workspaceVersion: number | null;
 };
+
+export function formatWorkspaceStorage(size: number, limit: number) {
+  if (limit !== R2_FILE_LIMIT) return formatFileSize(size);
+  if (size < 1000) return `${size} B`;
+  const unit = size >= 1000 ** 3 ? 3 : size >= 1000 ** 2 ? 2 : 1;
+  return `${(size / 1000 ** unit).toLocaleString("en-US", { maximumFractionDigits: 1 })} ${["B", "KB", "MB", "GB"][unit]}`;
+}

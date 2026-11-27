@@ -352,7 +352,7 @@ export function OperationsPanel() {
               </dl>
               <p>
                 Storage includes pending and deleting reservations within the
-                existing shared 1 GB allocation. Queue errors can be retrying or
+                shared workspace allocation. Queue errors can be retrying or
                 require account reconnection.
               </p>
             </section>

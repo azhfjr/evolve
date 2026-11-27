@@ -1,3 +1,5 @@
+import { requireHealthyR2 } from "./r2-reconciliation";
+import { sharedStorageLimit } from "./storage-config";
 import { connectedOperationMetrics } from "./connected/observability";
 import { sql } from "drizzle-orm";
 import { z } from "zod";
@@ -74,11 +76,23 @@ export async function operationsReport(actor: Actor, suppliedDb?: Database) {
   const maintenanceAuthenticationConfigured =
     (process.env.CRON_SECRET?.length || 0) >= 32;
   const signals = classifyOperations(
-    values,
+    { ...values, storageLimit: sharedStorageLimit() },
     record.data.maintenance || null,
     observedAt,
     maintenanceAuthenticationConfigured,
   );
+  if (process.env.EVOLVE_STORAGE_WRITE_MODE === "r2") {
+    try {
+      await requireHealthyR2(db);
+    } catch {
+      signals.push({
+        code: "r2_inventory_unverified",
+        severity: "critical",
+        message:
+          "New document uploads are paused until the R2 inventory is verified.",
+      });
+    }
+  }
   const fingerprint = incidentFingerprint(signals);
   return {
     version: record.version,

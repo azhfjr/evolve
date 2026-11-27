@@ -1,5 +1,6 @@
 import { randomUUID, timingSafeEqual } from "node:crypto";
 import { startCalendarJobs } from "@/lib/calendar/jobs";
+import { reconcileR2Inventory } from "@/lib/r2-reconciliation";
 import { cleanupAttachments } from "@/lib/attachments";
 import { privateJson, apiFailure } from "@/lib/http";
 import { recordMaintenance } from "@/lib/operations";
@@ -19,6 +20,8 @@ export async function GET(request: Request) {
   try {
     await cleanupAttachments();
     await startCalendarJobs();
+    if (process.env.R2_ACCOUNT_ID && process.env.R2_BUCKET)
+      await reconcileR2Inventory();
     await recordMaintenance("complete", runId);
     return privateJson({ ok: true });
   } catch (error) {

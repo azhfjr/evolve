@@ -20,10 +20,12 @@ export type AttachmentInfo = {
   ownerEmail: string;
   createdAt: string;
 };
+export type StorageProvider = "local" | "blob" | "r2";
 export type UploadReservation = {
   file?: AttachmentInfo;
   id: string;
   storagePath: string;
-  provider: "local" | "blob";
+  provider: StorageProvider;
+  upload?: { url: string; headers: Record<string, string> };
   contentType: string;
 };

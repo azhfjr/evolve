@@ -1,3 +1,4 @@
+import { verifyStoredBytes } from "./storage-integrity";
 import { createHash } from "node:crypto";
 import { and, eq, gt, sql } from "drizzle-orm";
 import { z } from "zod";
@@ -15,10 +16,15 @@ import {
   documentDateSchema,
   type DocumentPurpose,
 } from "./document-model";
-import { WORKSPACE_FILE_LIMIT } from "./file-management-model";
+import {
+  attachmentProvider,
+  uploadStorageProvider,
+  sharedStorageLimit,
+} from "./storage-config";
+import { r2Delete, r2Head, r2Missing, r2Read } from "./r2-storage";
+import { requireHealthyR2 } from "./r2-reconciliation";
 export const MAX_DOCUMENT = 25 * 1024 * 1024;
 const MAX_IMAGE = 2 * 1024 * 1024;
-const MAX_STORAGE = WORKSPACE_FILE_LIMIT;
 const MIME: Record<string, string> = {
   pdf: "application/pdf",
   docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -58,16 +64,6 @@ const reservationSchema = z
   })
   .strict();
 type Attachment = typeof s.attachment.$inferSelect;
-export function storageProvider(): "local" | "blob" | null {
-  if (process.env.BLOB_READ_WRITE_TOKEN) return "blob";
-  if (
-    !process.env.VERCEL &&
-    (process.env.NODE_ENV !== "production" ||
-      process.env.EVOLVE_LOCAL_FILES === "1")
-  )
-    return "local";
-  return null;
-}
 function localPath(path: string) {
   if (!/^evolve-files\/[0-9a-f-]{36}\/[a-z]+$/.test(path))
     throw new AppError("Lokasi file tidak valid.", 400);
@@ -189,9 +185,7 @@ export async function reserveAttachment(actor: Actor, input: unknown) {
       "Gambar harus PNG, JPEG, atau WebP, maksimal 2 MB.",
       400,
     );
-  const provider = storageProvider();
-  if (!provider)
-    throw new AppError("Penyimpanan dokumen belum diaktifkan oleh admin.", 503);
+  const provider = uploadStorageProvider();
   const { db } = await database();
   return db.transaction(async (tx) => {
     // Serialize the existence check with task/project deletion and draft claiming.
@@ -229,7 +223,7 @@ export async function reserveAttachment(actor: Actor, input: unknown) {
         return {
           id: existing.id,
           storagePath: existing.storagePath,
-          provider,
+          provider: attachmentProvider(existing),
           contentType: existing.contentType,
           ...(existing.state === "ready"
             ? {
@@ -241,12 +235,15 @@ export async function reserveAttachment(actor: Actor, input: unknown) {
         };
       }
     }
+    if (!provider)
+      throw new AppError("Document uploads are paused or unavailable.", 503);
+    if (provider === "r2") await requireHealthyR2(tx);
     const result = await tx.execute(
       sql`SELECT coalesce(sum(size),0)::bigint AS used FROM attachment`,
     );
-    if (Number(result.rows[0].used) + value.size > MAX_STORAGE)
+    if (Number(result.rows[0].used) + value.size > sharedStorageLimit())
       throw new AppError(
-        "Kuota dokumen workspace 1 GB sudah penuh. Hubungi admin.",
+        "Kuota dokumen workspace sudah penuh. Hubungi admin.",
         409,
       );
     const recent = await tx.execute(
@@ -311,6 +308,7 @@ export async function reserveAttachment(actor: Actor, input: unknown) {
       id,
       contentType: mime,
       storagePath,
+      storageProvider: provider,
       ownerEmail: actor.email,
     });
     if (documentDate != null)
@@ -349,9 +347,9 @@ export async function writeLocalAttachment(
   id: string,
   bytes: Uint8Array,
 ) {
-  if (storageProvider() !== "local")
-    throw new AppError("Jalur unggah lokal tidak tersedia.", 404);
   const item = await ownedReservation(actor, id);
+  if (attachmentProvider(item) !== "local" || process.env.VERCEL)
+    throw new AppError("Jalur unggah lokal tidak tersedia.", 404);
   if (item.state !== "pending")
     throw new AppError("Dokumen sudah selesai diunggah.", 409);
   if (
@@ -375,7 +373,28 @@ export async function finalizeAttachment(actor: Actor, id: string) {
   const item = await ownedReservation(actor, id);
   if (item.state === "ready") return attachmentDto(item);
   let prefix: Uint8Array;
-  if (storageProvider() === "blob") {
+  let storageSha256: string | undefined;
+  const provider = attachmentProvider(item);
+  if (provider === "r2") {
+    try {
+      const metadata = await r2Head(item.storagePath);
+      if (
+        metadata.ContentLength !== item.size ||
+        metadata.ContentType !== item.contentType
+      )
+        throw new AppError("Metadata unggahan tidak cocok.", 400);
+      const content = await verifyStoredBytes(
+        await r2Read(item.storagePath),
+        item.size,
+      );
+      prefix = content.bytes.subarray(0, 8192);
+      storageSha256 = content.sha256;
+    } catch (error) {
+      if (r2Missing(error))
+        throw new AppError("File belum tersedia. Coba lagi.", 409);
+      throw error;
+    }
+  } else if (provider === "blob") {
     const metadata = await head(item.storagePath);
     if (
       metadata.size !== item.size ||
@@ -403,7 +422,7 @@ export async function finalizeAttachment(actor: Actor, id: string) {
       await reader.cancel();
     }
   } else {
-    if (storageProvider() !== "local")
+    if (process.env.VERCEL)
       throw new AppError("Penyimpanan dokumen belum tersedia.", 503);
     const file = await open(
       /* turbopackIgnore: true */ localPath(item.storagePath),
@@ -444,7 +463,7 @@ export async function finalizeAttachment(actor: Actor, id: string) {
     await tx.execute(sql`SELECT pg_notify('evolve_changed','refresh')`);
     return tx
       .update(s.attachment)
-      .set({ state: "ready" })
+      .set({ state: "ready", ...(storageSha256 ? { storageSha256 } : {}) })
       .where(and(eq(s.attachment.id, id), eq(s.attachment.state, "pending")))
       .returning();
   });
@@ -535,12 +554,21 @@ export async function readAttachment(id: string, actor?: Actor) {
   return item;
 }
 export async function attachmentContent(item: Attachment) {
-  if (storageProvider() === "blob") {
+  const provider = attachmentProvider(item);
+  if (provider === "r2") {
+    try {
+      return await r2Read(item.storagePath);
+    } catch (error) {
+      if (r2Missing(error)) throw new AppError("File tidak tersedia.", 404);
+      throw error;
+    }
+  }
+  if (provider === "blob") {
     const result = await get(item.storagePath, { access: "private" });
     if (!result?.stream) throw new AppError("File tidak tersedia.", 404);
     return result.stream;
   }
-  if (storageProvider() !== "local")
+  if (process.env.VERCEL)
     throw new AppError("Penyimpanan belum tersedia.", 503);
   return new Uint8Array(
     await readFile(/* turbopackIgnore: true */ localPath(item.storagePath)),
@@ -573,23 +601,31 @@ export async function purgeEntityAttachments(
     }),
   );
 }
-export async function purgeDeletedAttachment(
-  item: Pick<Attachment, "id" | "storagePath" | "createdAt">,
-) {
+export async function purgeDeletedAttachment(item: Pick<Attachment, "id">) {
   try {
-    const provider = storageProvider();
-    if (provider === "blob") await del(item.storagePath);
-    else if (provider === "local")
-      await rm(localPath(item.storagePath), { force: true });
-    else return false;
-    if (Date.now() - +item.createdAt < DELETION_HOLD) return false;
     const { db } = await database();
-    await db
-      .delete(s.attachment)
-      .where(
-        and(eq(s.attachment.id, item.id), eq(s.attachment.state, "deleting")),
-      );
-    return true;
+    return await db.transaction(async (tx) => {
+      const [current] = await tx
+        .select()
+        .from(s.attachment)
+        .where(
+          and(eq(s.attachment.id, item.id), eq(s.attachment.state, "deleting")),
+        )
+        .for("update");
+      if (!current) return false;
+      const provider = attachmentProvider(current);
+      if (provider === "blob" || current.blobRetainedUntil)
+        await del(current.storagePath);
+      if (provider === "r2" || current.r2CopyStartedAt)
+        await r2Delete(current.storagePath);
+      if (provider === "local") {
+        if (process.env.VERCEL) return false;
+        await rm(localPath(current.storagePath), { force: true });
+      }
+      if (Date.now() - +current.createdAt < DELETION_HOLD) return false;
+      await tx.delete(s.attachment).where(eq(s.attachment.id, current.id));
+      return true;
+    });
   } catch {
     return false;
   }
@@ -705,8 +741,6 @@ export async function removeAttachment(
 // Recover abandoned uploads and failed deletions before accepting more files.
 // Blob upload tokens expire after 10 minutes, before pending reservations expire.
 export async function cleanupAttachments() {
-  const provider = storageProvider();
-  if (!provider) return;
   const { db } = await database();
   const expired = await db.transaction(async (tx) => {
     await tx.execute(sql`SELECT pg_advisory_xact_lock(48201603)`);
@@ -715,10 +749,6 @@ export async function cleanupAttachments() {
     );
   });
   for (const row of expired.rows) {
-    await purgeDeletedAttachment({
-      id: String(row.id),
-      storagePath: String(row.storage_path),
-      createdAt: new Date(row.created_at as string),
-    });
+    await purgeDeletedAttachment({ id: String(row.id) });
   }
 }

@@ -388,3 +388,151 @@ test("canonical Locker project archives include shared Board evidence and its ta
     [files[0]],
   );
 });
+
+test("R2 quota serializes concurrent reservations and stays closed when reconciliation finds a mismatch", async () => {
+  const { db } = await database();
+  const previous = { ...process.env };
+  const stamp = crypto.randomUUID();
+  const keys = {
+    R2_ACCOUNT_ID: "a".repeat(32),
+    R2_BUCKET: "test-quota",
+    R2_ACCESS_KEY_ID: "fixture-key",
+    R2_SECRET_ACCESS_KEY: "fixture-secret",
+    EVOLVE_STORAGE_WRITE_MODE: "r2",
+  };
+  Object.assign(process.env, keys);
+  const bucket =
+    "https://" + keys.R2_ACCOUNT_ID + ".r2.cloudflarestorage.com/test-quota";
+  const upload = () =>
+    reserveAttachment(admin, {
+      entityType: "taskDraft",
+      entityId: stamp,
+      filename: "notes.txt",
+      contentType: "text/plain",
+      size: 10,
+      requestId: crypto.randomUUID(),
+    });
+  try {
+    await assert.rejects(upload(), { status: 503 });
+    await db.execute(sql`
+      INSERT INTO attachment_r2_reconciliation(bucket,checked_at,observed_bytes,mismatch_count)
+      VALUES(${bucket},now(),0,0)
+    `);
+    const before = await db.execute(
+      sql`SELECT coalesce(sum(size),0)::bigint AS bytes FROM attachment`,
+    );
+    const reserved = 9_000_000_000 - 10 - Number(before.rows[0].bytes);
+    const max = 25 * 1024 * 1024;
+    const fixtures = Array.from(
+      { length: Math.ceil(reserved / max) },
+      (_, index) => ({
+        id: crypto.randomUUID(),
+        entityType: "taskDraft",
+        entityId: stamp,
+        ownerEmail: admin.email,
+        filename: "fixture.txt",
+        contentType: "text/plain",
+        size: Math.min(max, reserved - index * max),
+        storagePath: "quota/" + stamp + "/" + index,
+        storageProvider: "blob" as const,
+        createdAt: new Date(Date.now() - 120000),
+        state: index % 2 === 0 ? "pending" : "deleting",
+      }),
+    );
+    await db.insert(s.attachment).values(fixtures);
+    const concurrent = await Promise.allSettled([upload(), upload()]);
+    const success = concurrent.find((result) => result.status === "fulfilled");
+    const failure = concurrent.find((result) => result.status === "rejected");
+    assert.equal(success?.value.provider, "r2");
+    assert.equal(failure?.reason.status, 409);
+    assert.equal(
+      (
+        await db
+          .select()
+          .from(s.attachment)
+          .where(eq(s.attachment.id, success!.value.id))
+      )[0].storageProvider,
+      "r2",
+    );
+    await db.execute(
+      sql`UPDATE attachment_r2_reconciliation SET mismatch_count=1 WHERE bucket=${bucket}`,
+    );
+    await assert.rejects(upload(), { status: 503 });
+  } finally {
+    await db.delete(s.attachment).where(eq(s.attachment.entityId, stamp));
+    await db.execute(
+      sql`DELETE FROM attachment_r2_reconciliation WHERE bucket=${bucket}`,
+    );
+    for (const key of Object.keys(keys))
+      if (previous[key] === undefined) delete process.env[key];
+      else process.env[key] = previous[key];
+  }
+});
+
+test("interrupted archive copy keeps the Blob reference and retries without changing the archive", async () => {
+  const { migrateReadyBlob } = await import("../src/lib/r2-migration");
+  const { db } = await database();
+  const id = crypto.randomUUID();
+  await db.insert(s.attachment).values({
+    id,
+    entityType: "task",
+    entityId: "archive-fixture",
+    ownerEmail: admin.email,
+    filename: "archive.png",
+    contentType: "image/png",
+    size: 3,
+    storagePath: `evolve-files/${id}/png`,
+    storageProvider: "blob",
+    state: "ready",
+  });
+  await db.execute(sql`
+    INSERT INTO legacy_record(kind,id,data) VALUES('attachment',${id},'{}')
+  `);
+  const read = () =>
+    db
+      .select()
+      .from(s.attachment)
+      .where(eq(s.attachment.id, id))
+      .then(([item]) => item);
+  const before = await read();
+  let object: Uint8Array<ArrayBuffer> | undefined;
+  let fail = true;
+  let created = 0;
+  const io = {
+    readBlob: async () => new Blob(["abc"]).stream(),
+    writeR2: async (_key: string, bytes: Uint8Array) => {
+      if (!object) {
+        object = new Uint8Array(bytes);
+        created++;
+      }
+      if (fail) throw new Error("lost provider response");
+    },
+    headR2: async () => ({ ContentLength: 3, ContentType: "image/png" }),
+    readR2: async () => new Blob([object!]).stream(),
+  };
+  await assert.rejects(migrateReadyBlob(id, io), /lost provider response/);
+  const interrupted = await read();
+  assert.equal(interrupted.storageProvider, "blob");
+  assert.ok(interrupted.r2CopyStartedAt);
+  fail = false;
+  const copied = await migrateReadyBlob(id, io);
+  assert.equal(created, 1);
+  const after = await read();
+  assert.equal(after.storageProvider, "r2");
+  assert.equal(after.storageSha256, copied?.sha256);
+  assert.ok(after.blobRetainedUntil && +after.blobRetainedUntil > Date.now());
+  assert.equal(after.id, before.id);
+  assert.equal(after.state, before.state);
+  assert.equal(after.filename, before.filename);
+  await assert.rejects(
+    db
+      .update(s.attachment)
+      .set({ filename: "edited.png" })
+      .where(eq(s.attachment.id, id)),
+    (error: unknown) =>
+      /Archived documents are read-only/.test(
+        String((error as { cause?: Error })?.cause ?? error),
+      ),
+  );
+  assert.equal(await migrateReadyBlob(id, io), null);
+});

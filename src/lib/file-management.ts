@@ -1,3 +1,4 @@
+import { sharedStorageLimit } from "./storage-config";
 import {
   isNull,
   notInArray,
@@ -20,7 +21,6 @@ import { purgeDeletedAttachment } from "./attachments";
 import {
   fileQuerySchema,
   deleteFilesSchema,
-  WORKSPACE_FILE_LIMIT,
   type FileInventory,
 } from "./file-management-model";
 
@@ -202,7 +202,7 @@ export async function fileInventory(
             ? Number(u.board_count)
             : Number(u.count) - Number(u.board_count),
       bytes: Number(u.bytes),
-      limit: WORKSPACE_FILE_LIMIT,
+      limit: sharedStorageLimit(),
       count: Number(u.count),
       ready: Number(u.ready),
       pending: Number(u.pending),

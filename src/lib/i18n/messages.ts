@@ -1315,9 +1315,9 @@ export const messages: Record<string, readonly [string, string]> = {
     "The connection changed. Reload Calendar settings.",
     "Koneksi berubah. Muat ulang pengaturan Calendar.",
   ],
-  "Kuota dokumen workspace 1 GB sudah penuh. Hubungi admin.": [
-    "The workspace document quota of 1 GB is full. Contact the administrator.",
-    "Kuota dokumen workspace 1 GB sudah penuh. Hubungi admin.",
+  "Kuota dokumen workspace sudah penuh. Hubungi admin.": [
+    "The workspace document quota is full. Contact the administrator.",
+    "Kuota dokumen workspace sudah penuh. Hubungi admin.",
   ],
   "Logo workspace tidak tersedia.": [
     "The workspace logo is unavailable.",

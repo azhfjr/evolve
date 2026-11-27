@@ -252,7 +252,13 @@ test("principal routes retain readable containers in both themes and font scales
         await page.close();
       }
     }
+  // Audit the settled appearance rather than an opacity transition from a
+  // disabled strip control to an enabled one during dashboard hydration.
+  await accessibilityPage.emulateMedia({ reducedMotion: "reduce" });
   await accessibilityPage.goto("/board-room");
+  await expect(
+    accessibilityPage.locator(".summary-strip button").first(),
+  ).toBeVisible();
   const a11y = await new AxeBuilder({ page: accessibilityPage })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
     .analyze();
