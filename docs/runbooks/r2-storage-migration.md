@@ -23,3 +23,12 @@ Evolve tetap berjalan di Vercel dan PostgreSQL. Lampiran mempertahankan ID, URL 
 Jika inspeksi menunjukkan ketidakcocokan atau kegagalan transfer, gunakan build kompatibel dengan `EVOLVE_STORAGE_WRITE_MODE=paused` dan `EVOLVE_STORAGE_EXPANDED_QUOTA=1`. Build tersebut tetap membaca file berdasarkan penyedianya dan tidak memberi izin unggah baru. Izin yang terbit sebelumnya tetap dapat berlaku hingga kedaluwarsa. Catat status reservasi dan jangan membersihkan rujukan sampai transfer yang sedang berlangsung direkonsiliasi. Jangan kembali ke versi yang hanya mengenal Blob setelah unggahan R2 aktif.
 
 Salinan Blob yang sudah diverifikasi dipertahankan 14 hari sejak setiap penyalinan. Jika satu rujukan R2 gagal selama masa ini, `npx tsx scripts/r2-migrate.ts restore-read <attachment-id>` memverifikasi salinan Blob dengan checksum sebelum memulihkan rujukan baca. Untuk lampiran yang baru dibuat di R2, gunakan cadangan R2 bila objek hilang. Penghapusan oleh pengguna tetap membersihkan kedua salinan yang diketahui. Setelah seluruh rekonsiliasi dan latihan pemulihan lulus, set `EVOLVE_R2_ROLLBACK_DRILL_VERIFIED=1` dan jalankan `npx tsx scripts/r2-migrate.ts retire 10` per batch. Skrip hanya menghapus Blob yang masa simpannya habis dan memeriksa byte R2 sekali lagi sebelum menghapus sumber.
+
+## Bukti kandidat implementasi
+
+- Deployment preview Vercel `dpl_imPbmgbd4NGbSSzRWC4h99e84ihR` memakai commit aplikasi `04f1974`. Demo proyek ke tugas lulus pada layar sentuh simulasi 390 px tanpa overflow atau galat halaman. Ini mengecek build preview, sementara operasi R2 membutuhkan bucket uji tersendiri. Akses sementara untuk pemeriksaan preview sudah dicabut.
+- Migrasi skema lulus pada PostgreSQL lokal. Regresi terfokus lulus 13/13 dan regresi lampiran Chromium lulus 14/14. Suite domain awal lulus 357/358. Koreksi kompatibilitas respons Operations meluluskan rerun 7/7, termasuk satu kasus yang sebelumnya gagal.
+- Build terakhir, lint, format, dan audit dependensi produksi lulus. Audit melaporkan nol temuan produksi setelah patch Next.js 16.4.6.
+- Konfigurasi test dan produksi Vercel belum memiliki variabel R2. Probe terhadap provider nyata, latihan pemulihan dengan bucket privat, aktivasi R2, serta penyalinan dan penghapusan Blob produksi masih tertahan. Alias produksi tetap mengarah ke deployment sebelumnya.
+
+[Draft PR](https://github.com/azhfjr/evolve/pull/2) · [Demo preview](https://evolve-p8but4jcv-jarjirjor777-5316.vercel.app/demo)
