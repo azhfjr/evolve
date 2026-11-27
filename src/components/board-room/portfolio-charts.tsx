@@ -80,12 +80,14 @@ function DataTable({
   groupLabel = "Group",
   valueLabel = "Value",
   showRecords = false,
+  explore = false,
 }: {
   rows: ChartDatum[];
   total?: number;
   groupLabel?: string;
   valueLabel?: string;
   showRecords?: boolean;
+  explore?: boolean;
 }) {
   return (
     <details className="dashboard-data">
@@ -97,6 +99,7 @@ function DataTable({
             <th scope="col">{valueLabel}</th>
             {showRecords && <th scope="col">Records</th>}
             {total !== undefined && <th scope="col">Share</th>}
+            {explore && <th scope="col">Explore</th>}
           </tr>
         </thead>
         <tbody>
@@ -107,6 +110,17 @@ function DataTable({
               {showRecords && <td>{r.records ?? "—"}</td>}
               {total !== undefined && (
                 <td>{chartShare(Number(r.value), total)}</td>
+              )}
+              {explore && (
+                <td>
+                  <button
+                    type="button"
+                    aria-pressed={r.selected}
+                    onClick={r.action}
+                  >
+                    Explore {r.label}
+                  </button>
+                </td>
               )}
             </tr>
           ))}
@@ -314,28 +328,30 @@ export function ColumnChart({
                 description = `${r.label}: ${r.display ?? r.value} ${unit}`;
               return (
                 <g key={r.label}>
-                  <rect
-                    x={x}
-                    y={bottom - ratios[i] * plotHeight}
-                    width={barWidth}
-                    height={Math.max(2, ratios[i] * plotHeight)}
-                    fill="var(--accent)"
-                    role="button"
-                    aria-pressed={r.selected}
-                    tabIndex={0}
-                    aria-label={description}
-                    onClick={r.action}
-                    onKeyDown={(e) => activate(e, r.action)}
-                    onFocus={() => setActiveLabel(r.label)}
-                    onBlur={() => setActiveLabel(null)}
-                    onPointerEnter={() => setActiveLabel(r.label)}
-                    onPointerLeave={(e) => {
-                      if (document.activeElement !== e.currentTarget)
-                        setActiveLabel(null);
-                    }}
-                  >
-                    <title>{description}</title>
-                  </rect>
+                  {ratios[i] > 0 && (
+                    <rect
+                      x={x}
+                      y={bottom - ratios[i] * plotHeight}
+                      width={barWidth}
+                      height={ratios[i] * plotHeight}
+                      fill="var(--accent)"
+                      role="button"
+                      aria-pressed={r.selected}
+                      tabIndex={0}
+                      aria-label={description}
+                      onClick={r.action}
+                      onKeyDown={(e) => activate(e, r.action)}
+                      onFocus={() => setActiveLabel(r.label)}
+                      onBlur={() => setActiveLabel(null)}
+                      onPointerEnter={() => setActiveLabel(r.label)}
+                      onPointerLeave={(e) => {
+                        if (document.activeElement !== e.currentTarget)
+                          setActiveLabel(null);
+                      }}
+                    >
+                      <title>{description}</title>
+                    </rect>
+                  )}
                   <text
                     x={x + barWidth / 2}
                     y={bottom + 24}
@@ -354,6 +370,7 @@ export function ColumnChart({
         groupLabel="COD year"
         valueLabel="Capacity"
         showRecords
+        explore
         rows={rows.map((r) => ({
           ...r,
           display: `${r.display ?? r.value} ${unit}`,

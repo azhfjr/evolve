@@ -79,11 +79,19 @@
   overflow-wrap: anywhere;
 }
 .br .dashboard-data button {
+  min-height: 44px;
   border: 0;
+  border-radius: 6px;
   background: transparent;
-  color: var(--accent);
-  padding: 4px;
+  color: var(--text);
+  padding: 4px 8px;
   font-size: var(--text-body);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.br .dashboard-data button:hover,
+.br .dashboard-data button[aria-pressed="true"] {
+  background: var(--soft);
 }
 .dashboard-selects {
   display: flex;
@@ -726,6 +734,9 @@
   justify-content: space-between;
   margin: 8px 0;
 }
+.summary-strip > .connected-actions > button {
+  min-height: 44px;
+}
 .summary-strip details {
   margin-top: 8px;
 }
@@ -741,6 +752,12 @@
 .summary-strip th,
 .summary-strip td {
   text-align: left;
+  overflow-wrap: anywhere;
   padding: 8px;
   border-bottom: 1px solid var(--border);
+}
+
+.summary-strip td button {
+  white-space: normal;
+  overflow-wrap: anywhere;
 }

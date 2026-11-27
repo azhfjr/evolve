@@ -10,7 +10,9 @@ export function SummaryStrip({
   className: string;
   children: ReactNode;
   entries: {
+    id: string;
     label: string;
+    actionLabel?: string;
     count: number;
     selected: boolean;
     select: () => void;
@@ -18,7 +20,7 @@ export function SummaryStrip({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ start: true, end: true });
-  const selection = entries.map((e) => e.selected).join();
+  const selection = entries.find((entry) => entry.selected)?.id;
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -45,7 +47,11 @@ export function SummaryStrip({
   }, [selection]);
   return (
     <div className="summary-strip">
-      <div className="connected-actions" aria-label={`${kind} navigation`}>
+      <div
+        className="connected-actions"
+        role="group"
+        aria-label={`${kind} navigation`}
+      >
         <button
           type="button"
           disabled={edges.start}
@@ -59,7 +65,6 @@ export function SummaryStrip({
         >
           ← Previous
         </button>
-        <small>Scroll or use the arrows to explore all {kind}</small>
         <button
           type="button"
           disabled={edges.end}
@@ -91,7 +96,7 @@ export function SummaryStrip({
           </thead>
           <tbody>
             {entries.map((e) => (
-              <tr key={e.label}>
+              <tr key={e.id}>
                 <th scope="row">{e.label}</th>
                 <td>{e.count.toLocaleString()}</td>
                 <td>
@@ -100,7 +105,7 @@ export function SummaryStrip({
                     aria-pressed={e.selected}
                     onClick={e.select}
                   >
-                    Focus {e.label}
+                    Focus {e.actionLabel ?? e.label}
                   </button>
                 </td>
               </tr>

@@ -38,6 +38,53 @@ test("stage and year strips have navigation and complete alternatives", async ({
     page.getByRole("table", { name: "Complete stage counts" }),
   ).toBeVisible();
 });
+test("repeated stage names stay independently selectable at 320px", async ({
+  page,
+}) => {
+  const readConfig = async () => {
+    const response = await page.request.get("/api/board-room");
+    expect(response.ok()).toBeTruthy();
+    return (await response.json()).config as {
+      version: number;
+      stages: string[];
+    };
+  };
+  const saveStages = async (version: number, stages: string[]) => {
+    const response = await page.request.post("/api/board-room", {
+      headers: { origin: "http://127.0.0.1:3100" },
+      data: { action: "stages", version, stages },
+    });
+    expect(response.ok()).toBeTruthy();
+  };
+  const original = await readConfig();
+  const name = "LongRepeatedStageNameWithoutSpaces";
+  await saveStages(original.version, [name, name, ...original.stages.slice(2)]);
+  try {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto("/board-room");
+    await page.getByText("All stage counts", { exact: true }).click();
+    const table = page.getByRole("table", { name: "Complete stage counts" });
+    const first = table.getByRole("button", {
+      name: `Focus stage 1: ${name}`,
+      exact: true,
+    });
+    const second = table.getByRole("button", {
+      name: `Focus stage 2: ${name}`,
+      exact: true,
+    });
+    await expect(first).toBeVisible();
+    await second.focus();
+    await second.press("Enter");
+    await expect(page).toHaveURL(/[?&]stage=2(?:&|$)/);
+    await expect(second).toHaveAttribute("aria-pressed", "true");
+    await expect(first).toHaveAttribute("aria-pressed", "false");
+    expect(
+      await table.evaluate((element) => element.getBoundingClientRect().right),
+    ).toBeLessThanOrEqual(320);
+  } finally {
+    await saveStages((await readConfig()).version, original.stages);
+  }
+});
 test("quality tabs survive URL reload", async ({ page }) => {
   await page.goto("/board-room?section=quality");
   await page
@@ -84,6 +131,34 @@ test("connected demo never calls private mutation endpoints", async ({
     page.getByText("Review sample project evidence", { exact: true }),
   ).toBeVisible();
   expect(mutations).toEqual([]);
+});
+test("demo controls wait for hydration on a slow mobile connection", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  let releaseScripts!: () => void;
+  const scripts = new Promise<void>((resolve) => {
+    releaseScripts = resolve;
+  });
+  await page.route("**/_next/static/**/*.js", async (route) => {
+    await scripts;
+    await route.continue();
+  });
+  const open = page.getByRole("button", {
+    name: "Open sample project",
+    exact: true,
+  });
+  try {
+    await page.goto("/demo", { waitUntil: "commit" });
+    await expect(open).toBeDisabled();
+  } finally {
+    releaseScripts();
+  }
+  await expect(open).toBeEnabled();
+  await open.click();
+  await expect(
+    page.getByRole("button", { name: "Create follow-up task", exact: true }),
+  ).toBeVisible();
 });
 test("changed pages reflow at six widths with both themes, large fonts and reduced motion", async ({
   page,

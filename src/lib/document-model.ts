@@ -76,19 +76,33 @@ export type ArchiveManifest = {
   excluded: number;
   bytes: number;
 };
-export function safeArchiveSegment(value: string) {
-  return (
-    value
-      .normalize("NFKC")
-      .replace(/[\x00-\x1f\x7f/\\:*?"<>|]/g, "_")
-      .replace(/^\.+|[. ]+$/g, "")
-      .trim()
-      .slice(0, 100) || "Untitled"
-  );
+function cleanArchiveSegment(value: string) {
+  return value
+    .toWellFormed()
+    .normalize("NFKC")
+    .replace(/[\x00-\x1f\x7f/\\:*?"<>|]/g, "_")
+    .replace(/^\.+|[. ]+$/g, "")
+    .trim();
 }
+
+function truncateArchiveSegment(value: string, limit: number) {
+  const { read } = new TextEncoder().encodeInto(value, new Uint8Array(limit));
+  return value.slice(0, read).replace(/[. ]+$/g, "");
+}
+
+export function safeArchiveSegment(value: string) {
+  return truncateArchiveSegment(cleanArchiveSegment(value), 100) || "Untitled";
+}
+
 export function archiveFilePath(file: Omit<ArchiveFile, "path">) {
   const folder = `${file.room === "board" ? "Board Room" : "Locker Room"}/${safeArchiveSegment(file.projectName)}-${safeArchiveSegment(file.projectId || "unassigned")}/${file.taskName ? `Tasks/${safeArchiveSegment(file.taskName)}` : "Project documents"}`;
-  return `${folder}/${file.id}-${safeArchiveSegment(file.filename)}`;
+  const filename = cleanArchiveSegment(file.filename);
+  const extension = filename.match(/\.[a-z0-9]{1,12}$/i)?.[0] ?? "";
+  const stem = truncateArchiveSegment(
+    filename.slice(0, filename.length - extension.length),
+    100 - extension.length,
+  );
+  return `${folder}/${file.id}-${stem || "Untitled"}${extension}`;
 }
 export const ARCHIVE_PART_BYTES = 100 * 1024 * 1024;
 export function archiveParts(files: ArchiveFile[]) {
