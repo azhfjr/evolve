@@ -132,6 +132,34 @@ test("connected demo never calls private mutation endpoints", async ({
   ).toBeVisible();
   expect(mutations).toEqual([]);
 });
+test("demo controls wait for hydration on a slow mobile connection", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  let releaseScripts!: () => void;
+  const scripts = new Promise<void>((resolve) => {
+    releaseScripts = resolve;
+  });
+  await page.route("**/_next/static/**/*.js", async (route) => {
+    await scripts;
+    await route.continue();
+  });
+  const open = page.getByRole("button", {
+    name: "Open sample project",
+    exact: true,
+  });
+  try {
+    await page.goto("/demo", { waitUntil: "commit" });
+    await expect(open).toBeDisabled();
+  } finally {
+    releaseScripts();
+  }
+  await expect(open).toBeEnabled();
+  await open.click();
+  await expect(
+    page.getByRole("button", { name: "Create follow-up task", exact: true }),
+  ).toBeVisible();
+});
 test("changed pages reflow at six widths with both themes, large fonts and reduced motion", async ({
   page,
 }) => {

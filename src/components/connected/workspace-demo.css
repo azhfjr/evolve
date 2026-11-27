@@ -60,6 +60,10 @@
   cursor: pointer;
   max-width: 100%;
 }
+.connected-demo button:disabled,
+.connected-demo select:disabled {
+  cursor: wait;
+}
 .connected-demo button[aria-pressed="true"] {
   border-color: var(--accent);
   background: var(--soft);

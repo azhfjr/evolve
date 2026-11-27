@@ -190,12 +190,14 @@ export function WorkspaceDemo() {
         </div>
         <nav className="demo-rooms" aria-label="Demo apps">
           <button
+            disabled={!ready}
             aria-pressed={state.room === "board"}
             onClick={() => setState((s) => ({ ...s, room: "board" }))}
           >
             Board Room
           </button>
           <button
+            disabled={!ready}
             aria-pressed={state.room === "locker"}
             onClick={() => setState((s) => ({ ...s, room: "locker" }))}
           >
@@ -215,6 +217,7 @@ export function WorkspaceDemo() {
           <label>
             Selected project
             <select
+              disabled={!ready}
               value={state.project}
               onChange={(e) =>
                 setState((s) => ({
@@ -231,13 +234,23 @@ export function WorkspaceDemo() {
               ))}
             </select>
           </label>
-          <button onClick={() => setEmpty((v) => !v)} aria-pressed={empty}>
+          <button
+            disabled={!ready}
+            onClick={() => setEmpty((v) => !v)}
+            aria-pressed={empty}
+          >
             Show empty-state example
           </button>
-          <button onClick={() => setFailure((v) => !v)} aria-pressed={failure}>
+          <button
+            disabled={!ready}
+            onClick={() => setFailure((v) => !v)}
+            aria-pressed={failure}
+          >
             Simulate upload failure
           </button>
-          <button onClick={() => setReset(true)}>Reset demo</button>
+          <button disabled={!ready} onClick={() => setReset(true)}>
+            Reset demo
+          </button>
         </div>
         {reset && (
           <section
@@ -288,6 +301,7 @@ export function WorkspaceDemo() {
                 {projects.map((p, i) => (
                   <button
                     key={p.code}
+                    disabled={!ready}
                     aria-pressed={state.project === i}
                     onClick={() =>
                       setState((s) => ({ ...s, project: i, opened: true }))
@@ -300,7 +314,10 @@ export function WorkspaceDemo() {
                   </button>
                 ))}
               </div>
-              <button onClick={() => setState((s) => ({ ...s, opened: true }))}>
+              <button
+                disabled={!ready}
+                onClick={() => setState((s) => ({ ...s, opened: true }))}
+              >
                 Open sample project
               </button>
             </section>
