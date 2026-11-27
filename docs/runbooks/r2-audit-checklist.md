@@ -35,13 +35,13 @@ Produksi tetap membaca dan menyimpan file melalui Vercel Blob. Lingkungan ini be
 
 ## Bukti audit lanjutan
 
-| Pemeriksaan                  | Hasil                                                                                                                                                                                                                  |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Regresi utama Chromium di CI | 294/295 lulus pada run sebelumnya. Satu pengukuran sidebar mengambil dimensi sebelum area siap. Tes kini menunggu sidebar desktop yang tepat dan pengukuran yang tersedia. Seluruh 4 skenario sidebar lulus pada rerun. |
-| Chromium lokal               | 18/18 untuk sidebar, dokumen, dan Files. 16/16 untuk workspace terhubung, draft, dan peta.                                                                                                                             |
-| Firefox lokal                | 22 skenario lulus, termasuk revisi privat, izin, data lintas aplikasi, tata letak pada enam lebar, dan peta. Sapuan rute yang semula memakai batas waktu lokal 60 detik lulus pada rerun dengan batas waktu asli 360 detik.    |
-| Penyimpanan dan batas        | 14/14 skenario kontrak penyimpanan dan dokumen. 3/3 skenario panduan kuota, satuan desimal, serta ambang peringatan.                                                                                                   |
-| WebKit                       | Host lokal tidak memiliki pustaka grafis yang dibutuhkan. Job Connected dan Critical WebKit lulus di CI kandidat audit.                                                   |
+| Pemeriksaan                  | Hasil                                                                                                                                                                                                                       |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Regresi utama Chromium di CI | 294/295 lulus pada run sebelumnya. Satu pengukuran sidebar mengambil dimensi sebelum area siap. Tes kini menunggu sidebar desktop yang tepat dan pengukuran yang tersedia. Seluruh 4 skenario sidebar lulus pada rerun.     |
+| Chromium lokal               | 18/18 untuk sidebar, dokumen, dan Files. 16/16 untuk workspace terhubung, draft, dan peta. Suite regional juga lulus 9/9 saat diulang lokal.                                                                                |
+| Firefox lokal                | 22 skenario lulus, termasuk revisi privat, izin, data lintas aplikasi, tata letak pada enam lebar, dan peta. Sapuan rute yang semula memakai batas waktu lokal 60 detik lulus pada rerun dengan batas waktu asli 360 detik. |
+| Penyimpanan dan batas        | 14/14 skenario kontrak penyimpanan dan dokumen. 3/3 skenario panduan kuota, satuan desimal, serta ambang peringatan.                                                                                                        |
+| WebKit                       | Host lokal tidak memiliki pustaka grafis yang dibutuhkan. Job Connected dan Critical WebKit lulus di CI kandidat audit.                                                                                                     |
 
 Audit kontras regional Chromium mendapati kontrol Next terlihat aktif saat opasitas transisi dari keadaan nonaktif masih berubah. Tes Axe kini memakai reduced motion dan menunggu kontrol tersedia. Pemeriksaan terfokus pada 390 dan 1.440 px tidak menemukan pelanggaran serius. CSS dan animasi aplikasi tidak diubah.
 
@@ -49,4 +49,4 @@ Preview Vercel untuk commit aplikasi `1248f3c` lulus smoke test proyek ke tugas 
 
 Tes Data Quality kini mengikuti aturan yang sudah ada. Anggota aktif boleh membaca, pengguna anonim tetap ditolak, dan perubahan aset serta transisi workspace tetap membutuhkan izin admin. Tidak ada perubahan kode izin.
 
-[CI sebelum koreksi](https://github.com/azhfjr/evolve/actions/runs/45967252592) · [CI kandidat audit](https://github.com/azhfjr/evolve/actions/runs/45971385634)
+[CI sebelum koreksi](https://github.com/azhfjr/evolve/actions/runs/45967252592) · [CI kandidat audit](https://github.com/azhfjr/evolve/actions/runs/45971385634) · [CI setelah stabilisasi pemeriksaan kontras](https://github.com/azhfjr/evolve/actions/runs/45972492154)
