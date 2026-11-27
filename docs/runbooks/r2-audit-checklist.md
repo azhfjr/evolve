@@ -55,5 +55,7 @@ Tes Data Quality kini mengikuti aturan yang sudah ada. Anggota aktif boleh memba
 
 Run [45972980771](https://github.com/azhfjr/evolve/actions/runs/45972980771) meluluskan 19 dari 21 job. Job utama lulus untuk format, domain, suite browser lengkap, dan audit dependensi produksi. Skenario Saved Views di WebKit juga lulus.
 
-- Job Expansion WebKit menangkap tombol tahap dan tahun di tengah perubahan opasitas. Pemeriksaan Axe kedua tema kini memakai reduced motion. Pemeriksaan terfokus lulus di Firefox, sedangkan hasil WebKit terbaru menunggu CI.
+- Job Expansion WebKit menangkap tombol tahap dan tahun di tengah perubahan opasitas. Pemeriksaan Axe kedua tema kini memakai reduced motion. Pemeriksaan terfokus lulus di Firefox.
 - Instalasi Chromium pada job Refinement menerima HTTP 403 dari repositori paket runner Ubuntu 26.04. Matriks browser memakai Ubuntu 24.04 agar versi runner konsisten. Langkah instalasi dan cakupan pengujian tetap dijalankan.
+
+Run [46015296981](https://github.com/azhfjr/evolve/actions/runs/46015296981) pada `c1f06c5` lulus **21 dari 21 job**, termasuk Expansion WebKit dan Refinement Chromium. Matriks juga meluluskan Connected, Regional, dan Costs di Chromium, Firefox, dan WebKit serta tiga job pengujian skala. Hasil ini menggunakan fixture dan tidak menggantikan pengujian R2 privat yang masih terbuka di atas.
