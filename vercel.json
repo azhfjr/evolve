@@ -34,6 +34,9 @@
     "src/app/api/tasks/*/calendar/route.ts": {
       "maxDuration": 60
     },
+    "src/app/api/attachments/*/route.ts": {
+      "maxDuration": 60
+    },
     "src/app/api/attachments/*/content/route.ts": {
       "maxDuration": 60
     },

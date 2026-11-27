@@ -233,6 +233,10 @@ export const attachment = pgTable("attachment", {
   contentType: text("content_type").notNull(),
   size: integer("size").notNull(),
   storagePath: text("storage_path").notNull().unique(),
+  storageProvider: text("storage_provider").$type<"local" | "blob" | "r2">(),
+  r2CopyStartedAt: timestamp("r2_copy_started_at", { withTimezone: true }),
+  blobRetainedUntil: timestamp("blob_retained_until", { withTimezone: true }),
+  storageSha256: text("storage_sha256"),
   purpose: text("purpose"),
   state: text("state").notNull().default("pending"),
   createdAt: timestamp("created_at", { withTimezone: true })

@@ -9,6 +9,8 @@ import {
 } from "node:crypto";
 import { gzipSync } from "node:zlib";
 import { get, list } from "@vercel/blob";
+import { r2Read } from "../src/lib/r2-storage";
+import { verifyStoredBytes } from "../src/lib/storage-integrity";
 const project = "prj_4Cvh0pTUBDKUvva5eE9GmNLFcNie";
 function identifier(n: string) {
   if (!/^[a-z_][a-z0-9_]*$/.test(n)) throw Error("Unexpected identifier");
@@ -111,28 +113,28 @@ async function main() {
     const files: Record<string, unknown>[] = [];
     const ready = (
       await source.query(
-        "SELECT id,storage_path,size,content_type FROM attachment WHERE state='ready' ORDER BY id",
+        "SELECT id,storage_path,size,content_type,to_jsonb(a)->>'storage_provider' AS storage_provider,to_jsonb(a)->>'storage_sha256' AS storage_sha256 FROM attachment a WHERE state='ready' ORDER BY id",
       )
     ).rows;
     if (ready.reduce((n, f) => n + Number(f.size), 0) > 100 * 1024 * 1024)
       throw Error("Backup requires a larger reviewed streaming plan");
     for (const f of ready) {
-      const result = await get(f.storage_path, {
-        access: "private",
-        useCache: false,
-      });
-      if (!result?.stream) throw Error("Private evidence unavailable");
-      const parts: Buffer[] = [];
-      for await (const part of result.stream as unknown as AsyncIterable<Uint8Array>)
-        parts.push(Buffer.from(part));
-      const bytes = Buffer.concat(parts);
-      if (bytes.length !== Number(f.size))
-        throw Error("Private evidence size mismatch");
+      if (f.storage_provider === "local")
+        throw Error("Production evidence cannot point to local file storage");
+      const stream =
+        f.storage_provider === "r2"
+          ? await r2Read(f.storage_path)
+          : (await get(f.storage_path, { access: "private", useCache: false }))
+              ?.stream;
+      if (!stream) throw Error("Private evidence unavailable");
+      const { bytes, sha256 } = await verifyStoredBytes(stream, Number(f.size));
+      if (f.storage_sha256 && sha256 !== f.storage_sha256)
+        throw Error("Private evidence checksum mismatch");
       files.push({
         id: f.id,
         path: f.storage_path,
         size: f.size,
-        sha256: createHash("sha256").update(bytes).digest("hex"),
+        sha256,
         base64: bytes.toString("base64"),
       });
     }

@@ -6,13 +6,17 @@ import {
   privateJson,
   requestJson,
 } from "@/lib/http";
-import { ownedReservation, storageProvider } from "@/lib/attachments";
+import { ownedReservation } from "@/lib/attachments";
+import { attachmentProvider } from "@/lib/storage-config";
 import { AppError } from "@/lib/permissions";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   try {
-    if (storageProvider() !== "blob")
+    if (
+      !process.env.BLOB_READ_WRITE_TOKEN ||
+      process.env.EVOLVE_STORAGE_WRITE_MODE === "paused"
+    )
       throw new AppError("Penyimpanan Blob belum tersedia.", 503);
     const body = (await requestJson(request, 10000)) as HandleUploadBody;
     const result = await handleUpload({
@@ -27,7 +31,11 @@ export async function POST(request: Request) {
           throw new AppError("Izin unggah tidak valid.", 400);
         }
         const item = await ownedReservation(actor, id);
-        if (item.state !== "pending" || pathname !== item.storagePath)
+        if (
+          attachmentProvider(item) !== "blob" ||
+          item.state !== "pending" ||
+          pathname !== item.storagePath
+        )
           throw new AppError("Lokasi unggahan tidak diizinkan.", 403);
         return {
           allowedContentTypes: [item.contentType],

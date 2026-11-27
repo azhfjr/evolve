@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { HardDrive } from "lucide-react";
 import {
-  formatFileSize,
+  formatWorkspaceStorage,
   type FileInventory,
 } from "@/lib/file-management-model";
 import { storageGuidance } from "@/lib/storage-guidance";
@@ -30,14 +30,16 @@ export function StorageSummary({
         </div>
         <div className="storage-amount">
           <strong>
-            {usage ? formatFileSize(usage.bytes) : "…"}{" "}
-            <small>
-              of {usage ? formatFileSize(usage.limit) : "1 GB"} allocated
-            </small>
+            {usage ? formatWorkspaceStorage(usage.bytes, usage.limit) : "…"}{" "}
+            {usage && (
+              <small>
+                of {formatWorkspaceStorage(usage.limit, usage.limit)} allocated
+              </small>
+            )}
           </strong>
           <span>
             {usage
-              ? `${formatFileSize(Math.max(0, usage.limit - usage.bytes))} remaining for both apps · ${usage.count} files`
+              ? `${formatWorkspaceStorage(Math.max(0, usage.limit - usage.bytes), usage.limit)} remaining for both apps · ${usage.count} files`
               : unavailable
                 ? "Storage usage unavailable."
                 : "Loading storage usage…"}
@@ -80,7 +82,11 @@ export function StorageSummary({
             <article className="storage-usage-card" key={key}>
               <h4>{name}</h4>
               <p>{description}</p>
-              <strong>{bucket ? formatFileSize(bucket.bytes) : "…"}</strong>
+              <strong>
+                {bucket && usage
+                  ? formatWorkspaceStorage(bucket.bytes, usage.limit)
+                  : "…"}
+              </strong>
               <span>
                 {bucket && usage
                   ? `${bucket.count} files · ${((bucket.bytes / usage.limit) * 100).toLocaleString("en-US", { maximumFractionDigits: 2 })}% of shared allowance`

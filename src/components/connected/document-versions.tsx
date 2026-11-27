@@ -142,8 +142,9 @@ export function DocumentVersions({
         >
           <div className="connected-form">
             <p>
-              Previous versions remain private and count toward the shared 1 GB
-              allowance. Only an administrator can restore or remove history.
+              Previous versions remain private and count toward the shared
+              workspace allowance. Only an administrator can restore or remove
+              history.
             </p>
             {error && (
               <p role="alert">

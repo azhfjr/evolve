@@ -1,3 +1,5 @@
+import { requireHealthyR2 } from "./r2-reconciliation";
+import { sharedStorageLimit } from "./storage-config";
 import { connectedOperationMetrics } from "./connected/observability";
 import { sql } from "drizzle-orm";
 import { z } from "zod";
@@ -63,7 +65,10 @@ async function metrics(db: Database): Promise<OperationsMetrics> {
     (SELECT count(*)::int FROM calendar_job WHERE last_error IS NOT NULL) AS "calendarFailed",
     (SELECT count(*)::int FROM calendar_job j JOIN calendar_connection c ON c.email=j.email JOIN member m ON m.email=j.email WHERE c.enabled AND NOT m.disabled AND coalesce(c.error_code,'')<>'reconnect_required' AND coalesce((SELECT (configuration->>'calendarEnabled')::boolean FROM workspace_setting WHERE id='primary'),true) AND j.available_at<now()-interval '24 hours') AS "calendarOverdue",
     (SELECT count(*)::int FROM attachment WHERE (state='pending' AND created_at<now()-interval '1 hour') OR (state='deleting' AND created_at<now()-interval '70 minutes')) AS "cleanupOverdue"`);
-  return result.rows[0] as unknown as OperationsMetrics;
+  return {
+    ...(result.rows[0] as unknown as OperationsMetrics),
+    storageLimit: sharedStorageLimit(),
+  };
 }
 export async function operationsReport(actor: Actor, suppliedDb?: Database) {
   requireAdmin(actor);
@@ -79,6 +84,18 @@ export async function operationsReport(actor: Actor, suppliedDb?: Database) {
     observedAt,
     maintenanceAuthenticationConfigured,
   );
+  if (process.env.EVOLVE_STORAGE_WRITE_MODE === "r2") {
+    try {
+      await requireHealthyR2(db);
+    } catch {
+      signals.push({
+        code: "r2_inventory_unverified",
+        severity: "critical",
+        message:
+          "New document uploads are paused until the R2 inventory is verified.",
+      });
+    }
+  }
   const fingerprint = incidentFingerprint(signals);
   return {
     version: record.version,
