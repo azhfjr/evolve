@@ -17,11 +17,25 @@ test("Board feature menus fill the sidebar, remain reachable and navigate withou
   page,
 }) => {
   await page.goto("/board-room");
-  const sidebar = page.locator(".br-sidebar").first(),
+  const sidebar = page.locator(".br-desktop-sidebar"),
     nav = sidebar.getByRole("navigation", { name: "Main navigation" });
-  const area = await sidebar.locator(".sidebar-scroll-area").boundingBox(),
-    bounds = await nav.boundingBox();
-  expect(bounds!.width).toBeGreaterThanOrEqual(area!.width - 8);
+  const scrollArea = sidebar.locator(".sidebar-scroll-area");
+  await expect(nav).toBeVisible();
+  const expand = sidebar.getByRole("button", {
+    name: "Expand navigation",
+    exact: true,
+  });
+  if (await expand.isVisible()) await expand.click();
+  await expect(scrollArea).toBeVisible();
+  await expect
+    .poll(async () => {
+      const [area, bounds] = await Promise.all([
+        scrollArea.boundingBox(),
+        nav.boundingBox(),
+      ]);
+      return area && bounds ? area.width - bounds.width : Infinity;
+    })
+    .toBeLessThanOrEqual(8);
   await sidebar.evaluate((el) => {
     (window as unknown as { sidebar: Element }).sidebar = el;
   });

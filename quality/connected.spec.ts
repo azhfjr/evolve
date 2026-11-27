@@ -245,10 +245,16 @@ test("member and unauthenticated boundaries hold for new routes", async ({
 }) => {
   const member = await browser.newContext();
   await auth(member, "e2e-member");
-  for (const path of ["/api/board-room/quality", "/api/workspace/transition"])
-    expect(
-      (await member.request.get("http://127.0.0.1:3100" + path)).status(),
-    ).toBe(403);
+  const quality = await member.request.get(
+    "http://127.0.0.1:3100/api/board-room/quality",
+  );
+  expect(quality.status()).toBe(200);
+  expect(quality.headers()["cache-control"]).toContain("no-store");
+  expect(
+    (
+      await member.request.get("http://127.0.0.1:3100/api/workspace/transition")
+    ).status(),
+  ).toBe(403);
   const denied = await member.request.post(
     "http://127.0.0.1:3100/api/board-room/assets",
     {
@@ -268,6 +274,7 @@ test("member and unauthenticated boundaries hold for new routes", async ({
   const anonymous = await browser.newContext();
   for (const path of [
     "/api/workspace/search?q=Connected",
+    "/api/board-room/quality",
     "/api/workspace/actions",
     "/api/board-room/assets",
     "/api/workspace/archive",

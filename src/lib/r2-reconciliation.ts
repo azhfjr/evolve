@@ -37,12 +37,40 @@ export function compareStorageInventory(
   return { observedBytes, mismatchCount: mismatches.size };
 }
 
+type InventoryResult = ReturnType<typeof compareStorageInventory>;
+
+export async function confirmStorageInventory(
+  scan: () => Promise<InventoryResult>,
+) {
+  const first = await scan();
+  // A normal upload or deletion can finish between the object list and the
+  // database read. Re-observe both stores before pausing for a discrepancy.
+  return first.mismatchCount ? scan() : first;
+}
+
 export async function reconcileR2Inventory() {
   const started = new Date().toISOString();
-  const objects = new Map<string, number>();
   const { db } = await database();
+  const deadline = AbortSignal.timeout(25000);
+  let result: InventoryResult;
   try {
-    for await (const { key, size } of listR2Objects()) objects.set(key, size);
+    result = await confirmStorageInventory(async () => {
+      const objects = new Map<string, number>();
+      for await (const { key, size } of listR2Objects(deadline))
+        objects.set(key, size);
+      const inventory = await db.execute(sql`
+        SELECT storage_path, size, storage_provider='r2' AND state='ready' AS required
+        FROM attachment WHERE storage_provider='r2' OR r2_copy_started_at IS NOT NULL
+      `);
+      return compareStorageInventory(
+        objects,
+        inventory.rows.map((row) => ({
+          key: String(row.storage_path),
+          size: Number(row.size),
+          required: row.required === true,
+        })),
+      );
+    });
   } catch {
     await saveReconciliation(db, started, {
       observedBytes: 0,
@@ -50,18 +78,6 @@ export async function reconcileR2Inventory() {
     });
     throw new Error("R2 inventory scan did not complete.");
   }
-  const inventory = await db.execute(sql`
-    SELECT storage_path, size, storage_provider='r2' AND state='ready' AS required
-    FROM attachment WHERE storage_provider='r2' OR r2_copy_started_at IS NOT NULL
-  `);
-  const result = compareStorageInventory(
-    objects,
-    inventory.rows.map((row) => ({
-      key: String(row.storage_path),
-      size: Number(row.size),
-      required: row.required === true,
-    })),
-  );
   await saveReconciliation(db, started, result);
   return result;
 }

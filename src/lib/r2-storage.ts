@@ -135,8 +135,7 @@ export async function r2Delete(key: string) {
     abortSignal: AbortSignal.timeout(12000),
   });
 }
-export async function* listR2Objects() {
-  const signal = AbortSignal.timeout(25000);
+export async function* listR2Objects(signal = AbortSignal.timeout(25000)) {
   const { client, bucket } = connection();
   let token: string | undefined;
   do {

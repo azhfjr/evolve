@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { r2UploadPermission } from "../src/lib/r2-storage";
-import { compareStorageInventory } from "../src/lib/r2-reconciliation";
+import {
+  compareStorageInventory,
+  confirmStorageInventory,
+} from "../src/lib/r2-reconciliation";
 import { r2Origin } from "../src/lib/r2-origin";
 import { verifyStoredBytes } from "../src/lib/storage-integrity";
 import {
@@ -90,4 +93,30 @@ test("pausing new writes preserves mixed provider routing and the expanded allow
   assert.equal(sharedStorageLimit(), 9_000_000_000);
   assert.equal(attachmentProvider({ storageProvider: "blob" }), "blob");
   assert.equal(attachmentProvider({ storageProvider: "r2" }), "r2");
+});
+
+test("reconciliation confirms a discrepancy with a fresh scan before pausing uploads", async () => {
+  const clean = { observedBytes: 3, mismatchCount: 0 };
+  const discrepancy = { observedBytes: 7, mismatchCount: 1 };
+  let scans = 0;
+  assert.deepEqual(
+    await confirmStorageInventory(async () =>
+      ++scans === 1 ? discrepancy : clean,
+    ),
+    clean,
+  );
+  assert.equal(scans, 2);
+  scans = 0;
+  assert.deepEqual(
+    await confirmStorageInventory(async () => {
+      scans++;
+      return clean;
+    }),
+    clean,
+  );
+  assert.equal(scans, 1);
+  assert.deepEqual(
+    await confirmStorageInventory(async () => discrepancy),
+    discrepancy,
+  );
 });
