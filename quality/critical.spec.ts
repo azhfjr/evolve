@@ -22,6 +22,9 @@ test("personal views work by keyboard across reloads and stay private", async ({
   browser,
 }, info) => {
   await signIn(context);
+  // Measure the settled saved-view dialog and toast instead of the transient
+  // opacity during the toast entrance or exit.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const name = `Critical ${info.project.name}`;
   await page.goto("/board-room?category=Pembangkit&year=2028");
   const trigger = page.getByRole("button", {
