@@ -459,6 +459,7 @@ function BoardRoomContent({
         ].map((year) => {
           const key = year === null ? "unknown" : String(year);
           return {
+            id: key,
             label: year === null ? "COD not set" : String(year),
             count: summary.years.find((y) => y.year === year)?.total ?? 0,
             selected: query.year === key,
@@ -528,13 +529,17 @@ function BoardRoomContent({
         className="br-stage-counts"
         entries={[
           {
+            id: "0",
             label: "Not started",
             count: summary.stages[0],
             selected: query.stage === "0",
             select: () => filter({ stage: query.stage === "0" ? "" : "0" }),
           },
           ...data.config.stages.map((name, i) => ({
+            id: String(i + 1),
             label: name,
+            actionLabel:
+              name === `Stage ${i + 1}` ? name : `stage ${i + 1}: ${name}`,
             count: summary.stages[i + 1],
             selected: query.stage === String(i + 1),
             select: () =>

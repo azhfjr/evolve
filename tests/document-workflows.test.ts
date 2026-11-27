@@ -230,6 +230,18 @@ test("ZIP parts bound memory, safe paths distinguish duplicates and index neutra
   assert.equal(new Set(files.map((f) => f.path)).size, 9);
   assert.ok(!files[0].path.includes("/../"));
   assert.match(documentIndex(files), /'=IMPORT/);
+  const longFilename = `${"a".repeat(99)}📄${"b".repeat(35)}.pdf`;
+  const longPath = archiveFilePath({ ...file, filename: longFilename });
+  assert.ok(longPath.endsWith(".pdf"));
+  assert.equal(longPath, longPath.toWellFormed());
+  const unicodePath = archiveFilePath({
+    ...file,
+    filename: `${"📄".repeat(80)}.pdf`,
+    projectName: "文".repeat(100),
+  });
+  assert.ok(unicodePath.endsWith(".pdf"));
+  for (const segment of unicodePath.split("/"))
+    assert.ok(Buffer.byteLength(segment, "utf8") <= 255);
 });
 
 test("browser ZIP output contains exact documents and labelled CSV without persisting an archive", async () => {

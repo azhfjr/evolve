@@ -278,10 +278,19 @@ export function DownloadDocuments({
                 </>
               )
             )}
-            {error && (
+            {error && phase !== "error" && (
               <p className="form-error" role="alert">
                 {error}
               </p>
+            )}
+            {!busy && manifest && phase === "error" && (
+              <button
+                type="button"
+                className="button secondary"
+                onClick={() => void prepare()}
+              >
+                Refresh document list
+              </button>
             )}
             {!loading && !manifest && (
               <button

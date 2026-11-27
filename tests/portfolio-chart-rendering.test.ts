@@ -41,6 +41,10 @@ test("capacity axes remain finite and underlying table preserves exact values", 
   assert.doesNotMatch(html, /Infinity|NaN/);
   assert.ok(html.includes(exact));
   assert.match(html, /5e308/);
+  assert.match(html, /<rect[^>]+height="170"[^>]+aria-label="2028:/);
+  assert.doesNotMatch(html, /<rect[^>]+aria-label="2029:/);
+  assert.match(html, /<td>0 custom<\/td>/);
+  assert.match(html, /<button[^>]*>Explore 2029<\/button>/);
 });
 test("location data alternative includes every location beyond visible ranked rows", () => {
   const rows = Array.from({ length: 12 }, (_, i) => ({

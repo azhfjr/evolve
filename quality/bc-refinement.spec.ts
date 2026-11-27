@@ -38,6 +38,53 @@ test("stage and year strips have navigation and complete alternatives", async ({
     page.getByRole("table", { name: "Complete stage counts" }),
   ).toBeVisible();
 });
+test("repeated stage names stay independently selectable at 320px", async ({
+  page,
+}) => {
+  const readConfig = async () => {
+    const response = await page.request.get("/api/board-room");
+    expect(response.ok()).toBeTruthy();
+    return (await response.json()).config as {
+      version: number;
+      stages: string[];
+    };
+  };
+  const saveStages = async (version: number, stages: string[]) => {
+    const response = await page.request.post("/api/board-room", {
+      headers: { origin: "http://127.0.0.1:3100" },
+      data: { action: "stages", version, stages },
+    });
+    expect(response.ok()).toBeTruthy();
+  };
+  const original = await readConfig();
+  const name = "LongRepeatedStageNameWithoutSpaces";
+  await saveStages(original.version, [name, name, ...original.stages.slice(2)]);
+  try {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto("/board-room");
+    await page.getByText("All stage counts", { exact: true }).click();
+    const table = page.getByRole("table", { name: "Complete stage counts" });
+    const first = table.getByRole("button", {
+      name: `Focus stage 1: ${name}`,
+      exact: true,
+    });
+    const second = table.getByRole("button", {
+      name: `Focus stage 2: ${name}`,
+      exact: true,
+    });
+    await expect(first).toBeVisible();
+    await second.focus();
+    await second.press("Enter");
+    await expect(page).toHaveURL(/[?&]stage=2(?:&|$)/);
+    await expect(second).toHaveAttribute("aria-pressed", "true");
+    await expect(first).toHaveAttribute("aria-pressed", "false");
+    expect(
+      await table.evaluate((element) => element.getBoundingClientRect().right),
+    ).toBeLessThanOrEqual(320);
+  } finally {
+    await saveStages((await readConfig()).version, original.stages);
+  }
+});
 test("quality tabs survive URL reload", async ({ page }) => {
   await page.goto("/board-room?section=quality");
   await page

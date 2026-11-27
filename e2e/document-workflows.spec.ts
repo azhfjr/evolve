@@ -349,6 +349,47 @@ test("cancelled archive sessions do not leak progress into a reopened download",
   await expect(dialog.getByRole("alert")).toHaveCount(0);
 });
 
+test("a stale ZIP manifest can refresh without leaving the download dialog", async ({
+  page,
+  context,
+}) => {
+  await signIn(context);
+  const id = crypto.randomUUID();
+  const manifest = {
+    files: [{ id, filename: "Removed.txt", size: 4, path: "Removed.txt" }],
+    bytes: 4,
+    excluded: 0,
+  };
+  let preparations = 0;
+  await page.route("**/api/attachments/archive", (route) =>
+    route.fulfill({
+      json:
+        preparations++ === 0 ? manifest : { ...manifest, files: [], bytes: 0 },
+    }),
+  );
+  await page.route(`**/api/attachments/${id}/content?download=1`, (route) =>
+    route.fulfill({ status: 404 }),
+  );
+  await page.goto("/workspace/settings?tab=files");
+  await page
+    .getByRole("button", { name: "Download all documents", exact: true })
+    .click();
+  const dialog = page.getByRole("dialog", {
+    name: "Download documents",
+    exact: true,
+  });
+  await dialog.getByRole("button", { name: /Download ZIP/ }).click();
+  await expect(dialog.getByRole("alert")).toHaveCount(1);
+  await expect(dialog.getByRole("alert")).toContainText(
+    "Removed.txt is unavailable",
+  );
+  await dialog.getByRole("button", { name: "Refresh document list" }).click();
+  await expect(
+    dialog.getByText("No ready documents to download."),
+  ).toBeVisible();
+  await expect(dialog.getByRole("alert")).toHaveCount(0);
+});
+
 test("Files typography and labelled controls remain consistent across apps, themes and widths", async ({
   page,
   context,

@@ -1493,17 +1493,23 @@
     padding: 18px 14px;
   }
   .br-title-row {
-    gap: 10px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
     margin-bottom: 16px;
+  }
+  .br-title-row > div:nth-child(2) {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .br-title-row h1 {
     font-size: var(--text-page-title);
     line-height: 1.35;
   }
-  .br-title-row > div:last-child button {
+  .br-title-row > div:nth-child(2) button {
     font-size: var(--text-small);
-    padding: 6px;
-    min-height: 28px;
+    padding: 6px 10px;
+    min-height: 44px;
   }
   .br-title-row p {
     font-size: var(--text-small);
