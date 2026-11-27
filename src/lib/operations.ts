@@ -65,10 +65,7 @@ async function metrics(db: Database): Promise<OperationsMetrics> {
     (SELECT count(*)::int FROM calendar_job WHERE last_error IS NOT NULL) AS "calendarFailed",
     (SELECT count(*)::int FROM calendar_job j JOIN calendar_connection c ON c.email=j.email JOIN member m ON m.email=j.email WHERE c.enabled AND NOT m.disabled AND coalesce(c.error_code,'')<>'reconnect_required' AND coalesce((SELECT (configuration->>'calendarEnabled')::boolean FROM workspace_setting WHERE id='primary'),true) AND j.available_at<now()-interval '24 hours') AS "calendarOverdue",
     (SELECT count(*)::int FROM attachment WHERE (state='pending' AND created_at<now()-interval '1 hour') OR (state='deleting' AND created_at<now()-interval '70 minutes')) AS "cleanupOverdue"`);
-  return {
-    ...(result.rows[0] as unknown as OperationsMetrics),
-    storageLimit: sharedStorageLimit(),
-  };
+  return result.rows[0] as unknown as OperationsMetrics;
 }
 export async function operationsReport(actor: Actor, suppliedDb?: Database) {
   requireAdmin(actor);
@@ -79,7 +76,7 @@ export async function operationsReport(actor: Actor, suppliedDb?: Database) {
   const maintenanceAuthenticationConfigured =
     (process.env.CRON_SECRET?.length || 0) >= 32;
   const signals = classifyOperations(
-    values,
+    { ...values, storageLimit: sharedStorageLimit() },
     record.data.maintenance || null,
     observedAt,
     maintenanceAuthenticationConfigured,
