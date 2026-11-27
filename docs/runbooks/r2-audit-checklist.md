@@ -50,3 +50,10 @@ Preview Vercel untuk commit aplikasi `1248f3c` lulus smoke test proyek ke tugas 
 Tes Data Quality kini mengikuti aturan yang sudah ada. Anggota aktif boleh membaca, pengguna anonim tetap ditolak, dan perubahan aset serta transisi workspace tetap membutuhkan izin admin. Tidak ada perubahan kode izin.
 
 [CI sebelum koreksi](https://github.com/azhfjr/evolve/actions/runs/45967252592) · [CI kandidat audit](https://github.com/azhfjr/evolve/actions/runs/45971385634) · [CI setelah stabilisasi pemeriksaan kontras](https://github.com/azhfjr/evolve/actions/runs/45972492154)
+
+### Tindak lanjut CI
+
+Run [45972980771](https://github.com/azhfjr/evolve/actions/runs/45972980771) meluluskan 19 dari 21 job. Job utama lulus untuk format, domain, suite browser lengkap, dan audit dependensi produksi. Skenario Saved Views di WebKit juga lulus.
+
+- Job Expansion WebKit menangkap tombol tahap dan tahun di tengah perubahan opasitas. Pemeriksaan Axe kedua tema kini memakai reduced motion. Pemeriksaan terfokus lulus di Firefox, sedangkan hasil WebKit terbaru menunggu CI.
+- Instalasi Chromium pada job Refinement menerima HTTP 403 dari repositori paket runner Ubuntu 26.04. Matriks browser memakai Ubuntu 24.04 agar versi runner konsisten. Langkah instalasi dan cakupan pengujian tetap dijalankan.

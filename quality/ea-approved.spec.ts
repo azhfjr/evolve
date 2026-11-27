@@ -170,6 +170,9 @@ test("Copy ID handles denied clipboard and provides a manual fallback", async ({
 test("project badges and asset guide satisfy contrast and target checks in both themes", async ({
   page,
 }) => {
+  // Use a stable visual state for contrast checks while keeping the same
+  // keyboard targets and page content under test.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   for (const route of [
     "/board-room?section=projects",
     "/board-room?section=assets",
