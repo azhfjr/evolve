@@ -5,6 +5,9 @@ Audit membandingkan kandidat R2 pada PR #2 dengan build produksi berbasis `2046c
 ## Tampilan, alur, dan kompatibilitas
 
 - [x] Bandingkan perubahan tampilan dengan baseline. Tema, stylesheet, shell, rute, navigasi, tata letak dashboard, dan kontrol interaksi tetap sama pada source diff. Perubahan tampilan terbatas pada nilai kuota, satuan, dan penjelasan penyimpanan.
+- [x] Periksa cakupan regresi umum Board Room. Termasuk proyek dan aset, impor/pemetaan CSV, tahapan dan review, laporan, peta, dan grafik dengan filter.
+- [x] Periksa cakupan regresi umum Locker Room. Termasuk pembuatan dan perubahan tugas, draft, arsip, kalender dan consent, recurrence, template, pencarian, dan ekspor.
+- [x] Periksa alur workspace bersama. Termasuk inisiasi login dan pemilih aplikasi, pemeriksaan peran, preferensi tema, serta navigasi dan pembaruan lintas aplikasi. Persetujuan OAuth sungguhan tidak termasuk dalam fixture browser.
 - [x] Verifikasi sidebar Board Room pada desktop, penyimpanan preferensi, respons yang tertunda, dan navigasi drawer pada layar kecil.
 - [x] Verifikasi Files di Shared Settings dan kedua aplikasi, termasuk label dan tipografi tabel, nama dokumen panjang, mode terang/gelap, dan akses keyboard pada lebar 320, 390, dan 1.440 px.
 - [x] Verifikasi pembuatan proyek dengan dokumen, pembatalan dan percobaan ulang, pemulihan unggahan parsial, dan isi ZIP serta indeks tujuan dokumen.
@@ -29,3 +32,21 @@ Audit membandingkan kandidat R2 pada PR #2 dengan build produksi berbasis `2046c
 ## Status rilis
 
 Produksi tetap membaca dan menyimpan file melalui Vercel Blob. Lingkungan ini belum memiliki kredensial bucket R2 uji yang dibutuhkan untuk menyelesaikan pemeriksaan provider. [Panduan pelaksanaan](r2-storage-migration.md)
+
+## Bukti audit lanjutan
+
+| Pemeriksaan                  | Hasil                                                                                                                                                                                                                  |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Regresi utama Chromium di CI | 294/295 lulus pada run sebelumnya. Satu pengukuran sidebar mengambil dimensi sebelum area siap. Tes kini menunggu sidebar desktop yang tepat dan pengukuran yang tersedia. Seluruh 4 skenario sidebar lulus pada rerun. |
+| Chromium lokal               | 18/18 untuk sidebar, dokumen, dan Files. 16/16 untuk workspace terhubung, draft, dan peta.                                                                                                                             |
+| Firefox lokal                | 22 skenario lulus, termasuk revisi privat, izin, data lintas aplikasi, tata letak pada enam lebar, dan peta. Sapuan rute yang semula memakai batas waktu lokal 60 detik lulus pada rerun dengan batas waktu asli 360 detik.    |
+| Penyimpanan dan batas        | 14/14 skenario kontrak penyimpanan dan dokumen. 3/3 skenario panduan kuota, satuan desimal, serta ambang peringatan.                                                                                                   |
+| WebKit                       | Host lokal tidak memiliki pustaka grafis yang dibutuhkan. Job Connected dan Critical WebKit lulus di CI kandidat audit.                                                   |
+
+Audit kontras regional Chromium mendapati kontrol Next terlihat aktif saat opasitas transisi dari keadaan nonaktif masih berubah. Tes Axe kini memakai reduced motion dan menunggu kontrol tersedia. Pemeriksaan terfokus pada 390 dan 1.440 px tidak menemukan pelanggaran serius. CSS dan animasi aplikasi tidak diubah.
+
+Preview Vercel untuk commit aplikasi `1248f3c` lulus smoke test proyek ke tugas pada simulasi layar sentuh 390 px tanpa overflow atau galat JavaScript. Akses pemeriksaan sementara dicabut. [Preview kandidat](https://evolve-kzt565zlp-jarjirjor777-5316.vercel.app/demo)
+
+Tes Data Quality kini mengikuti aturan yang sudah ada. Anggota aktif boleh membaca, pengguna anonim tetap ditolak, dan perubahan aset serta transisi workspace tetap membutuhkan izin admin. Tidak ada perubahan kode izin.
+
+[CI sebelum koreksi](https://github.com/azhfjr/evolve/actions/runs/45967252592) · [CI kandidat audit](https://github.com/azhfjr/evolve/actions/runs/45971385634)
